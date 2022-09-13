@@ -10,7 +10,7 @@ class WalletCryptoEntity {
     required this.quantity,
   });
 
-  Decimal getValueQuatityCrypto() {
+  Decimal getValueQuantityCrypto() {
     double cryptoValue = quantity * crypto.price.toDouble();
     return Decimal.parse('$cryptoValue');
   }

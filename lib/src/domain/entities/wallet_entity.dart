@@ -6,9 +6,9 @@ class WalletEntity {
   WalletEntity({required this.cryptos});
 
   Decimal getWalletValue() {
-    Decimal total = Decimal.parse('0');
+    Decimal total = Decimal.zero;
     for (var crypto in cryptos) {
-      total += crypto.getValueQuatityCrypto();
+      total += crypto.getValueQuantityCrypto();
     }
     return total;
   }
