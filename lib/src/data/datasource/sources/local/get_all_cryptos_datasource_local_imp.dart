@@ -1,5 +1,5 @@
-import 'package:crypto_app/src/domain/entities/wallet_crypto_entity.dart';
-import 'package:crypto_app/src/domain/entities/wallet_entity.dart';
+import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../../domain/entities/wallet_entity.dart';
 import 'package:decimal/decimal.dart';
 
 import '../../../../domain/entities/crypto_entity.dart';

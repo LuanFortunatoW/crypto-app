@@ -1,5 +1,6 @@
-import 'package:crypto_app/src/domain/entities/wallet_crypto_entity.dart';
 import 'package:decimal/decimal.dart';
+
+import 'wallet_crypto_entity.dart';
 
 class WalletEntity {
   List<WalletCryptoEntity> cryptos;

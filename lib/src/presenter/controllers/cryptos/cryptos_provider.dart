@@ -1,4 +1,4 @@
-import 'package:crypto_app/src/presenter/controllers/cryptos/wallet_notifier.dart';
+import 'wallet_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../data/datasource/sources/local/get_all_cryptos_datasource_local_imp.dart';
