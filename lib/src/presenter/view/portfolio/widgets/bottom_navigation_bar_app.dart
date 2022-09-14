@@ -25,21 +25,30 @@ class _BottomNavigationBarAppState
         pagesController.changePage(value);
         setState(() {});
       },
+      selectedIconTheme: const IconThemeData(
+        color: Color.fromRGBO(224, 43, 87, 1),
+      ),
       backgroundColor: Colors.white,
-      selectedItemColor: const Color.fromRGBO(224, 43, 87, 1),
+      selectedItemColor: Colors.black,
       unselectedItemColor: Colors.grey,
       items: [
         BottomNavigationBarItem(
-          icon: ImageIcon(
-            Image.asset('assets/images/Subtract.png').image,
+          activeIcon: ImageIcon(
+            Image.asset('assets/icons/Subtract.png').image,
           ),
           label: 'Portfólio',
+          icon: ImageIcon(
+            Image.asset('assets/icons/Subtract_Inative.png').image,
+          ),
         ),
         BottomNavigationBarItem(
-          icon: ImageIcon(
-            Image.asset('assets/images/Union.png').image,
+          activeIcon: ImageIcon(
+            Image.asset('assets/icons/Union.png').image,
           ),
           label: 'Portfólio',
+          icon: ImageIcon(
+            Image.asset('assets/icons/Union_Inative.png').image,
+          ),
         ),
       ],
     );
