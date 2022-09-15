@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../shared/controllers/pages/page_provider.dart';
+import '../../../../../shared/controllers/pages/page_provider.dart';
 
 class BottomNavigationBarApp extends StatefulHookConsumerWidget {
   const BottomNavigationBarApp({

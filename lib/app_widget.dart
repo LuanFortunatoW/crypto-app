@@ -1,4 +1,5 @@
-import 'src/presenter/view/portfolio/portfolio_page.dart';
+import 'packages/shared/utils/app_routes.dart';
+
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -14,10 +15,8 @@ class MyApp extends HookConsumerWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
-      routes: {
-        '/home': (context) => const PortfolioPage(),
-      },
+      initialRoute: '/portfolio',
+      routes: appRoutes,
     );
   }
 }

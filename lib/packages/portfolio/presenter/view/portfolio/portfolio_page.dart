@@ -1,4 +1,4 @@
-import 'package:crypto_app/src/presenter/view/shared/controllers/pages/page_provider.dart';
+import '../../../../shared/controllers/pages/page_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
