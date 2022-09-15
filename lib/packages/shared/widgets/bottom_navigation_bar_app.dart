@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../../shared/controllers/pages/page_provider.dart';
+import '../controllers/page_provider.dart';
 
 class BottomNavigationBarApp extends StatefulHookConsumerWidget {
   const BottomNavigationBarApp({
@@ -17,13 +17,21 @@ class _BottomNavigationBarAppState
     extends ConsumerState<BottomNavigationBarApp> {
   @override
   Widget build(BuildContext context) {
-    final pagesController = ref.watch(pageProvider.notifier);
+    final pagesController = ref.watch(pageProvider.state);
 
     return BottomNavigationBar(
-      currentIndex: pagesController.index,
+      currentIndex: pagesController.state,
       onTap: (value) {
-        pagesController.changePage(value);
-        setState(() {});
+        switch (value) {
+          case 0:
+            Navigator.pushReplacementNamed(context, '/portfolio');
+            break;
+          case 1:
+            Navigator.pushReplacementNamed(context, '/transactions');
+            break;
+          default:
+        }
+        pagesController.state = value;
       },
       selectedIconTheme: const IconThemeData(
         color: Color.fromRGBO(224, 43, 87, 1),

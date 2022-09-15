@@ -1,5 +1,6 @@
-import 'crypto_entity.dart';
 import 'package:decimal/decimal.dart';
+
+import 'crypto_entity.dart';
 
 class WalletCryptoEntity {
   double quantity;

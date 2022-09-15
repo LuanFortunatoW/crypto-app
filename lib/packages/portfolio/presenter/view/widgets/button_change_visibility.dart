@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../controllers/visibility/visibility_provider.dart';
+import '../../controllers/visibility/visibility_provider.dart';
 
 class ButtonChangeVisibility extends HookConsumerWidget {
   const ButtonChangeVisibility({

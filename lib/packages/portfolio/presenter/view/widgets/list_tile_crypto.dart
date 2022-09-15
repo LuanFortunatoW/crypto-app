@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../domain/entities/wallet_crypto_entity.dart';
 import 'crypto_infos_in_tile.dart';
 import 'monetary_infos_crypto_in_tile.dart';
 

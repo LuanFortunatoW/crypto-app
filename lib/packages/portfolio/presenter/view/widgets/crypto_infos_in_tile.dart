@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../domain/entities/wallet_crypto_entity.dart';
 
 class CryptoInfosInTile extends StatelessWidget {
   const CryptoInfosInTile({
