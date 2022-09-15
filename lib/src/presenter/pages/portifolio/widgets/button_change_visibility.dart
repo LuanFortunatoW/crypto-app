@@ -10,9 +10,12 @@ class ButtonChangeVisibility extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final visibility = ref.watch(visibilityProvider.state);
     return IconButton(
-      onPressed: () => ref.read(visibilityProvider.notifier).changeVisibility(),
-      icon: const Icon(Icons.remove_red_eye),
+      onPressed: () => visibility.state = !visibility.state,
+      icon: visibility.state
+          ? const Icon(Icons.remove_red_eye)
+          : const Icon(Icons.visibility_off),
     );
   }
 }
