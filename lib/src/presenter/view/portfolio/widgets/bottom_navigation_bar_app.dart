@@ -45,7 +45,7 @@ class _BottomNavigationBarAppState
           activeIcon: ImageIcon(
             Image.asset('assets/icons/Union.png').image,
           ),
-          label: 'Portfólio',
+          label: 'Movimentações',
           icon: ImageIcon(
             Image.asset('assets/icons/Union_Inative.png').image,
           ),

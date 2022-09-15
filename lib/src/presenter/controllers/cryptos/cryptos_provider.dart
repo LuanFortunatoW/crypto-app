@@ -1,4 +1,4 @@
-import 'wallet_notifier.dart';
+import 'package:crypto_app/src/presenter/controllers/cryptos/cryptos_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../data/datasource/sources/local/get_all_cryptos_datasource_local_imp.dart';
@@ -19,6 +19,6 @@ final cryptoUsecaseProvider = StateProvider((ref) {
 });
 
 final cryptoNotifierProvider =
-    StateNotifierProvider<WalletNotifier, WalletEntity>((ref) {
-  return WalletNotifier(ref.watch(cryptoUsecaseProvider));
+    StateNotifierProvider<CryptosNotifier, WalletEntity>((ref) {
+  return CryptosNotifier(ref.watch(cryptoUsecaseProvider));
 });
