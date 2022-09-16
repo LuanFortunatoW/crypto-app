@@ -1,3 +1,4 @@
+import 'package:crypto_app/presenter/portfolio/presenter/view/portfolio_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -24,10 +25,24 @@ class _BottomNavigationBarAppState
       onTap: (value) {
         switch (value) {
           case 0:
-            Navigator.pushReplacementNamed(context, '/portfolio');
+            Navigator.pushReplacement(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    const PortfolioPage(),
+                transitionDuration: const Duration(microseconds: 0),
+              ),
+            );
             break;
           case 1:
-            Navigator.pushReplacementNamed(context, '/transactions');
+            Navigator.pushReplacement(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    const PortfolioPage(),
+                transitionDuration: const Duration(microseconds: 0),
+              ),
+            );
             break;
           default:
         }

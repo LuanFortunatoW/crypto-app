@@ -1,6 +1,6 @@
 import '../../domain/entities/wallet_entity.dart';
 import '../../domain/repositories/get_all_cryptos_repository.dart';
-import '../datasource/get_all_cryptos_datasource.dart';
+import '../get_all_cryptos_datasource.dart';
 
 class GetAllCryptoRepositoryImp implements GetAllCryptosRepository {
   final GetAllCryptosDatasource _datasource;

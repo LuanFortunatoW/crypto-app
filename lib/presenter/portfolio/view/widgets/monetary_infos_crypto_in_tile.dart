@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import '../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../controllers/visibility/visibility_provider.dart';
 
 class MonetaryInfosCryptoInTile extends HookConsumerWidget {

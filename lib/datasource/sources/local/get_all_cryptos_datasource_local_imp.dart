@@ -1,8 +1,8 @@
 import 'package:decimal/decimal.dart';
 
-import '../../../../domain/entities/crypto_entity.dart';
-import '../../../../domain/entities/wallet_crypto_entity.dart';
-import '../../../../domain/entities/wallet_entity.dart';
+import '../../../domain/entities/crypto_entity.dart';
+import '../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../domain/entities/wallet_entity.dart';
 import '../../get_all_cryptos_datasource.dart';
 
 class GetAllCryptosLocalDatasourceImp implements GetAllCryptosDatasource {

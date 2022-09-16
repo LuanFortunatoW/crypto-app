@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../controllers/cryptos/cryptos_provider.dart';
 import 'list_tile_crypto.dart';
 
