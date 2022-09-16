@@ -1,7 +1,8 @@
-import 'package:crypto_app/presenter/portfolio/presenter/view/portfolio_page.dart';
+import 'package:crypto_app/presenter/transactions/view/transactions_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../presenter/portfolio/view/portfolio_page.dart';
 import '../controllers/page_provider.dart';
 
 class BottomNavigationBarApp extends StatefulHookConsumerWidget {
@@ -39,7 +40,7 @@ class _BottomNavigationBarAppState
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) =>
-                    const PortfolioPage(),
+                    const TransactionsPage(),
                 transitionDuration: const Duration(microseconds: 0),
               ),
             );
