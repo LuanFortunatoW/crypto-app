@@ -1,24 +1,16 @@
-import 'package:crypto_app/presenter/transactions/view/transactions_page.dart';
+import 'package:crypto_app/shared/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../presenter/portfolio/view/portfolio_page.dart';
 import '../controllers/page_provider.dart';
 
-class BottomNavigationBarApp extends StatefulHookConsumerWidget {
+class BottomNavigationBarApp extends HookConsumerWidget {
   const BottomNavigationBarApp({
     Key? key,
   }) : super(key: key);
 
   @override
-  ConsumerState<BottomNavigationBarApp> createState() =>
-      _BottomNavigationBarAppState();
-}
-
-class _BottomNavigationBarAppState
-    extends ConsumerState<BottomNavigationBarApp> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final pagesController = ref.watch(pageProvider.state);
 
     return BottomNavigationBar(
@@ -30,7 +22,7 @@ class _BottomNavigationBarAppState
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) =>
-                    const PortfolioPage(),
+                    appRoutes['/portfolio']!(context),
                 transitionDuration: const Duration(microseconds: 0),
               ),
             );
@@ -40,12 +32,11 @@ class _BottomNavigationBarAppState
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) =>
-                    const TransactionsPage(),
+                    appRoutes['/transactions']!(context),
                 transitionDuration: const Duration(microseconds: 0),
               ),
             );
             break;
-          default:
         }
         pagesController.state = value;
       },
