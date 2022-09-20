@@ -1,3 +1,4 @@
+import 'package:crypto_app/presenter/controllers/chart_days_amount/chart_days_amount_provider.dart';
 import 'package:crypto_app/presenter/controllers/chart_subtitles/variation_in_chart_provider.dart';
 import 'package:crypto_app/presenter/controllers/crypto_history/crypto_history_provider.dart';
 import 'package:crypto_app/presenter/controllers/chart_subtitles/price_in_chart_provider.dart';
@@ -6,8 +7,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-
-final indexProvider = StateProvider<int>((ref) => 0);
 
 class CryptoInfoChart extends StatefulHookConsumerWidget {
   const CryptoInfoChart({Key? key}) : super(key: key);
@@ -49,8 +48,8 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
   @override
   Widget build(BuildContext context) {
     final List<int> days = [5, 15, 30, 45, 90];
-    final selectedIndex = ref.watch(indexProvider.state);
 
+    final selectedIndex = ref.watch(daysAmountProvider.state);
     final price = ref.watch(priceInChartProvider.state);
     final variation = ref.watch(variationInChartProvider.state);
 
