@@ -1,3 +1,6 @@
+import 'package:crypto_app/src/domain/entities/crypto_entity.dart';
+import 'package:crypto_app/src/presenter/controllers/chart_subtitles/price_in_chart_provider.dart';
+import 'package:crypto_app/src/presenter/controllers/chart_subtitles/variation_in_chart_provider.dart';
 import 'package:crypto_app/src/presenter/controllers/crypto_history/crypto_history_provider.dart';
 import 'package:crypto_app/src/presenter/controllers/crypto_in_wallet/crypto_in_wallet_provider.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +18,20 @@ class ButtonDetailsCrypto extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final cryptoHistory = ref.watch(cryptoHistoryProvider.notifier);
     return IconButton(
       alignment: Alignment.topCenter,
       onPressed: () {
         ref.watch(cryptoInWalletProvider.state).state = walletCryptoEntity;
-        ref
-            .read(cryptoHistoryProvider.notifier)
-            .getCryptoHistory(walletCryptoEntity.crypto);
+        cryptoHistory.getCryptoHistory(walletCryptoEntity.crypto);
+
+        CryptoEntity firstEntry = cryptoHistory.state.values.first;
+        CryptoEntity secondEntry = cryptoHistory.state.values.toList()[1];
+        ref.watch(priceInChartProvider.state).state = firstEntry.price;
+        ref.watch(variationInChartProvider.state).state =
+            double.parse(firstEntry.price.toString()) -
+                double.parse(secondEntry.price.toString()) /
+                    double.parse(secondEntry.price.toString());
         Navigator.pushNamed(context, '/crypto_info');
       },
       icon: Icon(

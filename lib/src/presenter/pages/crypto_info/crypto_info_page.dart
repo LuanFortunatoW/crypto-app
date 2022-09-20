@@ -1,16 +1,29 @@
-import 'package:crypto_app/src/presenter/controllers/crypto_in_wallet/crypto_in_wallet_provider.dart';
 import 'package:crypto_app/src/presenter/pages/crypto_info/widgets/crypto_info_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CryptoInfoPage extends HookConsumerWidget {
+import 'widgets/button_convert_currency.dart';
+import 'widgets/divider_crypto_info.dart';
+import 'widgets/row_crypto_infos.dart';
+import 'widgets/row_current_price.dart';
+import 'widgets/row_last_day_variation.dart';
+import 'widgets/row_quantity_in_wallet.dart';
+import 'widgets/row_value_in_wallet.dart';
+
+class CryptoInfoPage extends StatelessWidget {
   const CryptoInfoPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final walletCryptoEntity = ref.watch(cryptoInWalletProvider.state).state;
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
+        title: const Text(
+          'Detalhes',
+          style: TextStyle(
+            fontSize: 21,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
@@ -18,45 +31,9 @@ class CryptoInfoPage extends HookConsumerWidget {
         child: Container(
           color: Colors.white,
           child: Column(
-            children: [
+            children: const [
+              RowCryptoInfos(),
               Padding(
-                padding: const EdgeInsets.only(
-                  top: 32,
-                  right: 18,
-                  left: 16,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          walletCryptoEntity.crypto.name,
-                          style: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          walletCryptoEntity.crypto.initials,
-                          style: const TextStyle(
-                            fontSize: 17,
-                            color: Color.fromRGBO(117, 118, 128, 1),
-                          ),
-                        ),
-                      ],
-                    ),
-                    CircleAvatar(
-                      backgroundImage: Image.asset(
-                        walletCryptoEntity.crypto.image,
-                      ).image,
-                      radius: 24,
-                    ),
-                  ],
-                ),
-              ),
-              const Padding(
                 padding: EdgeInsets.only(
                   top: 16,
                   left: 16,
@@ -64,136 +41,19 @@ class CryptoInfoPage extends HookConsumerWidget {
                 ),
                 child: CryptoInfoChart(),
               ),
-              const DividerCryptoInfo(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Preço Atual',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Color.fromRGBO(117, 118, 128, 1),
-                      ),
-                    ),
-                    Text(
-                      'R\$ ${walletCryptoEntity.crypto.price}',
-                      style: const TextStyle(
-                        fontSize: 19,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const DividerCryptoInfo(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Variação 24H',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Color.fromRGBO(117, 118, 128, 1),
-                      ),
-                    ),
-                    Text(
-                      '-0,50%',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const DividerCryptoInfo(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Quantidade',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Color.fromRGBO(117, 118, 128, 1),
-                      ),
-                    ),
-                    Text(
-                      '${walletCryptoEntity.quantity} ${walletCryptoEntity.crypto.initials}',
-                      style: const TextStyle(
-                        fontSize: 19,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const DividerCryptoInfo(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Valor',
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: Color.fromRGBO(117, 118, 128, 1),
-                      ),
-                    ),
-                    Text(
-                      'R\$ ${walletCryptoEntity.getValueQuantityCrypto()}',
-                      style: const TextStyle(
-                        fontSize: 19,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 45),
-                child: MaterialButton(
-                  minWidth: double.infinity,
-                  onPressed: () {},
-                  color: const Color.fromRGBO(224, 43, 87, 1),
-                  elevation: 0,
-                  height: 56,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                  child: const Text(
-                    'Converter Moeda',
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
+              DividerCryptoInfo(),
+              RowCurrentPrice(),
+              DividerCryptoInfo(),
+              RowLastDayVariation(),
+              DividerCryptoInfo(),
+              RowQuantityInWallet(),
+              DividerCryptoInfo(),
+              RowValueInWallet(),
+              ButtonConvertCurrency(),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class DividerCryptoInfo extends StatelessWidget {
-  const DividerCryptoInfo({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Divider(
-      color: Color.fromRGBO(227, 228, 235, 1),
-      indent: 16,
-      height: 40,
-      thickness: 1,
     );
   }
 }

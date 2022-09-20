@@ -1,13 +1,13 @@
+import 'package:crypto_app/src/presenter/controllers/chart_subtitles/variation_in_chart_provider.dart';
 import 'package:crypto_app/src/presenter/controllers/crypto_history/crypto_history_provider.dart';
+import 'package:crypto_app/src/presenter/controllers/chart_subtitles/price_in_chart_provider.dart';
+import 'package:decimal/decimal.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 
 final indexProvider = StateProvider<int>((ref) => 0);
-
-final priceProvider =
-    StateProvider<double>(((ref) => ref.watch(defaultPriceProvider)));
-final defaultPriceProvider = StateProvider<double>(((ref) => 0));
 
 class CryptoInfoChart extends StatefulHookConsumerWidget {
   const CryptoInfoChart({Key? key}) : super(key: key);
@@ -43,7 +43,6 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
       },
     );
 
-    debugPrint(spots.length.toString());
     return spots;
   }
 
@@ -51,8 +50,9 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
   Widget build(BuildContext context) {
     final List<int> days = [5, 15, 30, 45, 90];
     final selectedIndex = ref.watch(indexProvider.state);
-    final price = ref.watch(priceProvider.state);
-    final defauiltPrice = ref.watch(defaultPriceProvider.state);
+
+    final price = ref.watch(priceInChartProvider.state);
+    final variation = ref.watch(variationInChartProvider.state);
 
     return AspectRatio(
       aspectRatio: 1.15,
@@ -69,12 +69,25 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
           lineTouchData: LineTouchData(
             enabled: true,
             touchCallback: (event, response) {
-              if (response != null) {
-                price.state = response.lineBarSpots![0].y;
+              if (response != null && response.lineBarSpots != null) {
+                int spotIndex = response.lineBarSpots![0].spotIndex;
+                if (spotIndex > 0 && spotIndex < spots.length - 1) {
+                  variation.state = double.parse(
+                    ((spots[spotIndex].y - spots[spotIndex + 1].y) /
+                            spots[spotIndex - 1].y)
+                        .toString(),
+                  );
+                } else {
+                  variation.state = (spots.first.y - spots[1].y) / spots[1].y;
+                }
+                price.state = Decimal.parse(
+                  response.lineBarSpots![0].y.toString(),
+                );
               }
 
               if (!event.isInterestedForInteractions) {
-                price.state = defauiltPrice.state;
+                price.state = Decimal.parse(spots.first.y.toString());
+                variation.state = (spots.first.y - spots[1].y) / spots[1].y;
               }
             },
             getTouchedSpotIndicator: (barData, spotIndexes) {
@@ -102,9 +115,14 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
               getTooltipItems: (touchedSpots) {
                 return [
                   LineTooltipItem(
-                    (DateTime.fromMillisecondsSinceEpoch(
-                            touchedSpots[0].x.toInt())
-                        .toString()),
+                    DateFormat.yMMMd()
+                        .format(
+                          DateTime.fromMillisecondsSinceEpoch(
+                            touchedSpots[0].x.toInt(),
+                          ),
+                        )
+                        .toString()
+                        .replaceAll('de ', ''),
                     TextStyle(
                       color: Colors.grey.shade700,
                     ),
@@ -141,10 +159,12 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
               axisNameWidget: Padding(
                 padding: const EdgeInsets.only(bottom: 25),
                 child: Row(
-                  children: const [
+                  children: [
                     Text(
-                      'R\$ 104.159.477,00',
-                      style: TextStyle(
+                      NumberFormat.currency(symbol: 'R\$').format(
+                        double.parse(price.state.toString()),
+                      ),
+                      style: const TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                       ),
