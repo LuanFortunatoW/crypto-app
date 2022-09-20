@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../../controllers/visibility/visibility_provider.dart';
+import 'button_details_crypto.dart';
 
 class MonetaryInfosCryptoInTile extends HookConsumerWidget {
   const MonetaryInfosCryptoInTile({
@@ -65,14 +66,8 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
             ),
           ],
         ),
-        IconButton(
-          alignment: Alignment.topCenter,
-          onPressed: () {},
-          icon: Icon(
-            Icons.arrow_forward_ios_sharp,
-            size: 14,
-            color: Colors.grey.shade800,
-          ),
+        ButtonDetailsCrypto(
+          walletCryptoEntity: walletCryptoEntity,
         ),
       ],
     );
