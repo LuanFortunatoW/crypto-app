@@ -29,9 +29,10 @@ class ButtonDetailsCrypto extends HookConsumerWidget {
         CryptoEntity secondEntry = cryptoHistory.state.values.toList()[1];
         ref.watch(priceInChartProvider.state).state = firstEntry.price;
         ref.watch(variationInChartProvider.state).state =
-            double.parse(firstEntry.price.toString()) -
-                double.parse(secondEntry.price.toString()) /
-                    double.parse(secondEntry.price.toString());
+            (double.parse(firstEntry.price.toString()) -
+                    double.parse(secondEntry.price.toString())) /
+                double.parse(secondEntry.price.toString());
+
         Navigator.pushNamed(context, '/crypto_info');
       },
       icon: Icon(

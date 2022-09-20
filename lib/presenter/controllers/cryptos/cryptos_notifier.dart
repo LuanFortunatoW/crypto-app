@@ -11,7 +11,6 @@ class CryptosNotifier extends StateNotifier<WalletEntity> {
   }
 
   void getAllCryptos() {
-    state = WalletEntity(cryptos: []);
     state = _usecase.getAllCryptos();
   }
 }
