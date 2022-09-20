@@ -1,8 +1,8 @@
-import 'package:crypto_app/src/presenter/pages/crypto_info/crypto_info_page.dart';
-import 'package:crypto_app/src/presenter/pages/portifolio/portifolio_page.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'shared/utils/app_routes.dart';
 
 class MyApp extends HookConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -15,11 +15,8 @@ class MyApp extends HookConsumerWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
-      routes: {
-        '/home': (context) => const PortifolioPage(),
-        '/crypto_info': (context) => const CryptoInfoPage(),
-      },
+      initialRoute: '/portfolio',
+      routes: appRoutes,
     );
   }
 }
