@@ -90,8 +90,8 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
               }
             },
             getTouchedSpotIndicator: (barData, spotIndexes) {
-              return [
-                TouchedSpotIndicatorData(
+              return spotIndexes.map((e) {
+                return TouchedSpotIndicatorData(
                   FlLine(
                     color: const Color.fromRGBO(224, 43, 87, 1),
                     strokeWidth: 0.3,
@@ -105,8 +105,8 @@ class _CryptoInfoChartState extends ConsumerState<CryptoInfoChart> {
                       );
                     },
                   ),
-                )
-              ];
+                );
+              }).toList();
             },
             getTouchLineEnd: (barData, spotIndex) => double.infinity,
             touchTooltipData: LineTouchTooltipData(

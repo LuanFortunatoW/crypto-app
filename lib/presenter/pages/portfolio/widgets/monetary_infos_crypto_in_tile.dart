@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import 'button_details_crypto.dart';
+import 'icon_arrow_right.dart';
 import '../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../../controllers/visibility/visibility_provider.dart';
 
@@ -66,7 +66,7 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
             ),
           ],
         ),
-        ButtonDetailsCrypto(
+        IconArrowRight(
           walletCryptoEntity: walletCryptoEntity,
         ),
       ],
