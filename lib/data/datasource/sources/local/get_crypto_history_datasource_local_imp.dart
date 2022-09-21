@@ -14,7 +14,7 @@ class GetCryptoHistoryDatasourceLocalImp implements GetCryptoHistoryDatasource {
         image: cryptoEntity.image,
         name: cryptoEntity.name,
         price: cryptoEntity.price *
-            Decimal.parse('${1 + Random().nextInt(10) / 100}'),
+            Decimal.parse('${1 + Random().nextDouble() * 0.5 / 100}'),
       );
       DateTime dateTime = DateTime.now().subtract(Duration(days: i));
 

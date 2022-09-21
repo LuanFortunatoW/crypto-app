@@ -1,4 +1,3 @@
-import 'package:crypto_app/shared/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -18,24 +17,10 @@ class BottomNavigationBarApp extends HookConsumerWidget {
       onTap: (value) {
         switch (value) {
           case 0:
-            Navigator.pushReplacement(
-              context,
-              PageRouteBuilder(
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    appRoutes['/portfolio']!(context),
-                transitionDuration: const Duration(microseconds: 0),
-              ),
-            );
+            Navigator.pushReplacementNamed(context, '/portfolio');
             break;
           case 1:
-            Navigator.pushReplacement(
-              context,
-              PageRouteBuilder(
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    appRoutes['/transactions']!(context),
-                transitionDuration: const Duration(microseconds: 0),
-              ),
-            );
+            Navigator.pushReplacementNamed(context, '/transactions');
             break;
         }
         pagesController.state = value;

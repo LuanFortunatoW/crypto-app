@@ -4,8 +4,28 @@ import 'package:flutter/material.dart';
 import '../../presenter/pages/portfolio/portfolio_page.dart';
 import '../../presenter/pages/transactions/transactions_page.dart';
 
-final Map<String, WidgetBuilder> appRoutes = {
-  '/portfolio': (context) => const PortfolioPage(),
-  '/transactions': (context) => const TransactionsPage(),
-  '/crypto_info': (context) => const CryptoInfoPage(),
-};
+class GeneratedRoutes {
+  static Route<dynamic>? generateRoute(settings) {
+    if (settings.name == '/portfolio') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const PortfolioPage(),
+        settings: settings,
+      );
+    } else if (settings.name == '/transactions') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const TransactionsPage(),
+        settings: settings,
+        transitionDuration: const Duration(microseconds: 0),
+      );
+    } else if (settings.name == '/crypto_info') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const CryptoInfoPage(),
+        settings: settings,
+      );
+    }
+    return null;
+  }
+}
