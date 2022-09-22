@@ -15,19 +15,21 @@ class ListViewCryptos extends HookConsumerWidget {
     final wallet = ref.watch(cryptosProvider);
 
     return wallet.when(
-      data: ((data) => ListView.separated(
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(top: 30),
-            itemCount: data.cryptos.length,
-            separatorBuilder: (context, index) => const Divider(
-              thickness: 1,
-              color: Color.fromRGBO(227, 228, 235, 1),
-              height: 16,
+      data: ((data) => Expanded(
+            child: ListView.separated(
+              shrinkWrap: true,
+              padding: const EdgeInsets.only(top: 30),
+              itemCount: data.cryptos.length,
+              separatorBuilder: (context, index) => const Divider(
+                thickness: 1,
+                color: Color.fromRGBO(227, 228, 235, 1),
+                height: 16,
+              ),
+              itemBuilder: (context, index) {
+                WalletCryptoEntity walletCryptoEntity = data.cryptos[index];
+                return ListTileCrypto(walletCryptoEntity: walletCryptoEntity);
+              },
             ),
-            itemBuilder: (context, index) {
-              WalletCryptoEntity walletCryptoEntity = data.cryptos[index];
-              return ListTileCrypto(walletCryptoEntity: walletCryptoEntity);
-            },
           )),
       error: (error, stackTrace) => Container(),
       loading: (() => const CircularProgressIndicator()),

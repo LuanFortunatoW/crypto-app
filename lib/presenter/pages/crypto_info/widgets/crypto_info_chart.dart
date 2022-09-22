@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import 'buttons_change_days_chart.dart';
+
 class CryptoInfoChart extends HookConsumerWidget {
   CryptoInfoChart({Key? key, required this.args}) : super(key: key);
   final CryptoInfoArgs args;
@@ -35,15 +37,17 @@ class CryptoInfoChart extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final history =
         ref.watch(cryptoHistoryProvider(args.walletCryptoEntity.crypto.id));
-    final List<int> days = [5, 15, 30, 45, 90];
-
-    final selectedIndex = ref.watch(daysAmountProvider.state);
     final price = ref.watch(priceInChartProvider.state);
     final variation = ref.watch(variationInChartProvider.state);
 
+    final List<int> days = [5, 15, 30, 45, 90];
+    final selectedIndex = ref.watch(daysAmountProvider.state);
+
     return history.when(
       data: (data) {
-        getSpots(data);
+        if (spots.isEmpty) {
+          getSpots(data);
+        }
         return AspectRatio(
           aspectRatio: 1.15,
           child: LineChart(
@@ -169,41 +173,7 @@ class CryptoInfoChart extends HookConsumerWidget {
                 ),
                 bottomTitles: AxisTitles(
                   axisNameSize: 70,
-                  axisNameWidget: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: days.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: (() {
-                          selectedIndex.state = index;
-                        }),
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 5,
-                            vertical: 24,
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 6),
-                          decoration: BoxDecoration(
-                            color: index == selectedIndex.state
-                                ? Colors.grey.shade300
-                                : Colors.white,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            '${days[index]}D',
-                            style: TextStyle(
-                              color: index == selectedIndex.state
-                                  ? Colors.black
-                                  : Colors.grey,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                  axisNameWidget: const ButtonsChangeDaysChart(),
                 ),
                 leftTitles: AxisTitles(
                   sideTitles: SideTitles(

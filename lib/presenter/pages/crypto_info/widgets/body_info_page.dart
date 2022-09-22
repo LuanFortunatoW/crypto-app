@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 
 import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
 import '../../../controllers/chart_subtitles/variation_in_chart_provider.dart';
-import '../../../controllers/crypto_in_wallet/crypto_in_wallet_provider.dart';
 import 'button_convert_currency.dart';
 import 'crypto_info_chart.dart';
 import 'divider_crypto_info.dart';
@@ -24,14 +23,14 @@ class BodyInfoPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final price = ref.watch(priceInChartProvider);
     final variation = ref.watch(variationInChartProvider);
-    final walletCryptoEntity = ref.watch(cryptoInWalletProvider);
+    final walletCryptoEntity = args.walletCryptoEntity;
 
     return SingleChildScrollView(
       child: Container(
         color: Colors.white,
         child: Column(
           children: [
-            const RowCryptoInfos(),
+            RowCryptoInfos(walletCryptoEntity: walletCryptoEntity),
             Padding(
               padding: const EdgeInsets.only(
                 top: 16,

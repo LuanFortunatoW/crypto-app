@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
-import '../../../controllers/crypto_in_wallet/crypto_in_wallet_provider.dart';
 import 'crypto_infos_in_tile.dart';
 import 'monetary_infos_crypto_in_tile.dart';
 
@@ -20,7 +19,6 @@ class ListTileCrypto extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
       onTap: () {
-        ref.watch(cryptoInWalletProvider.state).state = walletCryptoEntity;
         ref.watch(priceInChartProvider.state).state =
             walletCryptoEntity.crypto.currentPrice;
         Navigator.pushNamed(

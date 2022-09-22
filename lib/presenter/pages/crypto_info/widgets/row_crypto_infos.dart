@@ -1,15 +1,17 @@
-import 'package:crypto_app/presenter/controllers/crypto_in_wallet/crypto_in_wallet_provider.dart';
+import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RowCryptoInfos extends HookConsumerWidget {
   const RowCryptoInfos({
+    required this.walletCryptoEntity,
     Key? key,
   }) : super(key: key);
 
+  final WalletCryptoEntity walletCryptoEntity;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final walletCryptoEntity = ref.watch(cryptoInWalletProvider);
     return Padding(
       padding: const EdgeInsets.only(
         top: 32,
