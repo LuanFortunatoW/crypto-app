@@ -1,3 +1,4 @@
+import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -13,8 +14,11 @@ import 'row_crypto_monetary_info.dart';
 
 class BodyInfoPage extends HookConsumerWidget {
   const BodyInfoPage({
+    required this.args,
     Key? key,
   }) : super(key: key);
+
+  final CryptoInfoArgs args;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,13 +32,13 @@ class BodyInfoPage extends HookConsumerWidget {
         child: Column(
           children: [
             const RowCryptoInfos(),
-            const Padding(
-              padding: EdgeInsets.only(
+            Padding(
+              padding: const EdgeInsets.only(
                 top: 16,
                 left: 16,
                 right: 16,
               ),
-              child: CryptoInfoChart(),
+              child: CryptoInfoChart(args: args),
             ),
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
@@ -57,7 +61,7 @@ class BodyInfoPage extends HookConsumerWidget {
             RowCryptoMonetaryInfo(
               label: 'Quantidade',
               text:
-                  '${NumberFormat.decimalPattern().format(walletCryptoEntity.quantity)} ${walletCryptoEntity.crypto.initials}',
+                  '${NumberFormat.decimalPattern().format(walletCryptoEntity.quantity)} ${walletCryptoEntity.crypto.symbol}',
               color: Colors.black,
             ),
             const DividerCryptoInfo(),

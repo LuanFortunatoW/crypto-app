@@ -1,14 +1,22 @@
-import 'package:crypto_app/presenter/controllers/crypto_history/crypto_history_notifier.dart';
+import 'package:crypto_app/data/datasource/endpoints/get_crypto_history_endpoint.dart';
+import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
+import 'package:crypto_app/shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../data/datasource/sources/local/get_crypto_history_datasource_local_imp.dart';
+import '../../../data/datasource/sources/remote/get_crypto_history_remote_datasource_imp.dart';
 import '../../../data/repository/get_crypto_history_repository_imp.dart';
-import '../../../domain/entities/crypto_entity.dart';
 import '../../../domain/usecases/get_crypto_history/get_crypto_history_usecase_imp.dart';
+
+final cryptoHistoryEndpointProvider = StateProvider(
+  (ref) {
+    return GetCryptoHistoryEndpoint(ref.watch(dioProvider));
+  },
+);
 
 final cryptoHistoryDatasourceProvider = StateProvider(
   (ref) {
-    return GetCryptoHistoryDatasourceLocalImp();
+    return GetCryptoHistoryRemoteDatasourceImp(
+        ref.watch(cryptoHistoryEndpointProvider));
   },
 );
 
@@ -27,8 +35,5 @@ final cryptoHistoryUsecaseProvider = StateProvider(
 );
 
 final cryptoHistoryProvider =
-    StateNotifierProvider<CryptoHistoryNotifier, Map<DateTime, CryptoEntity>>(
-  (ref) {
-    return CryptoHistoryNotifier(ref.watch(cryptoHistoryUsecaseProvider));
-  },
-);
+    FutureProvider.family<List<CryptoHistoryEntity>, String>((ref, id) =>
+        ref.read(cryptoHistoryUsecaseProvider).getCryptoHistory(id));

@@ -1,5 +1,5 @@
-import '../entities/crypto_entity.dart';
+import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
 
 abstract class GetCryptoHistoryRepository {
-  Map<DateTime, CryptoEntity> getCryptoHistory(CryptoEntity cryptoEntity);
+  Future<List<CryptoHistoryEntity>> getCryptoHistory(String id);
 }

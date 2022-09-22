@@ -1,13 +1,20 @@
+import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../domain/entities/crypto_entity.dart';
-import '../../../domain/usecases/get_crypto_history/get_crypto_history_usecase.dart';
+class CryptoHistoryNotifier extends StateNotifier<List<FlSpot>> {
+  CryptoHistoryNotifier(List<CryptoHistoryEntity> historico) : super([]) {
+    getCryptoHistory(historico);
+  }
 
-class CryptoHistoryNotifier extends StateNotifier<Map<DateTime, CryptoEntity>> {
-  final GetCryptoHistoryUsecase _usecase;
-  CryptoHistoryNotifier(this._usecase) : super({});
-
-  void getCryptoHistory(CryptoEntity cryptoEntity) {
-    state = _usecase.getCryptoHistory(cryptoEntity);
+  void getCryptoHistory(List<CryptoHistoryEntity> historico) async {
+    for (var element in historico) {
+      state.add(
+        FlSpot(
+          double.parse(element.price.toString()),
+          double.parse(element.timeStamp.toString()),
+        ),
+      );
+    }
   }
 }

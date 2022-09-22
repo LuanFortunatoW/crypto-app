@@ -1,9 +1,11 @@
+import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/body_info_page.dart';
 
 class CryptoInfoPage extends StatelessWidget {
-  const CryptoInfoPage({Key? key}) : super(key: key);
+  const CryptoInfoPage({Key? key, required this.args}) : super(key: key);
+  final CryptoInfoArgs args;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,9 @@ class CryptoInfoPage extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
-      body: const BodyInfoPage(),
+      body: BodyInfoPage(
+        args: args,
+      ),
     );
   }
 }

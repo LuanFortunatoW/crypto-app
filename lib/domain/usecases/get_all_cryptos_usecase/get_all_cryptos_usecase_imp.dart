@@ -6,7 +6,7 @@ class GetAllCryptosUsecaseImp implements GetAllCryptosUsecase {
   final GetAllCryptosRepository _repository;
   GetAllCryptosUsecaseImp(this._repository);
   @override
-  WalletEntity getAllCryptos() {
+  Future<WalletEntity> getAllCryptos() {
     return _repository.getAllCryptos();
   }
 }

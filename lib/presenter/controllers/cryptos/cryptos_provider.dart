@@ -1,13 +1,18 @@
+import 'package:crypto_app/data/datasource/endpoints/get_all_crypto_endpoint.dart';
+import 'package:crypto_app/domain/entities/wallet_entity.dart';
+import 'package:crypto_app/shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../data/datasource/sources/local/get_all_cryptos_datasource_local_imp.dart';
+import '../../../data/datasource/sources/remote/get_all_cryptos_remote_datasource_imp.dart';
 import '../../../data/repository/get_all_cryptos_repository_imp.dart';
-import '../../../domain/entities/wallet_entity.dart';
 import '../../../domain/usecases/get_all_cryptos_usecase/get_all_cryptos_usecase_imp.dart';
-import 'cryptos_notifier.dart';
+
+final cryptosEndpointProvider = StateProvider((ref) {
+  return GetAllCryptosEndpoint(ref.watch(dioProvider));
+});
 
 final cryptosDatasourceProvider = StateProvider((ref) {
-  return GetAllCryptosLocalDatasourceImp();
+  return GetAllCryptosRemoteDatasourceImp(ref.watch(cryptosEndpointProvider));
 });
 
 final cryptoRepositoryProvider = StateProvider((ref) {
@@ -18,7 +23,6 @@ final cryptoUsecaseProvider = StateProvider((ref) {
   return GetAllCryptosUsecaseImp(ref.watch(cryptoRepositoryProvider));
 });
 
-final cryptoNotifierProvider =
-    StateNotifierProvider<CryptosNotifier, WalletEntity>((ref) {
-  return CryptosNotifier(ref.watch(cryptoUsecaseProvider));
+final cryptosProvider = FutureProvider<WalletEntity>((ref) {
+  return ref.watch(cryptoUsecaseProvider).getAllCryptos();
 });

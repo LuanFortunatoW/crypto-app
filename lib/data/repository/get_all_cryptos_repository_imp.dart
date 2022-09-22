@@ -7,7 +7,7 @@ class GetAllCryptoRepositoryImp implements GetAllCryptosRepository {
   GetAllCryptoRepositoryImp(this._datasource);
 
   @override
-  WalletEntity getAllCryptos() {
+  Future<WalletEntity> getAllCryptos() {
     return _datasource.getAllCryptos();
   }
 }

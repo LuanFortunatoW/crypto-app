@@ -1,5 +1,5 @@
-import '../../domain/entities/crypto_entity.dart';
+import '../../domain/entities/crypto_history_entity.dart';
 
 abstract class GetCryptoHistoryDatasource {
-  Map<DateTime, CryptoEntity> getCryptoHistory(CryptoEntity cryptoEntity);
+  Future<List<CryptoHistoryEntity>> getCryptoHistory(String id);
 }

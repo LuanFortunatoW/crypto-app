@@ -16,7 +16,7 @@ class CryptoInfosInTile extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 24,
-          backgroundImage: Image.asset(walletCryptoEntity.crypto.image).image,
+          backgroundImage: Image.network(walletCryptoEntity.crypto.image).image,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8),
@@ -24,7 +24,7 @@ class CryptoInfosInTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                walletCryptoEntity.crypto.initials,
+                walletCryptoEntity.crypto.symbol.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 19,
                   fontWeight: FontWeight.w500,

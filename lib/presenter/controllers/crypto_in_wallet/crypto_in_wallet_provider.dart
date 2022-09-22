@@ -7,10 +7,11 @@ import '../../../domain/entities/wallet_crypto_entity.dart';
 final cryptoInWalletProvider = StateProvider<WalletCryptoEntity>(
   (ref) => WalletCryptoEntity(
       crypto: CryptoEntity(
-        initials: '',
+        id: '',
+        symbol: '',
         image: '',
         name: '',
-        price: Decimal.zero,
+        currentPrice: Decimal.zero,
       ),
       quantity: 0),
 );

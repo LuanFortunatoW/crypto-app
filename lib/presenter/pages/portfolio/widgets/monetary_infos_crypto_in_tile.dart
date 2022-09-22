@@ -56,7 +56,7 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
               child: Text(
                 '${NumberFormat.decimalPattern().format(
                   walletCryptoEntity.quantity.toDouble(),
-                )} ${walletCryptoEntity.crypto.initials}',
+                )} ${walletCryptoEntity.crypto.symbol}',
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.grey.shade800,

@@ -15,7 +15,9 @@ class BodyPortifolioPage extends StatelessWidget {
       child: Column(
         children: const [
           TopPortfolioPage(),
-          ListViewCryptos(),
+          Expanded(
+            child: ListViewCryptos(),
+          ),
         ],
       ),
     );
