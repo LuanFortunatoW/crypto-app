@@ -1,5 +1,6 @@
 import 'package:crypto_app/data/datasource/endpoints/get_crypto_history_endpoint.dart';
 import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
+import 'package:crypto_app/shared/controllers/coingecko_baseurl_provider.dart';
 import 'package:crypto_app/shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -9,7 +10,10 @@ import '../../../domain/usecases/get_crypto_history/get_crypto_history_usecase_i
 
 final cryptoHistoryEndpointProvider = StateProvider(
   (ref) {
-    return GetCryptoHistoryEndpoint(ref.watch(dioProvider));
+    return GetCryptoHistoryEndpoint(
+      ref.watch(dioProvider),
+      ref.watch(coingeckoBaseUrl),
+    );
   },
 );
 
@@ -34,6 +38,6 @@ final cryptoHistoryUsecaseProvider = StateProvider(
   },
 );
 
-final cryptoHistoryProvider =
-    FutureProvider.family<List<CryptoHistoryEntity>, String>((ref, id) =>
+final cryptoHistoryProvider = FutureProvider.autoDispose
+    .family<List<CryptoHistoryEntity>, String>((ref, id) =>
         ref.read(cryptoHistoryUsecaseProvider).getCryptoHistory(id));

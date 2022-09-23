@@ -60,7 +60,7 @@ class BodyInfoPage extends HookConsumerWidget {
             RowCryptoMonetaryInfo(
               label: 'Quantidade',
               text:
-                  '${NumberFormat.decimalPattern().format(walletCryptoEntity.quantity)} ${walletCryptoEntity.crypto.symbol}',
+                  '${NumberFormat.decimalPattern().format(walletCryptoEntity.quantity)} ${walletCryptoEntity.crypto.symbol.toUpperCase()}',
               color: Colors.black,
             ),
             const DividerCryptoInfo(),

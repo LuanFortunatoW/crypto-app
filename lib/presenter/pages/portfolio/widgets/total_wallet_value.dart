@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../controllers/cryptos/cryptos_provider.dart';
 import '../../../controllers/visibility/visibility_provider.dart';
@@ -38,7 +39,18 @@ class TotalWalletValue extends HookConsumerWidget {
           );
         },
         error: (error, stackTrace) => Container(),
-        loading: () => const CircularProgressIndicator(),
+        loading: () => Shimmer.fromColors(
+          baseColor: Colors.grey.shade300,
+          highlightColor: Colors.grey.shade100,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            height: 34,
+            width: MediaQuery.of(context).size.width * 0.5,
+          ),
+        ),
       ),
     );
   }

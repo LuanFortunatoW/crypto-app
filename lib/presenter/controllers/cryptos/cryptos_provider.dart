@@ -6,9 +6,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../data/datasource/sources/remote/get_all_cryptos_remote_datasource_imp.dart';
 import '../../../data/repository/get_all_cryptos_repository_imp.dart';
 import '../../../domain/usecases/get_all_cryptos_usecase/get_all_cryptos_usecase_imp.dart';
+import '../../../shared/controllers/coingecko_baseurl_provider.dart';
 
 final cryptosEndpointProvider = StateProvider((ref) {
-  return GetAllCryptosEndpoint(ref.watch(dioProvider));
+  return GetAllCryptosEndpoint(
+    ref.watch(dioProvider),
+    ref.watch(coingeckoBaseUrl),
+  );
 });
 
 final cryptosDatasourceProvider = StateProvider((ref) {
@@ -23,6 +27,6 @@ final cryptoUsecaseProvider = StateProvider((ref) {
   return GetAllCryptosUsecaseImp(ref.watch(cryptoRepositoryProvider));
 });
 
-final cryptosProvider = FutureProvider<WalletEntity>((ref) {
+final cryptosProvider = FutureProvider.autoDispose<WalletEntity>((ref) {
   return ref.watch(cryptoUsecaseProvider).getAllCryptos();
 });

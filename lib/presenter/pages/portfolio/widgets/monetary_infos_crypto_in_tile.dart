@@ -56,7 +56,7 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
               child: Text(
                 '${NumberFormat.decimalPattern().format(
                   walletCryptoEntity.quantity.toDouble(),
-                )} ${walletCryptoEntity.crypto.symbol}',
+                )} ${walletCryptoEntity.crypto.symbol.toUpperCase()}',
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.grey.shade800,
@@ -66,9 +66,7 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
             ),
           ],
         ),
-        IconArrowRight(
-          walletCryptoEntity: walletCryptoEntity,
-        ),
+        const IconArrowRight(),
       ],
     );
   }

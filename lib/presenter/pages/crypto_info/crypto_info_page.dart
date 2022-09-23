@@ -1,15 +1,14 @@
 import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'widgets/body_info_page.dart';
 
-class CryptoInfoPage extends HookConsumerWidget {
+class CryptoInfoPage extends StatelessWidget {
   const CryptoInfoPage({Key? key, required this.args}) : super(key: key);
   final CryptoInfoArgs args;
 
   @override
-  Widget build(BuildContext context, WidgetRef) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,

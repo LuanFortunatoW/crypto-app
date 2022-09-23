@@ -32,7 +32,7 @@ class RowCryptoInfos extends HookConsumerWidget {
                 ),
               ),
               Text(
-                walletCryptoEntity.crypto.symbol,
+                walletCryptoEntity.crypto.symbol.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 17,
                   color: Color.fromRGBO(117, 118, 128, 1),
@@ -41,6 +41,7 @@ class RowCryptoInfos extends HookConsumerWidget {
             ],
           ),
           CircleAvatar(
+            backgroundColor: Colors.transparent,
             backgroundImage: Image.network(
               walletCryptoEntity.crypto.image,
             ).image,

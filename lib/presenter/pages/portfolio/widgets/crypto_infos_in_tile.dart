@@ -17,6 +17,7 @@ class CryptoInfosInTile extends StatelessWidget {
         CircleAvatar(
           radius: 24,
           backgroundImage: Image.network(walletCryptoEntity.crypto.image).image,
+          backgroundColor: Colors.transparent,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8),

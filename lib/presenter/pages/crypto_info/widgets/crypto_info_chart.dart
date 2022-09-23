@@ -4,11 +4,13 @@ import 'package:crypto_app/presenter/controllers/chart_subtitles/variation_in_ch
 import 'package:crypto_app/presenter/controllers/chart_subtitles/price_in_chart_provider.dart';
 import 'package:crypto_app/presenter/controllers/crypto_history/crypto_history_provider.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
+import 'package:crypto_app/presenter/pages/crypto_info/widgets/title_crypto_price.dart';
 import 'package:decimal/decimal.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
 
 import 'buttons_change_days_chart.dart';
 
@@ -135,10 +137,7 @@ class CryptoInfoChart extends HookConsumerWidget {
               ),
               lineBarsData: [
                 LineChartBarData(
-                  spots: spots.sublist(
-                      0,
-                      days[selectedIndex.state] * 24 -
-                          (24 - DateTime.now().hour)),
+                  spots: spots.sublist(0, days[selectedIndex.state]),
                   barWidth: 4,
                   color: const Color.fromRGBO(224, 43, 87, 1),
                   dotData: FlDotData(
@@ -154,22 +153,7 @@ class CryptoInfoChart extends HookConsumerWidget {
                     showTitles: false,
                   ),
                   drawBehindEverything: true,
-                  axisNameWidget: Padding(
-                    padding: const EdgeInsets.only(bottom: 25),
-                    child: Row(
-                      children: [
-                        Text(
-                          NumberFormat.currency(symbol: 'R\$').format(
-                            double.parse(price.state.toString()),
-                          ),
-                          style: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  axisNameWidget: const TitleCryptoPrice(),
                 ),
                 bottomTitles: AxisTitles(
                   axisNameSize: 70,
@@ -197,7 +181,19 @@ class CryptoInfoChart extends HookConsumerWidget {
         );
       },
       error: (error, stackTrace) => Text(error.toString()),
-      loading: () => const CircularProgressIndicator(),
+      loading: () => Shimmer.fromColors(
+        baseColor: Colors.grey.shade300,
+        highlightColor: Colors.grey.shade100,
+        enabled: true,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          height: 300,
+          width: double.maxFinite,
+        ),
+      ),
     );
   }
 }
