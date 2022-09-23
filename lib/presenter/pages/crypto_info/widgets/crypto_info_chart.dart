@@ -5,6 +5,7 @@ import 'package:crypto_app/presenter/controllers/chart_subtitles/price_in_chart_
 import 'package:crypto_app/presenter/controllers/crypto_history/crypto_history_provider.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/title_crypto_price.dart';
+import 'package:crypto_app/shared/widgets/default_error_page.dart';
 import 'package:decimal/decimal.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -180,7 +181,11 @@ class CryptoInfoChart extends HookConsumerWidget {
           ),
         );
       },
-      error: (error, stackTrace) => Text(error.toString()),
+      error: (error, stackTrace) => DefaultErrorPage(
+        onPressed: () => ref.refresh(
+          cryptoHistoryProvider(args.walletCryptoEntity.crypto.id),
+        ),
+      ),
       loading: () => Shimmer.fromColors(
         baseColor: Colors.grey.shade300,
         highlightColor: Colors.grey.shade100,
