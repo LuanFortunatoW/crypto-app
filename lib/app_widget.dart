@@ -16,7 +16,7 @@ class MyApp extends HookConsumerWidget {
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       initialRoute: '/portfolio',
-      routes: appRoutes,
+      onGenerateRoute: GeneratedRoutes.generateRoute,
     );
   }
 }

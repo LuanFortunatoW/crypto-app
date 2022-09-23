@@ -1,8 +1,31 @@
-import '../../presenter/portfolio/view/portfolio_page.dart';
-import '../../presenter/transactions/view/transactions_page.dart';
+import 'package:crypto_app/presenter/pages/crypto_info/crypto_info_page.dart';
 import 'package:flutter/material.dart';
 
-final Map<String, WidgetBuilder> appRoutes = {
-  '/portfolio': (context) => const PortfolioPage(),
-  '/transactions': (context) => const TransactionsPage(),
-};
+import '../../presenter/pages/portfolio/portfolio_page.dart';
+import '../../presenter/pages/transactions/transactions_page.dart';
+
+class GeneratedRoutes {
+  static Route<dynamic>? generateRoute(settings) {
+    if (settings.name == '/portfolio') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const PortfolioPage(),
+        settings: settings,
+      );
+    } else if (settings.name == '/transactions') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const TransactionsPage(),
+        settings: settings,
+        transitionDuration: const Duration(microseconds: 0),
+      );
+    } else if (settings.name == '/crypto_info') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const CryptoInfoPage(),
+        settings: settings,
+      );
+    }
+    return null;
+  }
+}
