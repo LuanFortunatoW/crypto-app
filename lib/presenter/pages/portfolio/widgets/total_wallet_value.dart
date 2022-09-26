@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../controllers/cryptos/cryptos_provider.dart';
-import '../../../controllers/visibility/visibility_provider.dart';
+import '../../../../shared/controllers/visibility_provider.dart';
 
 class TotalWalletValue extends HookConsumerWidget {
   const TotalWalletValue({

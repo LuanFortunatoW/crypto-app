@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 import 'icon_arrow_right.dart';
 import '../../../../domain/entities/wallet_crypto_entity.dart';
-import '../../../controllers/visibility/visibility_provider.dart';
+import '../../../../shared/controllers/visibility_provider.dart';
 
 class MonetaryInfosCryptoInTile extends HookConsumerWidget {
   const MonetaryInfosCryptoInTile({

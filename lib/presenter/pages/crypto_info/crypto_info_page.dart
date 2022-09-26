@@ -1,4 +1,5 @@
 import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
+import 'package:crypto_app/shared/widgets/button_change_visibility.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/body_info_page.dart';
@@ -21,6 +22,12 @@ class CryptoInfoPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 18),
+            child: ButtonChangeVisibility(),
+          ),
+        ],
       ),
       body: BodyInfoPage(
         args: args,

@@ -1,4 +1,4 @@
-import 'package:crypto_app/presenter/controllers/visibility/visibility_provider.dart';
+import 'package:crypto_app/shared/controllers/visibility_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -14,11 +14,20 @@ class TitleCryptoPrice extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final price = ref.watch(priceInChartProvider.state);
     final visibility = ref.watch(visibilityProvider);
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 25),
       child: Row(
         children: [
           Visibility(
+            replacement: Container(
+              width: MediaQuery.of(context).size.width * 0.5,
+              height: 38,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(15),
+              ),
+            ),
             visible: visibility,
             child: Text(
               NumberFormat.currency(symbol: 'R\$').format(
