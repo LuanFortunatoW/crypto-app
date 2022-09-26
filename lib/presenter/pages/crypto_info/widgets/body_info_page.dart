@@ -70,7 +70,9 @@ class BodyInfoPage extends HookConsumerWidget {
                   walletCryptoEntity.getValueQuantityCrypto().toDouble()),
               color: Colors.black,
             ),
-            const ButtonConvertCurrency(),
+            ButtonConvertCurrency(
+              walletCryptoEntity: walletCryptoEntity,
+            ),
           ],
         ),
       ),

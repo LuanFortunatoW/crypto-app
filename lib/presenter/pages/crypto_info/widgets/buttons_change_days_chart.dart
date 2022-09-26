@@ -11,6 +11,7 @@ class ButtonsChangeDaysChart extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<int> days = [5, 15, 30, 45, 90];
+
     final selectedIndex = ref.watch(daysAmountProvider.state);
 
     return ListView.builder(

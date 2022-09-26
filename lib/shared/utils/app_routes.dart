@@ -1,3 +1,5 @@
+import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_args.dart';
+import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_page.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/crypto_info_page.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,13 @@ class GeneratedRoutes {
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             CryptoInfoPage(args: args),
+        settings: settings,
+      );
+    } else if (settings.name == '/convert_currency') {
+      final args = settings.arguments as ConvertCurrencyArgs;
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ConvertCurrencyPage(args: args),
         settings: settings,
       );
     }
