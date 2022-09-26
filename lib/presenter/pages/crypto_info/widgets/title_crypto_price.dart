@@ -33,7 +33,7 @@ class TitleCryptoPrice extends HookConsumerWidget {
             child: Text(
               NumberFormat.currency(
                 symbol: 'R\$',
-                decimalDigits: price.state > Decimal.parse('2') ? 2 : 7,
+                decimalDigits: price.state > Decimal.parse('1') ? 2 : 7,
               ).format(
                 double.parse(
                   price.state.toString(),
