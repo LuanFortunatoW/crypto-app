@@ -4,7 +4,7 @@ import 'package:crypto_app/domain/entities/crypto_entity.dart';
 import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
 import 'package:crypto_app/domain/entities/wallet_entity.dart';
 
-import '../../data/responses/get_all_crypto_response.dart';
+import '../get_all_crypto_response.dart';
 
 extension GetAllCryptosMapper on GetAllCryptosResponse {
   WalletEntity toViewData() {

@@ -1,6 +1,6 @@
 import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
 
-import '../../data/responses/get_crypto_history_response.dart';
+import '../get_crypto_history_response.dart';
 
 extension CryptoHistoryMapper on GetCryptoHistoryResponse {
   List<CryptoHistoryEntity> toViewData() {
