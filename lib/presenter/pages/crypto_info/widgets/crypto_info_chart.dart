@@ -17,8 +17,8 @@ import 'buttons_change_days_chart.dart';
 
 class CryptoInfoChart extends HookConsumerWidget {
   CryptoInfoChart({Key? key, required this.args}) : super(key: key);
-  final CryptoInfoArgs args;
 
+  final CryptoInfoArgs args;
   final List<FlSpot> spots = [];
 
   void getSpots(List<CryptoHistoryEntity> cryptoHistory) {

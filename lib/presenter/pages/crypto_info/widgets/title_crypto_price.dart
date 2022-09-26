@@ -1,4 +1,5 @@
 import 'package:crypto_app/shared/controllers/visibility_provider.dart';
+import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -30,8 +31,13 @@ class TitleCryptoPrice extends HookConsumerWidget {
             ),
             visible: visibility,
             child: Text(
-              NumberFormat.currency(symbol: 'R\$').format(
-                double.parse(price.state.toString()),
+              NumberFormat.currency(
+                symbol: 'R\$',
+                decimalDigits: price.state > Decimal.parse('2') ? 2 : 7,
+              ).format(
+                double.parse(
+                  price.state.toString(),
+                ),
               ),
               style: const TextStyle(
                 fontSize: 32,
