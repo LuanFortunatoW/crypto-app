@@ -18,13 +18,16 @@ class TitleCryptoPrice extends HookConsumerWidget {
       padding: const EdgeInsets.only(bottom: 25),
       child: Row(
         children: [
-          Text(
-            NumberFormat.currency(symbol: 'R\$').format(
-              double.parse(price.state.toString()),
-            ),
-            style: const TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
+          Visibility(
+            visible: visibility,
+            child: Text(
+              NumberFormat.currency(symbol: 'R\$').format(
+                double.parse(price.state.toString()),
+              ),
+              style: const TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],

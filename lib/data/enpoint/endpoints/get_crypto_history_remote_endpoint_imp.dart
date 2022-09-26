@@ -1,10 +1,14 @@
 import 'package:dio/dio.dart';
 
-class GetCryptoHistoryEndpoint {
+import '../get_crypto_history_endpoint.dart';
+
+class GetCryptoHistoryRemoteEndpointImp implements GetCryptoHistoryEndpoint {
   final Dio _dio;
   final String _url;
-  GetCryptoHistoryEndpoint(this._dio, this._url);
 
+  GetCryptoHistoryRemoteEndpointImp(this._dio, this._url);
+
+  @override
   Future<Response> getCryptoHistory(String id) {
     return _dio.get(
       '$_url/coins/$id/market_chart',

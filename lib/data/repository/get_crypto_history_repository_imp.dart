@@ -1,13 +1,14 @@
-import '../../domain/entities/crypto_history_entity.dart';
 import '../../domain/repositories/get_crypto_history_repository.dart';
-import '../datasource/get_crypto_history_datasource.dart';
+import '../enpoint/get_crypto_history_endpoint.dart';
+import '../responses/get_crypto_history_response.dart';
 
 class GetCryptoHistoryRepositoryImp implements GetCryptoHistoryRepository {
-  final GetCryptoHistoryDatasource _datasource;
+  final GetCryptoHistoryEndpoint _datasource;
   GetCryptoHistoryRepositoryImp(this._datasource);
 
   @override
-  Future<List<CryptoHistoryEntity>> getCryptoHistory(String id) {
-    return _datasource.getCryptoHistory(id);
+  Future<GetCryptoHistoryResponse> getCryptoHistory(String id) async {
+    final response = await _datasource.getCryptoHistory(id);
+    return GetCryptoHistoryResponse.fromJson(response.data);
   }
 }

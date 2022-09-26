@@ -1,22 +1,17 @@
-import 'package:crypto_app/data/datasource/endpoints/get_all_crypto_endpoint.dart';
 import 'package:crypto_app/domain/entities/wallet_entity.dart';
 import 'package:crypto_app/shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../data/datasource/sources/remote/get_all_cryptos_remote_datasource_imp.dart';
+import '../../../data/enpoint/endpoints/get_all_cryptos_remote_endpoint_imp.dart';
 import '../../../data/repository/get_all_cryptos_repository_imp.dart';
 import '../../../domain/usecases/get_all_cryptos_usecase/get_all_cryptos_usecase_imp.dart';
 import '../../../shared/controllers/coingecko_baseurl_provider.dart';
 
-final cryptosEndpointProvider = StateProvider((ref) {
-  return GetAllCryptosEndpoint(
+final cryptosDatasourceProvider = StateProvider((ref) {
+  return GetAllCryptosRemoteEndpointImp(
     ref.watch(dioProvider),
     ref.watch(coingeckoBaseUrl),
   );
-});
-
-final cryptosDatasourceProvider = StateProvider((ref) {
-  return GetAllCryptosRemoteDatasourceImp(ref.watch(cryptosEndpointProvider));
 });
 
 final cryptoRepositoryProvider = StateProvider((ref) {
