@@ -23,4 +23,11 @@ class WalletEntity {
     }
     return cryptoEntity;
   }
+
+  WalletCryptoEntity getWalletCryptoEntityById(CryptoEntity cryptoEntity) {
+    return cryptos
+        .where((walletCryptoEntity) =>
+            walletCryptoEntity.crypto.id == cryptoEntity.id)
+        .first;
+  }
 }

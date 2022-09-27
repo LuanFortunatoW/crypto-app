@@ -1,4 +1,5 @@
 import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_args.dart';
+import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/bottom_sheet_amout_to_convert.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/body_convert_currency.dart';
@@ -24,9 +25,10 @@ class ConvertCurrencyPage extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
-      body: BodyConverCurrencyPage(
+      body: BodyConvertCurrencyPage(
         walletCryptoEntity: args.walletCryptoEntity,
       ),
+      bottomSheet: const BottomSheetAmountToConvert(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: const Color.fromRGBO(224, 43, 87, 1),

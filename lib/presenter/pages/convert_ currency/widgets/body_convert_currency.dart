@@ -1,12 +1,22 @@
-import 'package:crypto_app/domain/entities/crypto_entity.dart';
 import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
 import 'package:crypto_app/presenter/controllers/cryptos/cryptos_provider.dart';
+import 'package:crypto_app/presenter/controllers/currency_convert/converted_currency.dart';
+import 'package:crypto_app/presenter/controllers/currency_convert/to_convert_currency.dart';
 import 'package:crypto_app/shared/widgets/default_error_page.dart';
+import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 
-class BodyConverCurrencyPage extends HookConsumerWidget {
-  const BodyConverCurrencyPage({
+import '../../../controllers/currency_convert/convert_quantity_provider.dart';
+import 'button_select_converted_currency.dart';
+import 'button_select_to_convert_currency.dart';
+import 'container_info_balance_amount.dart';
+import 'page_title.dart';
+
+class BodyConvertCurrencyPage extends StatefulHookConsumerWidget {
+  const BodyConvertCurrencyPage({
     Key? key,
     required this.walletCryptoEntity,
   }) : super(key: key);
@@ -14,129 +24,69 @@ class BodyConverCurrencyPage extends HookConsumerWidget {
   final WalletCryptoEntity walletCryptoEntity;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    CryptoEntity tradedCrypto = walletCryptoEntity.crypto;
+  ConsumerState<BodyConvertCurrencyPage> createState() =>
+      _BodyConvertCurrencyPageState();
+}
+
+class _BodyConvertCurrencyPageState
+    extends ConsumerState<BodyConvertCurrencyPage> {
+  @override
+  void initState() {
+    ref.read(convertedCurrencyProvider.notifier).state =
+        widget.walletCryptoEntity;
+    super.initState();
+  }
+
+  String getValueHelper(Decimal value, double quantity) {
+    return NumberFormat.currency(symbol: 'R\$')
+        .format(
+          double.parse(value.toString()) * quantity,
+        )
+        .replaceAll('.', ',');
+  }
+
+  final TextEditingController quantityController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    final convertedCurrency = ref.watch(convertedCurrencyProvider);
+    final toConvertCurrency = ref.watch(toConvertCurrencyProvider);
+    final convertQuantity = ref.watch(convertQuantityProvider.state);
     final allCryptos = ref.watch(cryptosProvider);
+
     return allCryptos.when(
       data: (data) {
-        final toTradeCrypto = data.getFirstDiferentCrypto(tradedCrypto);
         return Center(
           child: Column(
             children: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                color: const Color.fromRGBO(245, 246, 250, 1),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Saldo Disponível',
-                      style: TextStyle(
-                        color: Color.fromRGBO(117, 118, 128, 1),
-                        fontSize: 14,
-                      ),
-                    ),
-                    Text(
-                      '${walletCryptoEntity.quantity} ${walletCryptoEntity.crypto.symbol.toUpperCase()}',
-                      style: const TextStyle(
-                        color: Color.fromRGBO(47, 47, 51, 1),
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: const Text(
-                        softWrap: true,
-                        'Quanto você gostaria de converter?',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          color: Color.fromRGBO(47, 47, 51, 1),
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const ContainerInfoBalanceAmount(),
+              const PageTitle(),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    MaterialButton(
-                      padding: const EdgeInsets.all(0),
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 10,
-                            backgroundImage: Image.network(
-                              tradedCrypto.image,
-                            ).image,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            tradedCrypto.symbol.toUpperCase(),
-                            style: const TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                          const Icon(
-                            Icons.arrow_drop_down_sharp,
-                          ),
-                        ],
-                      ),
+                    ButtonSelectConvertedCurrency(
+                      cryptoEntity: convertedCurrency.crypto,
+                      data: data,
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (toConvertCurrency.id != '') {
+                          final aux = convertedCurrency;
+                          ref.read(convertedCurrencyProvider.notifier).state =
+                              data.getWalletCryptoEntityById(toConvertCurrency);
+                          ref.read(toConvertCurrencyProvider.notifier).state =
+                              aux.crypto;
+                        }
+                      },
                       icon: ImageIcon(
                         Image.asset('assets/icons/swap.png').image,
                       ),
                     ),
-                    MaterialButton(
-                      padding: const EdgeInsets.all(0),
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 10,
-                            backgroundImage: Image.network(
-                              toTradeCrypto.image,
-                            ).image,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            toTradeCrypto.symbol.toUpperCase(),
-                            style: const TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                          const Icon(
-                            Icons.arrow_drop_down_sharp,
-                          ),
-                        ],
-                      ),
+                    ButtonSelectToConvertCurrency(
+                      cryptoEntity: toConvertCurrency,
+                      data: data,
                     ),
                   ],
                 ),
@@ -148,8 +98,23 @@ class BodyConverCurrencyPage extends HookConsumerWidget {
                   children: [
                     TextField(
                       keyboardType: TextInputType.number,
+                      controller: quantityController,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r'^(\d+)?,?\d{0,10}'),
+                        ),
+                      ],
                       decoration: InputDecoration(
-                        hintText: '${tradedCrypto.symbol.toUpperCase()} 0,00',
+                        helperText: getValueHelper(
+                          convertedCurrency.crypto.currentPrice,
+                          convertQuantity.state,
+                        ),
+                        helperStyle: const TextStyle(
+                          color: Color.fromRGBO(117, 118, 128, 1),
+                          fontSize: 15,
+                        ),
+                        hintText:
+                            '${convertedCurrency.crypto.symbol.toUpperCase()} 0,00',
                         hintStyle: const TextStyle(
                           fontSize: 31,
                           color: Color.fromRGBO(149, 153, 166, 1),
@@ -159,14 +124,28 @@ class BodyConverCurrencyPage extends HookConsumerWidget {
                         fontSize: 31,
                         color: Color.fromRGBO(149, 153, 166, 1),
                       ),
+                      onChanged: (value) {
+                        if (quantityController.text != '') {
+                          convertQuantity.state = double.parse(
+                            quantityController.text.replaceAll(',', '.'),
+                          );
+                        } else {
+                          convertQuantity.state = 0;
+                        }
+                        setState(() {});
+                      },
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(top: 8),
-                      child: Text(
-                        'R\$ 0,00',
-                        style: TextStyle(
-                          color: Color.fromRGBO(117, 118, 128, 1),
-                          fontSize: 15,
+                    Visibility(
+                      visible: quantityController.text != '' &&
+                          convertQuantity.state > convertedCurrency.quantity,
+                      child: const Padding(
+                        padding: EdgeInsets.only(top: 8),
+                        child: Text(
+                          'Valor maior que o saldo disponível',
+                          style: TextStyle(
+                            color: Color.fromRGBO(224, 43, 87, 1),
+                            fontSize: 15,
+                          ),
                         ),
                       ),
                     ),
