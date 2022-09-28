@@ -25,7 +25,7 @@ class ContainerInfoBalanceAmount extends HookConsumerWidget {
             ),
           ),
           Text(
-            '${convertedCurrency.quantity} ${convertedCurrency.crypto.symbol.toUpperCase()}',
+            '${convertedCurrency.quantity.toString().replaceAll('.', ',')} ${convertedCurrency.crypto.symbol.toUpperCase()}',
             style: const TextStyle(
               color: Color.fromRGBO(47, 47, 51, 1),
               fontSize: 15,

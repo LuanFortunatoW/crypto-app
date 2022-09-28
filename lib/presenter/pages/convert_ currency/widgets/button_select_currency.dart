@@ -1,19 +1,25 @@
 import 'package:crypto_app/domain/entities/wallet_entity.dart';
-import 'package:crypto_app/presenter/controllers/currency_convert/converted_currency.dart';
+import 'package:crypto_app/presenter/controllers/currency_convert/convert_quantity_provider.dart';
+import 'package:crypto_app/presenter/controllers/currency_convert/to_convert_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../domain/entities/crypto_entity.dart';
+import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../controllers/convertion_validation/convert_validation_provider.dart';
+import '../../../controllers/currency_convert/converted_currency.dart';
 
-class ButtonSelectConvertedCurrency extends HookConsumerWidget {
-  const ButtonSelectConvertedCurrency({
+class ButtonSelectCurrency extends HookConsumerWidget {
+  const ButtonSelectCurrency({
     Key? key,
+    required this.provider,
     required this.cryptoEntity,
     required this.data,
   }) : super(key: key);
 
   final WalletEntity data;
   final CryptoEntity cryptoEntity;
+  final AutoDisposeStateProvider<WalletCryptoEntity> provider;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -71,8 +77,16 @@ class ButtonSelectConvertedCurrency extends HookConsumerWidget {
                             Icons.keyboard_arrow_right_outlined,
                           ),
                           onTap: () {
-                            ref.read(convertedCurrencyProvider.state).state =
+                            ref.read(provider.notifier).state =
                                 data.cryptos[index];
+                            ref
+                                .read(convertValidationProvider.notifier)
+                                .validateConvertion(
+                                  ref.read(convertQuantityProvider),
+                                  ref.read(convertedCurrencyProvider),
+                                  ref.read(toConvertCurrencyProvider),
+                                );
+                            Navigator.pop(context);
                           },
                         );
                       },

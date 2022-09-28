@@ -29,14 +29,6 @@ class ConvertCurrencyPage extends StatelessWidget {
         walletCryptoEntity: args.walletCryptoEntity,
       ),
       bottomSheet: const BottomSheetAmountToConvert(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color.fromRGBO(224, 43, 87, 1),
-        elevation: 0,
-        child: const Icon(
-          Icons.arrow_right_alt_sharp,
-        ),
-      ),
     );
   }
 }
