@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class ConvertValidationNotifier extends StateNotifier<bool> {
   ConvertValidationNotifier() : super(false);
 
-  void validateConvertion(
+  void validateconversion(
     double convertQuantity,
     WalletCryptoEntity convertedCurrency,
     WalletCryptoEntity toConvertCurrency,

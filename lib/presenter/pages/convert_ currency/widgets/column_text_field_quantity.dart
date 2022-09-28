@@ -64,7 +64,7 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
               convertQuantity.state = double.parse(
                 quantityController.text.replaceAll(',', '.'),
               );
-              ref.read(convertValidationProvider.notifier).validateConvertion(
+              ref.read(convertValidationProvider.notifier).validateconversion(
                     ref.read(convertQuantityProvider),
                     ref.read(convertedCurrencyProvider),
                     ref.read(toConvertCurrencyProvider),

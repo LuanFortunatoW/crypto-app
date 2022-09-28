@@ -81,7 +81,7 @@ class ButtonSelectCurrency extends HookConsumerWidget {
                                 data.cryptos[index];
                             ref
                                 .read(convertValidationProvider.notifier)
-                                .validateConvertion(
+                                .validateconversion(
                                   ref.read(convertQuantityProvider),
                                   ref.read(convertedCurrencyProvider),
                                   ref.read(toConvertCurrencyProvider),

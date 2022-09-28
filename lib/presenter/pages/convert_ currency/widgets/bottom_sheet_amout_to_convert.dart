@@ -31,8 +31,7 @@ class BottomSheetAmountToConvert extends HookConsumerWidget {
     final toConvertCurrency = ref.watch(toConvertCurrencyProvider);
     final convertedCurrency = ref.watch(convertedCurrencyProvider);
     final convertQuantity = ref.watch(convertQuantityProvider);
-    final convertValidation =
-        ref.watch(convertValidationProvider.notifier).state;
+    final convertValidation = ref.watch(convertValidationProvider);
 
     return Container(
       height: 80,

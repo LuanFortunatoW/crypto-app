@@ -26,7 +26,7 @@ class ButtonSwapCryptos extends HookConsumerWidget {
           ref.read(convertedCurrencyProvider.notifier).state =
               data.getWalletCryptoEntityById(toConvertCurrency.crypto);
           ref.read(toConvertCurrencyProvider.notifier).state = aux;
-          ref.read(convertValidationProvider.notifier).validateConvertion(
+          ref.read(convertValidationProvider.notifier).validateconversion(
                 ref.read(convertQuantityProvider),
                 ref.read(convertedCurrencyProvider),
                 ref.read(toConvertCurrencyProvider),
