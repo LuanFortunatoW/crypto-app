@@ -1,6 +1,6 @@
-import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
-import 'package:crypto_app/shared/controllers/coingecko_baseurl_provider.dart';
-import 'package:crypto_app/shared/controllers/dio_provider.dart';
+import '../../../domain/entities/crypto_history_entity.dart';
+import '../../../shared/controllers/coingecko_baseurl_provider.dart';
+import '../../../shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../data/enpoint/endpoints/get_crypto_history_remote_endpoint_imp.dart';

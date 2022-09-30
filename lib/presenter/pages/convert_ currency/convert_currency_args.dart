@@ -1,4 +1,4 @@
-import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
+import '../../../domain/entities/wallet_crypto_entity.dart';
 
 class ConvertCurrencyArgs {
   WalletCryptoEntity walletCryptoEntity;

@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:crypto_app/domain/entities/crypto_entity.dart';
-import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
-import 'package:crypto_app/domain/entities/wallet_entity.dart';
+import '../../../domain/entities/crypto_entity.dart';
+import '../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../domain/entities/wallet_entity.dart';
 
 import '../get_all_crypto_response.dart';
 

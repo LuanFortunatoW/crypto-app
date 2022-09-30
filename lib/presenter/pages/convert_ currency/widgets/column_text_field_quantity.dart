@@ -1,4 +1,4 @@
-import 'package:crypto_app/presenter/controllers/currency_convert/to_convert_currency.dart';
+import '../../../controllers/currency_convert/to_convert_currency.dart';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

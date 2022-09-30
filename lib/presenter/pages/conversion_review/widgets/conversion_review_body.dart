@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../crypto_info/widgets/divider_crypto_info.dart';
 import '../conversion_review_args.dart';
+import 'button_confirm_conversion.dart';
 import 'row_info_conversion.dart';
 
 class ConversionReviewBody extends StatelessWidget {
@@ -45,28 +46,8 @@ class ConversionReviewBody extends StatelessWidget {
                 label: 'Câmbio',
                 text:
                     '1 ${args.conversionEntity.convertedCrypto.symbol.toUpperCase()} = ${(args.conversionEntity.convertedCrypto.currentPrice.toDouble() / args.conversionEntity.toConvertCrypto.currentPrice.toDouble()).toStringAsFixed(2).replaceAll('.', ',')} ${args.conversionEntity.toConvertCrypto.symbol.toUpperCase()}'),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 45),
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/conversion_confirmation');
-                },
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    10,
-                  ),
-                ),
-                color: const Color.fromRGBO(224, 43, 87, 1),
-                minWidth: double.maxFinite,
-                height: 56,
-                child: const Text(
-                  'Concluir conversão',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+            ButtonConfirmConversion(
+              conversionEntity: args.conversionEntity,
             ),
           ],
         ),

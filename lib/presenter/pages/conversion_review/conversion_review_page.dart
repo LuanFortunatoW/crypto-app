@@ -1,4 +1,4 @@
-import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_args.dart';
+import 'conversion_review_args.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/conversion_review_body.dart';

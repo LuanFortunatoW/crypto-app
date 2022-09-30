@@ -1,7 +1,7 @@
-import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_args.dart';
-import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/bottom_sheet_amout_to_convert.dart';
 import 'package:flutter/material.dart';
 
+import '../convert_%20currency/convert_currency_args.dart';
+import '../convert_%20currency/widgets/bottom_sheet_amout_to_convert.dart';
 import 'widgets/body_convert_currency.dart';
 
 class ConvertCurrencyPage extends StatelessWidget {

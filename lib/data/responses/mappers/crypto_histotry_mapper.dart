@@ -1,4 +1,4 @@
-import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
+import '../../../domain/entities/crypto_history_entity.dart';
 
 import '../get_crypto_history_response.dart';
 

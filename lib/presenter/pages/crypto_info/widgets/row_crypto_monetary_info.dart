@@ -1,4 +1,4 @@
-import 'package:crypto_app/shared/controllers/visibility_provider.dart';
+import '../../../../shared/controllers/visibility_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
