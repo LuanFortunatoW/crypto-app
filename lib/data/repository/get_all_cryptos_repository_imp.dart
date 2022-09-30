@@ -1,13 +1,17 @@
-import '../../domain/entities/wallet_entity.dart';
 import '../../domain/repositories/get_all_cryptos_repository.dart';
-import '../datasource/get_all_cryptos_datasource.dart';
+import '../enpoint/get_all_cryptos_enpoint.dart';
+import '../responses/crypto_response.dart';
+import '../responses/get_all_crypto_response.dart';
 
 class GetAllCryptoRepositoryImp implements GetAllCryptosRepository {
-  final GetAllCryptosDatasource _datasource;
+  final GetAllCryptosEnpoint _datasource;
   GetAllCryptoRepositoryImp(this._datasource);
 
   @override
-  WalletEntity getAllCryptos() {
-    return _datasource.getAllCryptos();
+  Future<GetAllCryptosResponse> getAllCryptos() async {
+    final respose = await _datasource.getAllCryptos();
+    return GetAllCryptosResponse(List.from(respose.data)
+        .map((e) => CryptoResponse.fromJson(e))
+        .toList());
   }
 }

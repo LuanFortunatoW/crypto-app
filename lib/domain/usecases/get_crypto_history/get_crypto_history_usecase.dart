@@ -1,5 +1,5 @@
-import '../../entities/crypto_entity.dart';
+import '../../entities/crypto_history_entity.dart';
 
 abstract class GetCryptoHistoryUsecase {
-  Map<DateTime, CryptoEntity> getCryptoHistory(CryptoEntity cryptoEntity);
+  Future<List<CryptoHistoryEntity>> getCryptoHistory(String id);
 }

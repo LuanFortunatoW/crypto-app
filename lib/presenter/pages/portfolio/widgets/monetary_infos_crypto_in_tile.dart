@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 import 'icon_arrow_right.dart';
 import '../../../../domain/entities/wallet_crypto_entity.dart';
-import '../../../controllers/visibility/visibility_provider.dart';
+import '../../../../shared/controllers/visibility_provider.dart';
 
 class MonetaryInfosCryptoInTile extends HookConsumerWidget {
   const MonetaryInfosCryptoInTile({
@@ -56,7 +56,7 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
               child: Text(
                 '${NumberFormat.decimalPattern().format(
                   walletCryptoEntity.quantity.toDouble(),
-                )} ${walletCryptoEntity.crypto.initials}',
+                )} ${walletCryptoEntity.crypto.symbol.toUpperCase()}',
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.grey.shade800,
@@ -66,9 +66,7 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
             ),
           ],
         ),
-        IconArrowRight(
-          walletCryptoEntity: walletCryptoEntity,
-        ),
+        const IconArrowRight(),
       ],
     );
   }

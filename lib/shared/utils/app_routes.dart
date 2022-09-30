@@ -1,3 +1,4 @@
+import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/crypto_info_page.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,10 @@ class GeneratedRoutes {
         transitionDuration: const Duration(microseconds: 0),
       );
     } else if (settings.name == '/crypto_info') {
+      final args = settings.arguments as CryptoInfoArgs;
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
-            const CryptoInfoPage(),
+            CryptoInfoPage(args: args),
         settings: settings,
       );
     }

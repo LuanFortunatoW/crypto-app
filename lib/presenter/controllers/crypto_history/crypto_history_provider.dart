@@ -1,14 +1,18 @@
-import 'package:crypto_app/presenter/controllers/crypto_history/crypto_history_notifier.dart';
+import 'package:crypto_app/domain/entities/crypto_history_entity.dart';
+import 'package:crypto_app/shared/controllers/coingecko_baseurl_provider.dart';
+import 'package:crypto_app/shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../data/datasource/sources/local/get_crypto_history_datasource_local_imp.dart';
+import '../../../data/enpoint/endpoints/get_crypto_history_remote_endpoint_imp.dart';
 import '../../../data/repository/get_crypto_history_repository_imp.dart';
-import '../../../domain/entities/crypto_entity.dart';
 import '../../../domain/usecases/get_crypto_history/get_crypto_history_usecase_imp.dart';
 
 final cryptoHistoryDatasourceProvider = StateProvider(
   (ref) {
-    return GetCryptoHistoryDatasourceLocalImp();
+    return GetCryptoHistoryRemoteEndpointImp(
+      ref.watch(dioProvider),
+      ref.watch(coingeckoBaseUrl),
+    );
   },
 );
 
@@ -26,9 +30,6 @@ final cryptoHistoryUsecaseProvider = StateProvider(
   },
 );
 
-final cryptoHistoryProvider =
-    StateNotifierProvider<CryptoHistoryNotifier, Map<DateTime, CryptoEntity>>(
-  (ref) {
-    return CryptoHistoryNotifier(ref.watch(cryptoHistoryUsecaseProvider));
-  },
-);
+final cryptoHistoryProvider = FutureProvider.autoDispose
+    .family<List<CryptoHistoryEntity>, String>((ref, id) =>
+        ref.read(cryptoHistoryUsecaseProvider).getCryptoHistory(id));

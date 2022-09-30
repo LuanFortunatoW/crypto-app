@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'button_change_visibility.dart';
+import '../../../../shared/widgets/button_change_visibility.dart';
 import 'total_wallet_value.dart';
 
 class TopPortfolioPage extends StatelessWidget {

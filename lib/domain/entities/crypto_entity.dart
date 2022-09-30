@@ -1,15 +1,17 @@
 import 'package:decimal/decimal.dart';
 
 class CryptoEntity {
+  String id;
   String image;
   String name;
-  String initials;
-  Decimal price;
+  String symbol;
+  Decimal currentPrice;
 
   CryptoEntity({
-    required this.initials,
+    required this.id,
     required this.image,
     required this.name,
-    required this.price,
+    required this.symbol,
+    required this.currentPrice,
   });
 }

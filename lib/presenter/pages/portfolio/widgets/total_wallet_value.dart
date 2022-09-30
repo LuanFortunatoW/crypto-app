@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../controllers/cryptos/cryptos_provider.dart';
-import '../../../controllers/visibility/visibility_provider.dart';
+import '../../../../shared/controllers/visibility_provider.dart';
 
 class TotalWalletValue extends HookConsumerWidget {
   const TotalWalletValue({
@@ -12,7 +13,7 @@ class TotalWalletValue extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final wallet = ref.watch(cryptoNotifierProvider);
+    final wallet = ref.watch(cryptosProvider);
     final visibility = ref.watch(visibilityProvider);
 
     return Visibility(
@@ -25,13 +26,30 @@ class TotalWalletValue extends HookConsumerWidget {
           borderRadius: BorderRadius.circular(15),
         ),
       ),
-      child: Text(
-        NumberFormat.currency(symbol: 'R\$', decimalDigits: 2).format(
-          wallet.getWalletValue().toDouble(),
-        ),
-        style: const TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.w900,
+      child: wallet.when(
+        data: (data) {
+          return Text(
+            NumberFormat.currency(symbol: 'R\$', decimalDigits: 2).format(
+              data.getWalletValue().toDouble(),
+            ),
+            style: const TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w900,
+            ),
+          );
+        },
+        error: (error, stackTrace) => Container(),
+        loading: () => Shimmer.fromColors(
+          baseColor: Colors.grey.shade300,
+          highlightColor: Colors.grey.shade100,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            height: 34,
+            width: MediaQuery.of(context).size.width * 0.5,
+          ),
         ),
       ),
     );

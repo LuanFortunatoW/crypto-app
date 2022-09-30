@@ -1,3 +1,4 @@
+import 'package:crypto_app/shared/controllers/visibility_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -15,6 +16,7 @@ class RowCryptoMonetaryInfo extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final visibility = ref.watch(visibilityProvider);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
@@ -27,11 +29,22 @@ class RowCryptoMonetaryInfo extends HookConsumerWidget {
               color: Color.fromRGBO(117, 118, 128, 1),
             ),
           ),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 19,
-              color: color,
+          Visibility(
+            replacement: Container(
+              width: MediaQuery.of(context).size.width * 0.3,
+              height: 24,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(15),
+              ),
+            ),
+            visible: visibility,
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: 19,
+                color: color,
+              ),
             ),
           ),
         ],

@@ -1,13 +1,17 @@
+import 'package:crypto_app/domain/entities/wallet_entity.dart';
+import 'package:crypto_app/shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../data/datasource/sources/local/get_all_cryptos_datasource_local_imp.dart';
+import '../../../data/enpoint/endpoints/get_all_cryptos_remote_endpoint_imp.dart';
 import '../../../data/repository/get_all_cryptos_repository_imp.dart';
-import '../../../domain/entities/wallet_entity.dart';
 import '../../../domain/usecases/get_all_cryptos_usecase/get_all_cryptos_usecase_imp.dart';
-import 'cryptos_notifier.dart';
+import '../../../shared/controllers/coingecko_baseurl_provider.dart';
 
 final cryptosDatasourceProvider = StateProvider((ref) {
-  return GetAllCryptosLocalDatasourceImp();
+  return GetAllCryptosRemoteEndpointImp(
+    ref.watch(dioProvider),
+    ref.watch(coingeckoBaseUrl),
+  );
 });
 
 final cryptoRepositoryProvider = StateProvider((ref) {
@@ -18,7 +22,6 @@ final cryptoUsecaseProvider = StateProvider((ref) {
   return GetAllCryptosUsecaseImp(ref.watch(cryptoRepositoryProvider));
 });
 
-final cryptoNotifierProvider =
-    StateNotifierProvider<CryptosNotifier, WalletEntity>((ref) {
-  return CryptosNotifier(ref.watch(cryptoUsecaseProvider));
+final cryptosProvider = FutureProvider.autoDispose<WalletEntity>((ref) {
+  return ref.watch(cryptoUsecaseProvider).getAllCryptos();
 });

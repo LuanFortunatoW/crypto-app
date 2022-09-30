@@ -1,5 +1,5 @@
-import '../entities/wallet_entity.dart';
+import '../../data/responses/get_all_crypto_response.dart';
 
 abstract class GetAllCryptosRepository {
-  WalletEntity getAllCryptos();
+  Future<GetAllCryptosResponse> getAllCryptos();
 }
