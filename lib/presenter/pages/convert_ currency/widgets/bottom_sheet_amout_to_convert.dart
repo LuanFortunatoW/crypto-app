@@ -1,5 +1,7 @@
+import 'package:crypto_app/domain/entities/conversion_entity.dart';
 import 'package:crypto_app/domain/entities/crypto_entity.dart';
 import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
+import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_args.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -78,7 +80,19 @@ class BottomSheetAmountToConvert extends HookConsumerWidget {
           IgnorePointer(
             ignoring: !convertValidation,
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/conversion_review',
+                  arguments: ConversionReviewArgs(
+                    conversionEntity: ConversionEntity(
+                      convertedCrypto: convertedCurrency.crypto,
+                      toConvertCrypto: toConvertCurrency.crypto,
+                      quantity: convertQuantity,
+                    ),
+                  ),
+                );
+              },
               backgroundColor: convertValidation
                   ? const Color.fromRGBO(224, 43, 87, 1)
                   : const Color.fromRGBO(201, 202, 212, 1),

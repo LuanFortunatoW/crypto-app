@@ -33,14 +33,21 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextField(
-          keyboardType: TextInputType.number,
+          keyboardType: const TextInputType.numberWithOptions(
+            decimal: true,
+          ),
           controller: quantityController,
           inputFormatters: [
             FilteringTextInputFormatter.allow(
-              RegExp(r'^(\d+)?,?\d{0,10}'),
+              RegExp(r'^(\d+)?.?,?\d{0,10}'),
             ),
           ],
           decoration: InputDecoration(
+            prefixText: '${convertedCurrency.crypto.symbol.toUpperCase()} ',
+            prefixStyle: const TextStyle(
+              fontSize: 31,
+              color: Colors.black,
+            ),
             helperText: getValueHelper(
               convertedCurrency.crypto.currentPrice,
               convertQuantity.state,
@@ -49,15 +56,21 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
               color: Color.fromRGBO(117, 118, 128, 1),
               fontSize: 15,
             ),
-            hintText: '${convertedCurrency.crypto.symbol.toUpperCase()} 0,00',
+            hintText: '0,00',
             hintStyle: const TextStyle(
               fontSize: 31,
               color: Color.fromRGBO(149, 153, 166, 1),
             ),
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black,
+                width: 2,
+              ),
+            ),
           ),
           style: const TextStyle(
             fontSize: 31,
-            color: Color.fromRGBO(149, 153, 166, 1),
+            color: Colors.black,
           ),
           onChanged: (value) {
             if (quantityController.text != '') {
