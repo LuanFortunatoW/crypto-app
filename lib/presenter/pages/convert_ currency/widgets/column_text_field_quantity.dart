@@ -70,7 +70,7 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
                     ref.read(toConvertCurrencyProvider),
                   );
             } else {
-              ref.read(convertValidationProvider.notifier).setFalse();
+              ref.read(convertValidationProvider.notifier).setStatus(false);
               convertQuantity.state = 0;
             }
           },
