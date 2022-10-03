@@ -1,3 +1,5 @@
+import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_args.dart';
+import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_page.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/crypto_info_page.dart';
 import 'package:flutter/material.dart';
@@ -7,24 +9,31 @@ import '../../presenter/pages/transactions/transactions_page.dart';
 
 class GeneratedRoutes {
   static Route<dynamic>? generateRoute(settings) {
-    if (settings.name == '/portfolio') {
+    if (settings.name == PortfolioPage.route) {
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             const PortfolioPage(),
         settings: settings,
       );
-    } else if (settings.name == '/transactions') {
+    } else if (settings.name == TransactionsPage.route) {
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             const TransactionsPage(),
         settings: settings,
         transitionDuration: const Duration(microseconds: 0),
       );
-    } else if (settings.name == '/crypto_info') {
+    } else if (settings.name == CryptoInfoPage.route) {
       final args = settings.arguments as CryptoInfoArgs;
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             CryptoInfoPage(args: args),
+        settings: settings,
+      );
+    } else if (settings.name == ConvertCurrencyPage.route) {
+      final args = settings.arguments as ConvertCurrencyArgs;
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ConvertCurrencyPage(args: args),
         settings: settings,
       );
     }

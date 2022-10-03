@@ -1,3 +1,4 @@
+import 'package:crypto_app/domain/entities/crypto_entity.dart';
 import 'package:decimal/decimal.dart';
 
 import 'wallet_crypto_entity.dart';
@@ -12,5 +13,20 @@ class WalletEntity {
       total += crypto.getValueQuantityCrypto();
     }
     return total;
+  }
+
+  CryptoEntity getFirstDiferentCrypto(CryptoEntity cryptoEntity) {
+    return cryptos
+        .where((walletCryptoEntity) =>
+            walletCryptoEntity.crypto.id != cryptoEntity.id)
+        .first
+        .crypto;
+  }
+
+  WalletCryptoEntity getWalletCryptoEntityById(CryptoEntity cryptoEntity) {
+    return cryptos
+        .where((walletCryptoEntity) =>
+            walletCryptoEntity.crypto.id == cryptoEntity.id)
+        .first;
   }
 }

@@ -15,4 +15,8 @@ class WalletCryptoEntity {
     double cryptoValue = quantity * crypto.currentPrice.toDouble();
     return Decimal.parse('$cryptoValue');
   }
+
+  bool getValidBalance(Decimal value) {
+    return value < getValueQuantityCrypto() && value > Decimal.zero;
+  }
 }
