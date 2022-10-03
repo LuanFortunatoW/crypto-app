@@ -11,11 +11,11 @@ class ListViewTransacitons extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final transactions = ref.watch(allTransactionsProvider);
+    final transactions = ref.watch(allTransactionsProvider.state);
 
     return Expanded(
       child: ListView.separated(
-        itemCount: transactions.length,
+        itemCount: transactions.state.length,
         separatorBuilder: (context, index) {
           return const Divider(
             indent: 16,
@@ -24,7 +24,7 @@ class ListViewTransacitons extends HookConsumerWidget {
           );
         },
         itemBuilder: (context, index) {
-          ConversionEntity conversion = transactions[index];
+          ConversionEntity conversion = transactions.state[index];
           return ListTile(
             title: Text(
               '${conversion.quantity} ${conversion.convertedCrypto.symbol.toUpperCase()}',

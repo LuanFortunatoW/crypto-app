@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,6 +12,7 @@ class BottomNavigationBarApp extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pagesController = ref.watch(pageProvider.state);
+    final localizations = AppLocalizations.of(context)!;
 
     return BottomNavigationBar(
       currentIndex: pagesController.state,
@@ -36,7 +38,7 @@ class BottomNavigationBarApp extends HookConsumerWidget {
           activeIcon: ImageIcon(
             Image.asset('assets/icons/Subtract.png').image,
           ),
-          label: 'Portfólio',
+          label: localizations.portfolio,
           icon: ImageIcon(
             Image.asset('assets/icons/Subtract_Inative.png').image,
           ),
@@ -45,7 +47,7 @@ class BottomNavigationBarApp extends HookConsumerWidget {
           activeIcon: ImageIcon(
             Image.asset('assets/icons/Union.png').image,
           ),
-          label: 'Movimentações',
+          label: localizations.transactions,
           icon: ImageIcon(
             Image.asset('assets/icons/Union_Inative.png').image,
           ),

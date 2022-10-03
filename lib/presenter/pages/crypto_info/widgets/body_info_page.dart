@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../details_args.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -21,6 +23,7 @@ class BodyInfoPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final localization = AppLocalizations.of(context)!;
     final price = ref.watch(priceInChartProvider);
     final variation = ref.watch(variationInChartProvider);
     final walletCryptoEntity = args.walletCryptoEntity;
@@ -41,7 +44,7 @@ class BodyInfoPage extends HookConsumerWidget {
             ),
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
-              label: 'Preço atual',
+              label: localization.currentPrice,
               text: NumberFormat.currency(symbol: 'R\$').format(
                 double.parse(
                   price.toString(),
@@ -51,21 +54,21 @@ class BodyInfoPage extends HookConsumerWidget {
             ),
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
-              label: 'Variação 24h',
+              label: localization.lastDayVariation,
               text: NumberFormat.decimalPercentPattern(decimalDigits: 2)
                   .format(variation),
               color: variation < 0 ? Colors.red : Colors.green,
             ),
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
-              label: 'Quantidade',
+              label: localization.quantity,
               text:
                   '${NumberFormat.decimalPattern().format(walletCryptoEntity.quantity)} ${walletCryptoEntity.crypto.symbol.toUpperCase()}',
               color: Colors.black,
             ),
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
-              label: 'Valor',
+              label: localization.value,
               text: NumberFormat.currency(symbol: 'R\$').format(
                   walletCryptoEntity.getValueQuantityCrypto().toDouble()),
               color: Colors.black,

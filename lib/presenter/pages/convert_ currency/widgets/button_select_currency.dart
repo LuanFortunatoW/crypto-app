@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../../domain/entities/wallet_entity.dart';
 import '../../../controllers/currency_convert/convert_quantity_provider.dart';
 import '../../../controllers/currency_convert/to_convert_currency.dart';
@@ -41,11 +43,12 @@ class ButtonSelectCurrency extends HookConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 30, left: 16, bottom: 16),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 30, left: 16, bottom: 16),
                     child: Text(
-                      'Escolha uma moeda para converter',
-                      style: TextStyle(
+                      AppLocalizations.of(context)!.selectCurrency,
+                      style: const TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),

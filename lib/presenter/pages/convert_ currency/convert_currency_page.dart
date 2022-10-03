@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../convert_%20currency/convert_currency_args.dart';
@@ -15,9 +16,9 @@ class ConvertCurrencyPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 1,
-        title: const Text(
-          'Converter Moeda',
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.convertCurrency,
+          style: const TextStyle(
             fontSize: 21,
             fontWeight: FontWeight.bold,
           ),

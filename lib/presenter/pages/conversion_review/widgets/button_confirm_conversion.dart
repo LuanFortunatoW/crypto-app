@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../../domain/entities/conversion_entity.dart';
 import '../../../controllers/transactions/all_transactions_provider.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +32,9 @@ class ButtonConfirmConversion extends HookConsumerWidget {
         color: const Color.fromRGBO(224, 43, 87, 1),
         minWidth: double.maxFinite,
         height: 56,
-        child: const Text(
-          'Concluir conversão',
-          style: TextStyle(
+        child: Text(
+          AppLocalizations.of(context)!.completeConversion,
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),

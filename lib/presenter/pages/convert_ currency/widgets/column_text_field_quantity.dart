@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../controllers/currency_convert/to_convert_currency.dart';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
@@ -91,11 +93,11 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
         Visibility(
           visible: quantityController.text != '' &&
               convertQuantity.state > convertedCurrency.quantity,
-          child: const Padding(
-            padding: EdgeInsets.only(top: 8),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8),
             child: Text(
-              'Valor maior que o saldo disponível',
-              style: TextStyle(
+              AppLocalizations.of(context)!.greaterThanBalance,
+              style: const TextStyle(
                 color: Color.fromRGBO(224, 43, 87, 1),
                 fontSize: 15,
               ),

@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import 'details_args.dart';
 import '../../../shared/widgets/button_change_visibility.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +15,9 @@ class CryptoInfoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        title: const Text(
-          'Detalhes',
-          style: TextStyle(
+        title: Text(
+          AppLocalizations.of(context)!.details,
+          style: const TextStyle(
             fontSize: 21,
             fontWeight: FontWeight.bold,
           ),
