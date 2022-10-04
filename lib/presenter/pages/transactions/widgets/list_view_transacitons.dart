@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -54,7 +55,7 @@ class ListViewTransacitons extends HookConsumerWidget {
                 ),
                 Text(
                   NumberFormat.currency(
-                    symbol: 'R\$ ',
+                    symbol: AppLocalizations.of(context)!.monetarySymbol,
                     decimalDigits: 2,
                   ).format(
                     (Decimal.parse(conversion.quantity.toString()) *

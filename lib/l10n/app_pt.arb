@@ -1,4 +1,6 @@
 {
+  "monetarySymbol" : "R$",
+  "monetaryAbbreviation" : "brl",
   "portfolio": "Portfólio",
   "transactions": "Movimentações",
   "mainTitle": "Cripto",

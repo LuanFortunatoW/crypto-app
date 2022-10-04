@@ -8,11 +8,11 @@ class GetAllCryptosRemoteEndpointImp implements GetAllCryptosEnpoint {
   GetAllCryptosRemoteEndpointImp(this._dio, this._url);
 
   @override
-  Future<Response> getAllCryptos() async {
+  Future<Response> getAllCryptos(String vsCurrency) async {
     return await _dio.get(
       '$_url/coins/markets',
       queryParameters: {
-        'vs_currency': 'brl',
+        'vs_currency': vsCurrency,
       },
     );
   }

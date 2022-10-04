@@ -5,6 +5,12 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get monetarySymbol => 'R\$';
+
+  @override
+  String get monetaryAbbreviation => 'brl';
+
+  @override
   String get portfolio => 'Portfólio';
 
   @override

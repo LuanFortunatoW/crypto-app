@@ -16,8 +16,9 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
     Key? key,
   }) : super(key: key);
 
-  String getValueHelper(Decimal value, double quantity) {
-    return NumberFormat.currency(symbol: 'R\$')
+  String getValueHelper(Decimal value, double quantity, context) {
+    return NumberFormat.currency(
+            symbol: AppLocalizations.of(context)!.monetarySymbol)
         .format(
           double.parse(value.toString()) * quantity,
         )
@@ -50,10 +51,8 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
               fontSize: 31,
               color: Colors.black,
             ),
-            helperText: getValueHelper(
-              convertedCurrency.crypto.currentPrice,
-              convertQuantity.state,
-            ),
+            helperText: getValueHelper(convertedCurrency.crypto.currentPrice,
+                convertQuantity.state, context),
             helperStyle: const TextStyle(
               color: Color.fromRGBO(117, 118, 128, 1),
               fontSize: 15,

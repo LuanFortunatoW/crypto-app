@@ -45,7 +45,9 @@ class BodyInfoPage extends HookConsumerWidget {
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
               label: localization.currentPrice,
-              text: NumberFormat.currency(symbol: 'R\$').format(
+              text: NumberFormat.currency(
+                      symbol: AppLocalizations.of(context)!.monetarySymbol)
+                  .format(
                 double.parse(
                   price.toString(),
                 ),
@@ -69,8 +71,10 @@ class BodyInfoPage extends HookConsumerWidget {
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
               label: localization.value,
-              text: NumberFormat.currency(symbol: 'R\$').format(
-                  walletCryptoEntity.getValueQuantityCrypto().toDouble()),
+              text: NumberFormat.currency(
+                      symbol: AppLocalizations.of(context)!.monetarySymbol)
+                  .format(
+                      walletCryptoEntity.getValueQuantityCrypto().toDouble()),
               color: Colors.black,
             ),
             ButtonConvertCurrency(

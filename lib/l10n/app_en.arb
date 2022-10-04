@@ -1,4 +1,12 @@
 {
+  "monetarySymbol" : "$",
+  "@monetarySymbol" : {
+    "description" : "represents the default currency used on a language"
+  },
+  "monetaryAbbreviation" : "usd",
+  "@monetaryAbbreviation" : {
+    "description" : "represents the default currency used on a language abbreviated"
+  },
   "portfolio" : "Portfolio",
   "@portfolio" : {
     "description" : "Name of th page containing all cryptos"

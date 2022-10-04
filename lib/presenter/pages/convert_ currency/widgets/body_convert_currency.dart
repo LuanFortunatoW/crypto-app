@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../../controllers/cryptos/cryptos_provider.dart';
 import '../../../controllers/currency_convert/converted_currency.dart';
@@ -34,7 +36,8 @@ class _BodyConvertCurrencyPageState
 
   @override
   Widget build(BuildContext context) {
-    final allCryptos = ref.watch(cryptosProvider);
+    final allCryptos = ref.watch(
+        cryptosProvider(AppLocalizations.of(context)!.monetaryAbbreviation));
 
     return allCryptos.when(
       data: (data) {
@@ -53,7 +56,8 @@ class _BodyConvertCurrencyPageState
         );
       },
       error: (error, stackTrace) => DefaultErrorPage(
-        onPressed: () => ref.refresh(cryptosProvider),
+        onPressed: () => ref.refresh(cryptosProvider(
+            AppLocalizations.of(context)!.monetaryAbbreviation)),
       ),
       loading: () => Container(),
     );

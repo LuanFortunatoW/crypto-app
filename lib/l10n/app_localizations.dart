@@ -93,6 +93,18 @@ abstract class AppLocalizations {
     Locale('pt')
   ];
 
+  /// represents the default currency used on a language
+  ///
+  /// In en, this message translates to:
+  /// **'\$'**
+  String get monetarySymbol;
+
+  /// represents the default currency used on a language abbreviated
+  ///
+  /// In en, this message translates to:
+  /// **'usd'**
+  String get monetaryAbbreviation;
+
   /// Name of th page containing all cryptos
   ///
   /// In en, this message translates to:

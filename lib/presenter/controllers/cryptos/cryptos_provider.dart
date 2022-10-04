@@ -22,6 +22,7 @@ final cryptoUsecaseProvider = StateProvider((ref) {
   return GetAllCryptosUsecaseImp(ref.watch(cryptoRepositoryProvider));
 });
 
-final cryptosProvider = FutureProvider.autoDispose<WalletEntity>((ref) {
-  return ref.watch(cryptoUsecaseProvider).getAllCryptos();
+final cryptosProvider =
+    FutureProvider.autoDispose.family<WalletEntity, String>((ref, vsCurrency) {
+  return ref.watch(cryptoUsecaseProvider).getAllCryptos(vsCurrency);
 });
