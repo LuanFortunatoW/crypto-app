@@ -35,7 +35,9 @@ class ListViewTransacitons extends HookConsumerWidget {
               ),
             ),
             subtitle: Text(
-              DateFormat.yMd().format(conversion.date).toString(),
+              DateFormat.yMd(AppLocalizations.of(context)!.languageSymbol)
+                  .format(conversion.date)
+                  .toString(),
               style: const TextStyle(
                 fontSize: 15,
                 color: Color.fromRGBO(117, 118, 128, 1),

@@ -5,6 +5,9 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get languageSymbol => 'pt';
+
+  @override
   String get monetarySymbol => 'R\$';
 
   @override
@@ -75,4 +78,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get conversionPerformedLong => 'Conversão efetuada com sucesso!';
+
+  @override
+  String get loadingError => 'Erro ao Carregar';
+
+  @override
+  String get tryAgain => 'Tentar novamente';
 }

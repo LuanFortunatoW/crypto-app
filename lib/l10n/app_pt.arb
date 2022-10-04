@@ -1,4 +1,5 @@
 {
+  "languageSymbol" : "pt",
   "monetarySymbol" : "R$",
   "monetaryAbbreviation" : "brl",
   "portfolio": "Portfólio",
@@ -22,5 +23,7 @@
   "exchange":  "Câmbio",
   "completeConversion" : "Coompletar Conversão",
   "conversionPerformed": "Conversão efetuada",
-  "conversionPerformedLong": "Conversão efetuada com sucesso!"
+  "conversionPerformedLong": "Conversão efetuada com sucesso!",
+  "loadingError" : "Erro ao Carregar",
+  "tryAgain" : "Tentar novamente"
 }

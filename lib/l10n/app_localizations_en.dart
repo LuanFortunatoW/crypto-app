@@ -5,6 +5,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get languageSymbol => 'en';
+
+  @override
   String get monetarySymbol => '\$';
 
   @override
@@ -75,4 +78,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get conversionPerformedLong => 'Currency conversion performed successfully!';
+
+  @override
+  String get loadingError => 'Loading Error';
+
+  @override
+  String get tryAgain => 'Try Again';
 }

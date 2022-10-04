@@ -5,9 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'app_widget.dart';
 
 void main() {
-  // Intl.defaultLocale = 'pt_BR';
-  // initializeDateFormatting('pt_BR', null).then(
-  // (_) =>
   runApp(
     ProviderScope(
       child: DevicePreview(
@@ -16,5 +13,4 @@ void main() {
       ),
     ),
   );
-  // );
 }

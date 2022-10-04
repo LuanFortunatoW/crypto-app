@@ -93,6 +93,12 @@ abstract class AppLocalizations {
     Locale('pt')
   ];
 
+  /// Defines the language abbreviation, used for dateTimeFormat mainly
+  ///
+  /// In en, this message translates to:
+  /// **'en'**
+  String get languageSymbol;
+
   /// represents the default currency used on a language
   ///
   /// In en, this message translates to:
@@ -236,6 +242,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Currency conversion performed successfully!'**
   String get conversionPerformedLong;
+
+  /// Message shown when there is an error tryiong to loading some part of the app
+  ///
+  /// In en, this message translates to:
+  /// **'Loading Error'**
+  String get loadingError;
+
+  /// Message to demonstrate to the user that it can try to load the screen again
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

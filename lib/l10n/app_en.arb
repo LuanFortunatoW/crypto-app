@@ -1,4 +1,8 @@
 {
+  "languageSymbol" : "en",
+  "@languageSymbol" : {
+    "description" : "Defines the language abbreviation, used for dateTimeFormat mainly"
+  },
   "monetarySymbol" : "$",
   "@monetarySymbol" : {
     "description" : "represents the default currency used on a language"
@@ -94,5 +98,13 @@
   "conversionPerformedLong" : "Currency conversion performed successfully!",
   "@conversionPerformedLong" : {
     "description" : "Small phrase to describe that the conversion was completed"
+  },
+  "loadingError" : "Loading Error",
+  "@loadingError" : {
+    "description" : "Message shown when there is an error tryiong to loading some part of the app"
+  },
+  "tryAgain" : "Try Again",
+  "@tryAgain" : {
+    "description" : "Message to demonstrate to the user that it can try to load the screen again"
   }
 }
