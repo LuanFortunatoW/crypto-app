@@ -93,136 +93,136 @@ abstract class AppLocalizations {
     Locale('pt')
   ];
 
-  /// No description provided for @portfolio.
+  /// Name of th page containing all cryptos
   ///
-  /// In pt, this message translates to:
-  /// **'Portfólio'**
+  /// In en, this message translates to:
+  /// **'Portfolio'**
   String get portfolio;
 
-  /// No description provided for @transactions.
+  /// Name of the page containing all transactions
   ///
-  /// In pt, this message translates to:
-  /// **'Movimentações'**
+  /// In en, this message translates to:
+  /// **'Transactions'**
   String get transactions;
 
-  /// No description provided for @mainTitle.
+  /// Main title on front page
   ///
-  /// In pt, this message translates to:
-  /// **'Cripto'**
+  /// In en, this message translates to:
+  /// **'Crypto'**
   String get mainTitle;
 
-  /// No description provided for @portfolioTotalTitle.
+  /// Label to describe the total value on portfolio page
   ///
-  /// In pt, this message translates to:
-  /// **'Valor total de moedas'**
+  /// In en, this message translates to:
+  /// **'Total currency value'**
   String get portfolioTotalTitle;
 
-  /// No description provided for @details.
+  /// Give more information
   ///
-  /// In pt, this message translates to:
-  /// **'Detalhes'**
+  /// In en, this message translates to:
+  /// **'Details'**
   String get details;
 
-  /// No description provided for @currentPrice.
+  /// Describe the price at the moment
   ///
-  /// In pt, this message translates to:
-  /// **'Preço atual'**
+  /// In en, this message translates to:
+  /// **'Current Price'**
   String get currentPrice;
 
-  /// No description provided for @lastDayVariation.
+  /// Represents the change in the last 24 hours cycle
   ///
-  /// In pt, this message translates to:
-  /// **'Variação 24h'**
+  /// In en, this message translates to:
+  /// **'24h Variation'**
   String get lastDayVariation;
 
-  /// No description provided for @quantity.
+  /// Describe the amount of something
   ///
-  /// In pt, this message translates to:
-  /// **'Quantidade'**
+  /// In en, this message translates to:
+  /// **'Quantity'**
   String get quantity;
 
-  /// No description provided for @value.
+  /// Represents how much something costs
   ///
-  /// In pt, this message translates to:
-  /// **'Valor'**
+  /// In en, this message translates to:
+  /// **'Value'**
   String get value;
 
-  /// No description provided for @convertCurrency.
+  /// The act of change monetary values to another currency
   ///
-  /// In pt, this message translates to:
-  /// **'Converter Moeda'**
+  /// In en, this message translates to:
+  /// **'Convert Currency'**
   String get convertCurrency;
 
-  /// No description provided for @availableBalance.
+  /// The amount of crypto the user have
   ///
-  /// In pt, this message translates to:
+  /// In en, this message translates to:
   /// **'Available Balance'**
   String get availableBalance;
 
-  /// No description provided for @estimatedTotal.
+  /// Aproximate value after converting
   ///
-  /// In pt, this message translates to:
-  /// **'Total estimado'**
+  /// In en, this message translates to:
+  /// **'Estimated total'**
   String get estimatedTotal;
 
-  /// No description provided for @howMuchToConvert.
+  /// Label to instruct the user to type how many cryptos it will like to convert
   ///
-  /// In pt, this message translates to:
-  /// **'Quanto voçê gostaria de converter?'**
+  /// In en, this message translates to:
+  /// **'How much would you like to convert?'**
   String get howMuchToConvert;
 
-  /// No description provided for @selectCurrency.
+  /// Describe the currency that the user chose
   ///
-  /// In pt, this message translates to:
-  /// **'Selecione uma moeda para converter'**
+  /// In en, this message translates to:
+  /// **'Select a currency to convert'**
   String get selectCurrency;
 
-  /// No description provided for @greaterThanBalance.
+  /// Message to warn the user that the amount exceeds what it has
   ///
-  /// In pt, this message translates to:
-  /// **'Valor maior que o saldo disponível'**
+  /// In en, this message translates to:
+  /// **'Value greater than the available balance'**
   String get greaterThanBalance;
 
-  /// No description provided for @reviewConversionData.
+  /// Label to describe all the infomations about a conversion the user is about to make
   ///
-  /// In pt, this message translates to:
-  /// **'Revise os dados da sua conversão'**
+  /// In en, this message translates to:
+  /// **'Review your conversion data'**
   String get reviewConversionData;
 
-  /// No description provided for @convert.
+  /// Word to describe the exchange of a crypto for another
   ///
-  /// In pt, this message translates to:
-  /// **'Converter'**
+  /// In en, this message translates to:
+  /// **'Convert'**
   String get convert;
 
-  /// No description provided for @receive.
+  /// The amount the user is goin to receive on conversion
   ///
-  /// In pt, this message translates to:
-  /// **'Receber'**
+  /// In en, this message translates to:
+  /// **'Receive'**
   String get receive;
 
-  /// No description provided for @exchange.
+  /// Word to describe how much the trade costs
   ///
-  /// In pt, this message translates to:
-  /// **'Câmbio'**
+  /// In en, this message translates to:
+  /// **'Exchange'**
   String get exchange;
 
-  /// No description provided for @completeConversion.
+  /// Describe the act of finishig a conversion
   ///
-  /// In pt, this message translates to:
-  /// **'Coompletar Conversão'**
+  /// In en, this message translates to:
+  /// **'Complete Conversion'**
   String get completeConversion;
 
-  /// No description provided for @conversionPerformed.
+  /// Short title to describe thar the conversion was finished
   ///
-  /// In pt, this message translates to:
-  /// **'Conversão efetuada'**
+  /// In en, this message translates to:
+  /// **'Conversion performed'**
   String get conversionPerformed;
 
-  /// No description provided for @conversionPerformedLong.
+  /// Small phrase to describe that the conversion was completed
   ///
-  /// In pt, this message translates to:
-  /// **'Conversão efetuada com sucesso!'**
+  /// In en, this message translates to:
+  /// **'Currency conversion performed successfully!'**
   String get conversionPerformedLong;
 }
 
