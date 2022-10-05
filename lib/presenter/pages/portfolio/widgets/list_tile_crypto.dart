@@ -1,4 +1,4 @@
-import '../../crypto_info/details_args.dart';
+import '../../crypto_info/crypto_info_args.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

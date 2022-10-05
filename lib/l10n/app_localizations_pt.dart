@@ -44,7 +44,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get convertCurrency => 'Converter Moeda';
 
   @override
-  String get availableBalance => 'Available Balance';
+  String get availableBalance => 'Saldo disponível';
 
   @override
   String get estimatedTotal => 'Total estimado';

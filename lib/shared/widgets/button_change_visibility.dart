@@ -14,7 +14,7 @@ class ButtonChangeVisibility extends HookConsumerWidget {
     return IconButton(
       onPressed: () => visibility.state = !visibility.state,
       icon: visibility.state
-          ? const Icon(Icons.remove_red_eye)
+          ? const Icon(Icons.visibility)
           : const Icon(Icons.visibility_off),
     );
   }

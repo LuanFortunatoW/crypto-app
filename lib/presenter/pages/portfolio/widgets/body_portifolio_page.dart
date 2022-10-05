@@ -10,13 +10,16 @@ class BodyPortifolioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30),
-      child: Column(
-        children: const [
-          TopPortfolioPage(),
-          ListViewCryptos(),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            TopPortfolioPage(),
+            ListViewCryptos(),
+          ],
+        ),
       ),
     );
   }

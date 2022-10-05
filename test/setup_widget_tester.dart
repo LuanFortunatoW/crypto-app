@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,6 +12,8 @@ class SetupWidgetTester extends StatelessWidget {
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Material(
           child: MediaQuery(
             data: const MediaQueryData(),
@@ -27,4 +30,5 @@ Future<void> loadPage(WidgetTester tester, Widget child) async {
     child: child,
   );
   await tester.pumpWidget(widget);
+  await tester.pumpAndSettle();
 }

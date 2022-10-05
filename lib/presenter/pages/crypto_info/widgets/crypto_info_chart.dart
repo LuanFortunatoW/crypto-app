@@ -5,7 +5,7 @@ import '../../../controllers/chart_days_amount/chart_days_amount_provider.dart';
 import '../../../controllers/chart_subtitles/variation_in_chart_provider.dart';
 import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
 import '../../../controllers/crypto_history/crypto_history_provider.dart';
-import '../details_args.dart';
+import '../crypto_info_args.dart';
 import 'title_crypto_price.dart';
 import '../../../../shared/widgets/default_error_page.dart';
 import 'package:decimal/decimal.dart';

@@ -1,6 +1,6 @@
 import 'package:crypto_app/l10n/app_localizations.dart';
 
-import '../details_args.dart';
+import '../crypto_info_args.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';

@@ -3,7 +3,7 @@ import '../../presenter/pages/conversion_review/conversion_review_args.dart';
 import '../../presenter/pages/conversion_review/conversion_review_page.dart';
 import '../../presenter/pages/convert_%20currency/convert_currency_args.dart';
 import '../../presenter/pages/convert_%20currency/convert_currency_page.dart';
-import '../../presenter/pages/crypto_info/details_args.dart';
+import '../../presenter/pages/crypto_info/crypto_info_args.dart';
 import '../../presenter/pages/crypto_info/crypto_info_page.dart';
 import 'package:flutter/material.dart';
 
