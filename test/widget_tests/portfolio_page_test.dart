@@ -63,8 +63,8 @@ void main() {
           final listView = find.byType(ListView);
           final loadingListViewCrypto = find.byType(LoadingListViewCrypto);
           final defaultErrorPage = find.byType(DefaultErrorPage);
-          expect(listView, findsOneWidget);
-          expect(loadingListViewCrypto, findsOneWidget);
+          // expect(listView, findsOneWidget); //Não é encontrado quando da erro
+          // expect(loadingListViewCrypto, findsOneWidget); //Não é encontrado quando da erro
           expect(defaultErrorPage, findsOneWidget);
         },
       );
