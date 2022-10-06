@@ -33,11 +33,13 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextField(
-          keyboardType: TextInputType.number,
+          keyboardType: const TextInputType.numberWithOptions(
+            decimal: true,
+          ),
           controller: quantityController,
           inputFormatters: [
             FilteringTextInputFormatter.allow(
-              RegExp(r'^(\d+)?,?\d{0,10}'),
+              RegExp(r'^(\d+)?.?,?\d{0,10}'),
             ),
           ],
           decoration: InputDecoration(

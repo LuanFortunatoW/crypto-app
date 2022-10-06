@@ -1,3 +1,6 @@
+import 'package:crypto_app/presenter/pages/conversion_confirmation/conversion_confirmation_page.dart';
+import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_args.dart';
+import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_page.dart';
 import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_args.dart';
 import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_page.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/details_args.dart';
@@ -34,6 +37,19 @@ class GeneratedRoutes {
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             ConvertCurrencyPage(args: args),
+        settings: settings,
+      );
+    } else if (settings.name == '/conversion_review') {
+      final args = settings.arguments as ConversionReviewArgs;
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ConversionReviewPage(args: args),
+        settings: settings,
+      );
+    } else if (settings.name == '/conversion_confirmation') {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const ConversionConfirmationPage(),
         settings: settings,
       );
     }
