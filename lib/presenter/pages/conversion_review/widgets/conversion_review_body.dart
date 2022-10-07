@@ -1,3 +1,4 @@
+import 'package:crypto_app/presenter/pages/conversion_confirmation/conversion_confirmation_page.dart';
 import 'package:crypto_app/presenter/pages/conversion_review/widgets/row_info_conversion.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +62,8 @@ class ConversionReviewBody extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 45),
               child: MaterialButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/conversion_confirmation');
+                  Navigator.pushNamed(
+                      context, ConversionConfirmationPage.route);
                 },
                 elevation: 0,
                 shape: RoundedRectangleBorder(

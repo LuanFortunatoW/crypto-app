@@ -39,14 +39,14 @@ class GeneratedRoutes {
             ConvertCurrencyPage(args: args),
         settings: settings,
       );
-    } else if (settings.name == '/conversion_review') {
+    } else if (settings.name == ConversionReviewPage.route) {
       final args = settings.arguments as ConversionReviewArgs;
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             ConversionReviewPage(args: args),
         settings: settings,
       );
-    } else if (settings.name == '/conversion_confirmation') {
+    } else if (settings.name == ConversionConfirmationPage.route) {
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             const ConversionConfirmationPage(),

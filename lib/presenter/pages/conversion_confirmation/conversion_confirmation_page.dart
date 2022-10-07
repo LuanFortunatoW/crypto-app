@@ -5,6 +5,8 @@ import 'widgets/conversion_confirmation_body.dart';
 class ConversionConfirmationPage extends StatelessWidget {
   const ConversionConfirmationPage({Key? key}) : super(key: key);
 
+  static const route = '/conversion_confirmation';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

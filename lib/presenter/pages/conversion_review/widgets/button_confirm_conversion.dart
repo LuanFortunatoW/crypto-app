@@ -1,4 +1,5 @@
 import 'package:crypto_app/l10n/app_localizations.dart';
+import 'package:crypto_app/presenter/pages/conversion_confirmation/conversion_confirmation_page.dart';
 
 import '../../../../domain/entities/conversion_entity.dart';
 import '../../../controllers/transactions/all_transactions_provider.dart';
@@ -20,7 +21,7 @@ class ButtonConfirmConversion extends HookConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 45),
       child: MaterialButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/conversion_confirmation');
+          Navigator.pushNamed(context, ConversionConfirmationPage.route);
           transactions.state.add(conversionEntity);
         },
         elevation: 0,

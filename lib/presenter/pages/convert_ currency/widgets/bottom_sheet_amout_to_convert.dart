@@ -1,4 +1,5 @@
 import 'package:crypto_app/l10n/app_localizations.dart';
+import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_page.dart';
 
 import '../../../../domain/entities/conversion_entity.dart';
 import '../../../../domain/entities/crypto_entity.dart';
@@ -85,7 +86,7 @@ class BottomSheetAmountToConvert extends HookConsumerWidget {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  '/conversion_review',
+                  ConversionReviewPage.route,
                   arguments: ConversionReviewArgs(
                     conversionEntity: ConversionEntity(
                       convertedCrypto: convertedCurrency.crypto,

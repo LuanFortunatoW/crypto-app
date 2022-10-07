@@ -10,6 +10,7 @@ class ConversionReviewPage extends StatelessWidget {
   }) : super(key: key);
 
   final ConversionReviewArgs args;
+  static const route = '/conversion_review';
 
   @override
   Widget build(BuildContext context) {
