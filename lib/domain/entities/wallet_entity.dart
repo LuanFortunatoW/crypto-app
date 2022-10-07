@@ -5,6 +5,7 @@ import 'wallet_crypto_entity.dart';
 
 class WalletEntity {
   List<WalletCryptoEntity> cryptos;
+
   WalletEntity({required this.cryptos});
 
   Decimal getWalletValue() {

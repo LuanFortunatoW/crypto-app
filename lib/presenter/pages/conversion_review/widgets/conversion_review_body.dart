@@ -1,7 +1,7 @@
 import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-import '../../crypto_info/widgets/divider_crypto_info.dart';
+import '../../../../shared/widgets/divider_crypto_info.dart';
 import '../conversion_review_args.dart';
 import 'button_confirm_conversion.dart';
 import 'row_info_conversion.dart';

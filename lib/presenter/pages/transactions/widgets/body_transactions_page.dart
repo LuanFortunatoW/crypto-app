@@ -27,7 +27,9 @@ class BodyTransactionsPage extends StatelessWidget {
           height: 10,
           thickness: 1,
         ),
-        const ListViewTransacitons(),
+        const Expanded(
+          child: ListViewTransacitons(),
+        ),
       ],
     );
   }

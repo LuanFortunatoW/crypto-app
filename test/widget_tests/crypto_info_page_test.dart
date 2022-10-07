@@ -3,7 +3,7 @@ import 'package:crypto_app/presenter/pages/crypto_info/widgets/body_info_page.da
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/button_convert_currency.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/buttons_change_days_chart.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/crypto_info_chart.dart';
-import 'package:crypto_app/presenter/pages/crypto_info/widgets/divider_crypto_info.dart';
+import 'package:crypto_app/shared/widgets/divider_crypto_info.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/row_crypto_infos.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/row_crypto_monetary_info.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/title_crypto_price.dart';
@@ -26,7 +26,7 @@ void main() {
           await mockNetworkImagesFor(
             () => loadPage(
               tester,
-              CryptoInfoPage(args: DefaultModels.args),
+              CryptoInfoPage(args: DefaultModels.cryptoInfoArgs),
             ),
           );
 
@@ -44,7 +44,7 @@ void main() {
           await mockNetworkImagesFor(
             () => loadPage(
               tester,
-              BodyInfoPage(args: DefaultModels.args),
+              BodyInfoPage(args: DefaultModels.cryptoInfoArgs),
             ),
           );
 
@@ -66,7 +66,7 @@ void main() {
         (tester) async {
           await loadPage(
             tester,
-            RowCryptoInfos(walletCryptoEntity: DefaultModels.walletModel),
+            RowCryptoInfos(walletCryptoEntity: DefaultModels.walletModelBTC),
           );
 
           final texts = find.byType(Text);
@@ -82,18 +82,25 @@ void main() {
         (tester) async {
           await loadPage(
             tester,
-            CryptoInfoChart(args: DefaultModels.args),
+            CryptoInfoChart(args: DefaultModels.cryptoInfoArgs),
           );
 
           final lineChart = find.byType(LineChart);
-          final defaultErrorPage = find.byType(DefaultErrorPage);
           final titleCryptoPrice = find.byType(TitleCryptoPrice);
           final buttonsChangeDaysChart = find.byType(ButtonsChangeDaysChart);
+          final defaultErrorPage = find.byType(DefaultErrorPage);
 
-          // expect(lineChart, findsOneWidget); //Não é encontrado quando da erro
-          expect(defaultErrorPage, findsOneWidget);
-          // expect(titleCryptoPrice, findsOneWidget); //Não é encontrado quando da erro
-          // expect(buttonsChangeDaysChart, findsOneWidget); //Não é encontrado quando da erro
+          if (!lineChart.precache()) {
+            expect(lineChart, findsNothing);
+            expect(buttonsChangeDaysChart, findsNothing);
+            expect(titleCryptoPrice, findsNothing);
+            expect(defaultErrorPage, findsOneWidget);
+          } else {
+            expect(lineChart, findsOneWidget);
+            expect(buttonsChangeDaysChart, findsOneWidget);
+            expect(titleCryptoPrice, findsOneWidget);
+            expect(defaultErrorPage, findsNothing);
+          }
         },
       );
 

@@ -9,7 +9,7 @@ import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
 import '../../../controllers/chart_subtitles/variation_in_chart_provider.dart';
 import 'button_convert_currency.dart';
 import 'crypto_info_chart.dart';
-import 'divider_crypto_info.dart';
+import '../../../../shared/widgets/divider_crypto_info.dart';
 import 'row_crypto_infos.dart';
 import 'row_crypto_monetary_info.dart';
 

@@ -11,8 +11,8 @@ import '../../../controllers/convertion_validation/convert_validation_provider.d
 import '../../../controllers/currency_convert/convert_quantity_provider.dart';
 import '../../../controllers/currency_convert/converted_currency.dart';
 
-class ColmunTextFieldQuantity extends HookConsumerWidget {
-  ColmunTextFieldQuantity({
+class ColumnTextFieldQuantity extends HookConsumerWidget {
+  ColumnTextFieldQuantity({
     Key? key,
   }) : super(key: key);
 

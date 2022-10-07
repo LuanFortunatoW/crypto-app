@@ -49,7 +49,7 @@ class _BodyConvertCurrencyPageState
               RowPickerCryptos(data: data),
               Padding(
                 padding: const EdgeInsets.all(23.5),
-                child: ColmunTextFieldQuantity(),
+                child: ColumnTextFieldQuantity(),
               ),
             ],
           ),

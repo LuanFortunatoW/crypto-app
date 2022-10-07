@@ -8,12 +8,10 @@ class TransactionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: BodyTransactionsPage(),
-        bottomNavigationBar: BottomNavigationBarApp(),
-      ),
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: BodyTransactionsPage(),
+      bottomNavigationBar: BottomNavigationBarApp(),
     );
   }
 }
