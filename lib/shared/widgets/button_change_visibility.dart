@@ -6,7 +6,9 @@ import '../controllers/visibility_provider.dart';
 class ButtonChangeVisibility extends HookConsumerWidget {
   const ButtonChangeVisibility({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

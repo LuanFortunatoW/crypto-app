@@ -6,7 +6,9 @@ import '../../../controllers/chart_days_amount/chart_days_amount_provider.dart';
 class ButtonsChangeDaysChart extends HookConsumerWidget {
   const ButtonsChangeDaysChart({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class BodyTransactionsPage extends StatelessWidget {
   const BodyTransactionsPage({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {

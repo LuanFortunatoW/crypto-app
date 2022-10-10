@@ -7,7 +7,9 @@ import '../controllers/page_provider.dart';
 class BottomNavigationBarApp extends HookConsumerWidget {
   const BottomNavigationBarApp({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

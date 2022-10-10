@@ -6,7 +6,9 @@ import 'animated_checkmark_widget.dart';
 class ConversionConfirmationBody extends StatelessWidget {
   const ConversionConfirmationBody({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {

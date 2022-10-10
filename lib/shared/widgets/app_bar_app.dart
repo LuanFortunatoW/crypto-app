@@ -7,7 +7,9 @@ class AppBarApp extends StatelessWidget implements PreferredSizeWidget {
     Key? key,
     required this.visibility,
     required this.title,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   final bool visibility;
   final String title;

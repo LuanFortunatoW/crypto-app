@@ -4,6 +4,7 @@ import 'package:crypto_app/presenter/pages/crypto_info/widgets/body_info_page.da
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/button_convert_currency.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/buttons_change_days_chart.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/crypto_info_chart.dart';
+import 'package:crypto_app/shared/widgets/app_bar_app.dart';
 import 'package:crypto_app/shared/widgets/divider_crypto_info.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/row_crypto_infos.dart';
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/row_crypto_monetary_info.dart';
@@ -36,7 +37,7 @@ void main() {
             ),
           );
 
-          final appBar = find.byType(AppBar);
+          final appBar = find.byType(AppBarApp);
           final bodyInfoPage = find.byType(BodyInfoPage);
 
           expect(appBar, findsOneWidget);

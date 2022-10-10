@@ -2,6 +2,7 @@ import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_p
 import 'package:crypto_app/presenter/pages/conversion_review/widgets/button_confirm_conversion.dart';
 import 'package:crypto_app/presenter/pages/conversion_review/widgets/conversion_review_body.dart';
 import 'package:crypto_app/presenter/pages/conversion_review/widgets/row_info_conversion.dart';
+import 'package:crypto_app/shared/widgets/app_bar_app.dart';
 import 'package:crypto_app/shared/widgets/divider_crypto_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -23,7 +24,7 @@ void main() {
             ),
           );
 
-          final appBar = find.byType(AppBar);
+          final appBar = find.byType(AppBarApp);
           final conversionReviewBody = find.byType(ConversionReviewBody);
 
           expect(appBar, findsOneWidget);

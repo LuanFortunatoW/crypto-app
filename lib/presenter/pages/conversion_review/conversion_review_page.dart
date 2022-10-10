@@ -1,3 +1,5 @@
+import 'package:crypto_app/shared/widgets/app_bar_app.dart';
+
 import 'conversion_review_args.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +17,9 @@ class ConversionReviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        elevation: 1,
+      appBar: const AppBarApp(
+        title: '',
+        visibility: false,
       ),
       body: ConversionReviewBody(args: args),
     );

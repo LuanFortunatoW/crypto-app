@@ -17,7 +17,9 @@ import '../../../controllers/currency_convert/to_convert_currency.dart';
 class BottomSheetAmountToConvert extends HookConsumerWidget {
   const BottomSheetAmountToConvert({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   String getToConvertQauntity(double convertQuantity,
       WalletCryptoEntity convertedCurrency, CryptoEntity toConvertCurrency) {

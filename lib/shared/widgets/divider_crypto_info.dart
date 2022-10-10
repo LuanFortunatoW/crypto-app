@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class DividerCryptoInfo extends StatelessWidget {
   const DividerCryptoInfo({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {

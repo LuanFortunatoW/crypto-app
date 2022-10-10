@@ -10,6 +10,7 @@ import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/column_te
 import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/container_info_balance_amount.dart';
 import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/page_title.dart';
 import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/row_picker_cryptos.dart';
+import 'package:crypto_app/shared/widgets/app_bar_app.dart';
 import 'package:crypto_app/shared/widgets/default_error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -30,7 +31,7 @@ void main() {
             ConvertCurrencyPage(args: DefaultModels.convertCurrencyArgs),
           );
 
-          final appBar = find.byType(AppBar);
+          final appBar = find.byType(AppBarApp);
           final bodyConvertCurrencyPage = find.byType(BodyConvertCurrencyPage);
           final bottomSheetAmountToConvert =
               find.byType(BottomSheetAmountToConvert);
@@ -280,6 +281,24 @@ void main() {
           final textField = tester.widget<TextField>(find.byType(TextField));
 
           expect(textField.controller!.text, '');
+        },
+      );
+      testWidgets(
+        'WHEN load ColumnTextFieldQuantity THEN ensure Textfield Controller changes',
+        (tester) async {
+          await loadPage(
+            tester,
+            ColumnTextFieldQuantity(),
+          );
+
+          final textField = find.byType(TextField);
+          
+          await tester.enterText(textField, '0,05');
+          await tester.pumpAndSettle();
+
+          final textFieldDetails = tester.widget<TextField>(textField);
+
+          expect(textFieldDetails.controller!.text, '0,05');
         },
       );
     },
