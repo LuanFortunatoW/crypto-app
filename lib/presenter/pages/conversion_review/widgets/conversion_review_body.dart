@@ -1,10 +1,10 @@
-import 'package:crypto_app/presenter/pages/conversion_confirmation/conversion_confirmation_page.dart';
 import 'package:crypto_app/presenter/pages/conversion_review/widgets/row_info_conversion.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/widgets/divider_crypto_info.dart';
 import '../conversion_review_args.dart';
+import 'button_confirm_conversion.dart';
 
 class ConversionReviewBody extends StatelessWidget {
   const ConversionReviewBody({
@@ -58,30 +58,7 @@ class ConversionReviewBody extends StatelessWidget {
               text:
                   '1 $exchValue ${converted.symbol.toUpperCase()} = ${toConvert.symbol}',
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 45),
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.pushNamed(
-                      context, ConversionConfirmationPage.route);
-                },
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    10,
-                  ),
-                ),
-                color: const Color.fromRGBO(224, 43, 87, 1),
-                minWidth: double.maxFinite,
-                height: 56,
-                child: const Text(
-                  'Concluir conversão',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
+            ButtonConfirmConversion(conversionEntity: args.conversionEntity),
           ],
         ),
       ],

@@ -1,4 +1,3 @@
-import 'package:crypto_app/presenter/pages/conversion_confirmation/conversion_confirmation_page.dart';
 import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_page.dart';
 import 'package:crypto_app/presenter/pages/conversion_review/widgets/button_confirm_conversion.dart';
 import 'package:crypto_app/presenter/pages/conversion_review/widgets/conversion_review_body.dart';
@@ -92,21 +91,6 @@ void main() {
           expect(button, findsOneWidget);
           expect(buttonInfo.elevation, 0);
           expect(buttonInfo.height, 56);
-        },
-      );
-      testWidgets(
-        'WHEN click ButtonConfirmConversion THEN ensure return ConversionConfirmationPage',
-        (tester) async {
-          await loadPage(
-            tester,
-            ButtonConfirmConversion(
-              conversionEntity: DefaultModels.conversionEntity,
-            ),
-          );
-
-          await tester.tap(find.byType(MaterialButton));
-
-          expect(find.byType(ConversionConfirmationPage), findsOneWidget);
         },
       );
     },

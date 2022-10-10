@@ -18,7 +18,10 @@ import 'package:shimmer/shimmer.dart';
 import 'buttons_change_days_chart.dart';
 
 class CryptoInfoChart extends HookConsumerWidget {
-  CryptoInfoChart({Key? key, required this.args}) : super(key: key);
+  CryptoInfoChart({
+    Key? key,
+    required this.args,
+  }) : super(key: key);
 
   final CryptoInfoArgs args;
   final List<FlSpot> spots = [];

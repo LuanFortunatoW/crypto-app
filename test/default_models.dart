@@ -10,14 +10,14 @@ import 'package:faker/faker.dart';
 class DefaultModels {
   static CryptoEntity cryptoModelBTC = CryptoEntity(
     id: 'bitcoin',
-    symbol: 'BTC',
+    symbol: 'btc',
     name: '',
     image: Faker().image.image(),
     currentPrice: Decimal.one,
   );
   static CryptoEntity cryptoModelETH = CryptoEntity(
-    id: 'bitcoin',
-    symbol: 'BTC',
+    id: 'ethereum',
+    symbol: 'eth',
     name: '',
     image: Faker().image.image(),
     currentPrice: Decimal.one,

@@ -16,14 +16,6 @@ class WalletEntity {
     return total;
   }
 
-  CryptoEntity getFirstDiferentCrypto(CryptoEntity cryptoEntity) {
-    return cryptos
-        .where((walletCryptoEntity) =>
-            walletCryptoEntity.crypto.id != cryptoEntity.id)
-        .first
-        .crypto;
-  }
-
   WalletCryptoEntity getWalletCryptoEntityById(CryptoEntity cryptoEntity) {
     return cryptos
         .where((walletCryptoEntity) =>
