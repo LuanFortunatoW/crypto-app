@@ -277,6 +277,7 @@ void main() {
             tester,
             ColumnTextFieldQuantity(),
           );
+          
 
           final textField = tester.widget<TextField>(find.byType(TextField));
 
@@ -292,7 +293,7 @@ void main() {
           );
 
           final textField = find.byType(TextField);
-          
+
           await tester.enterText(textField, '0,05');
           await tester.pumpAndSettle();
 
