@@ -1,5 +1,6 @@
 import 'package:crypto_app/domain/entities/wallet_entity.dart';
 import 'package:crypto_app/presenter/controllers/currency_convert/converted_currency.dart';
+import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_page.dart';
 import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_page.dart';
 import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/body_convert_currency.dart';
 import 'package:crypto_app/presenter/pages/convert_%20currency/widgets/bottom_sheet_amout_to_convert.dart';
@@ -14,21 +15,27 @@ import 'package:crypto_app/shared/widgets/app_bar_app.dart';
 import 'package:crypto_app/shared/widgets/default_error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
 import '../default_models.dart';
 import '../setup_widget_tester.dart';
 
 void main() {
+  setUpAll(() {
+    registerFallbackValue(FakeRoute());
+  });
   group(
     'Testing Convert currency page',
     () {
       testWidgets(
         'WHEN load ConvertCurrencyPage THEN ensure return AppBar, BodyConvertCurrencyPage and BottomSheetAmountToConvert',
         (tester) async {
-          await loadPage(
-            tester,
-            ConvertCurrencyPage(args: DefaultModels.convertCurrencyArgs),
+          await mockNetworkImagesFor(
+            () => loadPage(
+              tester,
+              ConvertCurrencyPage(args: DefaultModels.convertCurrencyArgs),
+            ),
           );
 
           final appBar = find.byType(AppBarApp);
@@ -45,10 +52,12 @@ void main() {
       testWidgets(
         'WHEN load BodyConvertCurrencyPage THEN ensure return RowPickerCryptos, ContainerInfoBalanceAmount, PageTitle and ColmunTextFieldQuantity or DefaultErrorPage',
         (tester) async {
-          await loadPage(
-            tester,
-            BodyConvertCurrencyPage(
-              walletCryptoEntity: DefaultModels.walletModelBTC,
+          await mockNetworkImagesFor(
+            () => loadPage(
+              tester,
+              BodyConvertCurrencyPage(
+                walletCryptoEntity: DefaultModels.walletModelBTC,
+              ),
             ),
           );
 
@@ -69,7 +78,7 @@ void main() {
             expect(containerInfoBalanceAmount, findsOneWidget);
             expect(pageTitle, findsOneWidget);
             expect(rowPickerCryptos, findsOneWidget);
-            expect(findsNothing, findsOneWidget);
+            expect(colmunTextFieldQuantity, findsOneWidget);
             expect(defaultErrorPage, findsNothing);
           }
         },
@@ -233,6 +242,7 @@ void main() {
           expect(bottomSheetSelectCrypto, findsNothing);
         },
       );
+
       testWidgets(
         'WHEN load ButtonSwapCryptos THEN ensure return IconButton',
         (tester) async {
@@ -277,7 +287,6 @@ void main() {
             tester,
             ColumnTextFieldQuantity(),
           );
-          
 
           final textField = tester.widget<TextField>(find.byType(TextField));
 
@@ -285,7 +294,7 @@ void main() {
         },
       );
       testWidgets(
-        'WHEN load ColumnTextFieldQuantity THEN ensure Textfield Controller changes',
+        "WHEN typing in ColumnTextFieldQuantity's TextField THEN ensure Textfield Controller changes",
         (tester) async {
           await loadPage(
             tester,
@@ -294,12 +303,53 @@ void main() {
 
           final textField = find.byType(TextField);
 
-          await tester.enterText(textField, '0,05');
+          await tester.enterText(textField, '5,05');
           await tester.pumpAndSettle();
 
           final textFieldDetails = tester.widget<TextField>(textField);
 
-          expect(textFieldDetails.controller!.text, '0,05');
+          expect(textFieldDetails.controller!.text, '5,05');
+        },
+      );
+      testWidgets(
+        'WHEN click FloatingActionButton THEN ensure Navigates when valid',
+        (tester) async {
+          final mockNavigationObserver = MockNavigatorObserver();
+          await mockNetworkImagesFor(
+            () => loadPageObserver(
+              tester,
+              ConvertCurrencyPage(args: DefaultModels.convertCurrencyArgs),
+              [mockNavigationObserver],
+            ),
+          );
+
+          final textField = find.byType(TextField);
+          final showModalBottomSheetButtonRigth =
+              find.byType(ButtonSelectCurrency).last;
+          final floatingActionButton = find.byType(FloatingActionButton);
+
+          await tester.tap(floatingActionButton);
+          await tester.pumpAndSettle();
+
+          expect(find.byType(ConversionReviewPage), findsNothing);
+
+          await tester.enterText(textField, '0,05');
+          await tester.pumpAndSettle();
+
+          await tester.tap(showModalBottomSheetButtonRigth);
+          await tester.pumpAndSettle();
+
+          final listTileCrypto = find.byType(ListTile).last;
+
+          await tester.tap(listTileCrypto);
+          await tester.pumpAndSettle();
+
+          await tester.tap(floatingActionButton);
+          await tester.pumpAndSettle();
+
+          verify(() => mockNavigationObserver.didPush(any(), any()));
+
+          expect(find.byType(ConversionReviewPage), findsOneWidget);
         },
       );
     },

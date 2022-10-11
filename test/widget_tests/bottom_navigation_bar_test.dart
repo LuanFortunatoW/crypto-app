@@ -4,6 +4,7 @@ import 'package:crypto_app/shared/widgets/bottom_navigation_bar_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 
 import '../setup_widget_tester.dart';
 
@@ -69,13 +70,13 @@ void main() {
           verify(() => mockNavigatorObserver.didPush(any(), any()));
 
           expect(find.byType(TransactionsPage), findsOneWidget);
-
         },
       );
       testWidgets(
         'WHEN click BottomNavigationBarItem THEN ensure Navigates to PortfolioPage',
         (tester) async {
           final mockNavigatorObserver = MockNavigatorObserver();
+
           await loadPageObserver(
             tester,
             const BottomNavigationBarApp(),
@@ -85,12 +86,13 @@ void main() {
           Finder bottomNavigationBarItem = find.byType(ImageIcon);
 
           await tester.tap(bottomNavigationBarItem.first);
-          await tester.pumpAndSettle();
+          await mockNetworkImagesFor(
+            () => tester.pumpAndSettle(),
+          );
 
           verify(() => mockNavigatorObserver.didPush(any(), any()));
 
           expect(find.byType(PortfolioPage), findsOneWidget);
-
         },
       );
     },

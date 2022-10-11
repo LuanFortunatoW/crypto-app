@@ -41,7 +41,7 @@ class _BodyConvertCurrencyPageState
 
     return allCryptos.when(
       data: (data) {
-        return Center(
+        return SingleChildScrollView(
           child: Column(
             children: [
               const ContainerInfoBalanceAmount(),

@@ -123,7 +123,7 @@ void main() {
       );
 
       testWidgets(
-        'WHEN load TitleCryptoPrice THEN ensure return Text',
+        'WHEN load ButtonsChangeDaysChart THEN ensure return ListView and InkWell',
         (tester) async {
           await loadPage(tester, const ButtonsChangeDaysChart());
 

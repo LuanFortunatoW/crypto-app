@@ -11,25 +11,25 @@ class DefaultModels {
   static CryptoEntity cryptoModelBTC = CryptoEntity(
     id: 'bitcoin',
     symbol: 'btc',
-    name: '',
+    name: 'Bitcoin',
     image: Faker().image.image(),
     currentPrice: Decimal.one,
   );
   static CryptoEntity cryptoModelETH = CryptoEntity(
     id: 'ethereum',
     symbol: 'eth',
-    name: '',
+    name: 'Ethereum',
     image: Faker().image.image(),
     currentPrice: Decimal.one,
   );
 
   static WalletCryptoEntity walletModelBTC = WalletCryptoEntity(
     crypto: cryptoModelBTC,
-    quantity: 0,
+    quantity: 10,
   );
   static WalletCryptoEntity walletModelETH = WalletCryptoEntity(
     crypto: cryptoModelETH,
-    quantity: 0,
+    quantity: 10,
   );
 
   static ConversionEntity conversionEntity = ConversionEntity(

@@ -1,5 +1,6 @@
 import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:crypto_app/presenter/controllers/crypto_history/crypto_history_provider.dart';
+import 'package:crypto_app/presenter/controllers/cryptos/cryptos_provider.dart';
 import 'package:crypto_app/shared/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -25,6 +26,7 @@ class SetupWidgetTester extends StatelessWidget {
     return ProviderScope(
       overrides: [
         cryptoHistoryProvider.overrideWithProvider(fakeHistoryProvider),
+        cryptosProvider.overrideWithProvider(fakeCryptosProvider),
       ],
       child: MaterialApp(
         locale: locale ?? const Locale('en'),
@@ -52,11 +54,8 @@ Future<void> loadPage(WidgetTester tester, Widget child) async {
   await tester.pumpAndSettle();
 }
 
-Future<void> loadPageObserver(
-  WidgetTester tester,
-  Widget child,
-  List<NavigatorObserver> navigatorObservers,
-) async {
+Future<void> loadPageObserver(WidgetTester tester, Widget child,
+    List<NavigatorObserver> navigatorObservers) async {
   final widget = SetupWidgetTester(
     navigatorObservers: navigatorObservers,
     child: child,
