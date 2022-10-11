@@ -39,6 +39,12 @@ class DefaultModels {
     date: DateTime.now(),
   );
 
+  static List<ConversionEntity> allTransactions = [
+    conversionEntity,
+    conversionEntity,
+    conversionEntity,
+  ];
+
   static CryptoInfoArgs cryptoInfoArgs =
       CryptoInfoArgs(walletCryptoEntity: walletModelBTC);
 

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../setup_widget_tester.dart';
+import '../widget_tests/setup_widget_tester.dart';
 import 'setup_l10n.dart';
 
 void main() {

@@ -6,7 +6,7 @@ import 'top_portfolio_page.dart';
 class BodyPortifolioPage extends StatelessWidget {
   const BodyPortifolioPage({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context) {

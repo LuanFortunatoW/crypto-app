@@ -12,7 +12,7 @@ import 'loading_list_view_crypto.dart';
 class ListViewCryptos extends HookConsumerWidget {
   const ListViewCryptos({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

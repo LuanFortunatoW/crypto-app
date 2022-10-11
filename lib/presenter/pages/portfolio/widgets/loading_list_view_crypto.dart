@@ -4,7 +4,7 @@ import 'package:shimmer/shimmer.dart';
 class LoadingListViewCrypto extends StatelessWidget {
   const LoadingListViewCrypto({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context) {

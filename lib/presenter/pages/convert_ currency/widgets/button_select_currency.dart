@@ -51,6 +51,7 @@ class ButtonSelectCurrency extends StatelessWidget {
           ),
           const SizedBox(width: 5),
           Text(
+            key: const Key('CryptoValue'),
             cryptoEntity.symbol.toUpperCase(),
             style: const TextStyle(
               fontSize: 14,

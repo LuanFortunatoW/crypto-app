@@ -52,6 +52,7 @@ void main() {
           expect(bottomNavigationBarItemIcon, icon);
         },
       );
+
       testWidgets(
         'WHEN click BottomNavigationBarItem THEN ensure Navigates to Transactions Page',
         (tester) async {

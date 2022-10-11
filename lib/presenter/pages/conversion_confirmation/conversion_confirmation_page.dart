@@ -1,3 +1,4 @@
+import 'package:crypto_app/presenter/pages/portfolio/portfolio_page.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/conversion_confirmation_body.dart';
@@ -15,7 +16,8 @@ class ConversionConfirmationPage extends StatelessWidget {
         elevation: 1,
         leading: IconButton(
           onPressed: () {
-            Navigator.popUntil(context, (route) => route.isFirst);
+            Navigator.popUntil(
+                context, (route) => route.settings.name == PortfolioPage.route);
           },
           icon: const Icon(
             Icons.close,
