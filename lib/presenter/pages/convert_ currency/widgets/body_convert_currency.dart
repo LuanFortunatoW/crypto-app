@@ -1,7 +1,7 @@
-import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
-import 'package:crypto_app/presenter/controllers/cryptos/cryptos_provider.dart';
-import 'package:crypto_app/presenter/controllers/currency_convert/converted_currency.dart';
-import 'package:crypto_app/shared/widgets/default_error_page.dart';
+import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../controllers/cryptos/cryptos_provider.dart';
+import '../../../controllers/currency_convert/converted_currency.dart';
+import '../../../../shared/widgets/default_error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

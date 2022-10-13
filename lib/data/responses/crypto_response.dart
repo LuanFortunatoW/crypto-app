@@ -1,5 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'crypto_response.g.dart';
 
 @JsonSerializable()

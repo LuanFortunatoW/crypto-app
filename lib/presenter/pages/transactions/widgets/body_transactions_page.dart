@@ -7,8 +7,25 @@ class BodyTransactionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Transactions'),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 26),
+          child: Text(
+            'Movimentações',
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Divider(
+          indent: 16,
+          height: 10,
+          thickness: 1,
+        ),
+      ],
     );
   }
 }

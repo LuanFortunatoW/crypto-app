@@ -1,5 +1,4 @@
-import 'package:crypto_app/data/responses/mappers/crypto_histotry_mapper.dart';
-
+import '../../../data/responses/mappers/crypto_histotry_mapper.dart';
 import '../../entities/crypto_history_entity.dart';
 import '../../repositories/get_crypto_history_repository.dart';
 import 'get_crypto_history_usecase.dart';

@@ -1,7 +1,7 @@
-import 'package:crypto_app/domain/entities/conversion_entity.dart';
-import 'package:crypto_app/domain/entities/crypto_entity.dart';
-import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
-import 'package:crypto_app/presenter/pages/conversion_review/conversion_review_args.dart';
+import '../../../../domain/entities/conversion_entity.dart';
+import '../../../../domain/entities/crypto_entity.dart';
+import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../conversion_review/conversion_review_args.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -89,6 +89,7 @@ class BottomSheetAmountToConvert extends HookConsumerWidget {
                       convertedCrypto: convertedCurrency.crypto,
                       toConvertCrypto: toConvertCurrency.crypto,
                       quantity: convertQuantity,
+                      date: DateTime.now(),
                     ),
                   ),
                 );

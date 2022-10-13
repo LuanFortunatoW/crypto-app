@@ -1,5 +1,5 @@
-import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
-import 'package:crypto_app/presenter/pages/convert_%20currency/convert_currency_args.dart';
+import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../convert_%20currency/convert_currency_args.dart';
 import 'package:flutter/material.dart';
 
 class ButtonConvertCurrency extends StatelessWidget {

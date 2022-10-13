@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../controllers/cryptos/cryptos_provider.dart';
 import '../../../../shared/controllers/visibility_provider.dart';
+import '../../../controllers/cryptos/cryptos_provider.dart';
 
 class TotalWalletValue extends HookConsumerWidget {
   const TotalWalletValue({

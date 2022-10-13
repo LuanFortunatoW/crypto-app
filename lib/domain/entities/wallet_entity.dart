@@ -1,4 +1,4 @@
-import 'package:crypto_app/domain/entities/crypto_entity.dart';
+import 'crypto_entity.dart';
 import 'package:decimal/decimal.dart';
 
 import 'wallet_crypto_entity.dart';

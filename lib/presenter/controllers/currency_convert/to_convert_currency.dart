@@ -1,4 +1,4 @@
-import 'package:crypto_app/domain/entities/crypto_entity.dart';
+import '../../../domain/entities/crypto_entity.dart';
 import 'package:decimal/decimal.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

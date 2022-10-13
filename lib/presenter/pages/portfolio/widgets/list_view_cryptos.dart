@@ -1,4 +1,4 @@
-import 'package:crypto_app/shared/widgets/default_error_page.dart';
+import '../../../../shared/widgets/default_error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

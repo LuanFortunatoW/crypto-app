@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../crypto_info/widgets/divider_crypto_info.dart';
 import '../conversion_review_args.dart';
+import 'button_confirm_conversion.dart';
 
 class ConversionReviewBody extends StatelessWidget {
   const ConversionReviewBody({
@@ -16,10 +17,7 @@ class ConversionReviewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final converted = args.conversionEntity.convertedCrypto;
     final toConvert = args.conversionEntity.toConvertCrypto;
-    final String exchValue =
-        (converted.currentPrice.toDouble() / toConvert.currentPrice.toDouble())
-            .toStringAsFixed(2)
-            .replaceAll('.', ',');
+
     final String toReceive = '${(args.conversionEntity.quantity * double.parse(
           converted.currentPrice.toString(),
         ) / double.parse(
@@ -51,32 +49,11 @@ class ConversionReviewBody extends StatelessWidget {
             RowInfoConversion(label: 'Receber', text: toReceive),
             const DividerCryptoInfo(),
             RowInfoConversion(
-              label: 'Câmbio',
-              text:
-                  '1 $exchValue ${converted.symbol.toUpperCase()} = ${toConvert.symbol}',
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 45),
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/conversion_confirmation');
-                },
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    10,
-                  ),
-                ),
-                color: const Color.fromRGBO(224, 43, 87, 1),
-                minWidth: double.maxFinite,
-                height: 56,
-                child: const Text(
-                  'Concluir conversão',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+                label: 'Câmbio',
+                text:
+                    '1 ${args.conversionEntity.convertedCrypto.symbol.toUpperCase()} = ${(args.conversionEntity.convertedCrypto.currentPrice.toDouble() / args.conversionEntity.toConvertCrypto.currentPrice.toDouble()).toStringAsFixed(2).replaceAll('.', ',')} ${args.conversionEntity.toConvertCrypto.symbol.toUpperCase()}'),
+            ButtonConfirmConversion(
+              conversionEntity: args.conversionEntity,
             ),
           ],
         ),

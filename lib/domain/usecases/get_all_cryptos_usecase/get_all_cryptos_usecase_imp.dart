@@ -1,4 +1,4 @@
-import 'package:crypto_app/data/responses/mappers/crypto_entity_mapper.dart';
+import '../../../data/responses/mappers/crypto_entity_mapper.dart';
 
 import '../../entities/wallet_entity.dart';
 import '../../repositories/get_all_cryptos_repository.dart';

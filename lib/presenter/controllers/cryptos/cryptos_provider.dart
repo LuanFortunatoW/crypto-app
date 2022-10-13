@@ -1,5 +1,5 @@
-import 'package:crypto_app/domain/entities/wallet_entity.dart';
-import 'package:crypto_app/shared/controllers/dio_provider.dart';
+import '../../../domain/entities/wallet_entity.dart';
+import '../../../shared/controllers/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../data/enpoint/endpoints/get_all_cryptos_remote_endpoint_imp.dart';
