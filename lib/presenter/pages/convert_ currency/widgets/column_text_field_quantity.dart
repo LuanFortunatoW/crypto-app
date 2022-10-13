@@ -17,8 +17,8 @@ class ColmunTextFieldQuantity extends HookConsumerWidget {
   }) : super(key: key);
 
   String getValueHelper(Decimal value, double quantity, context) {
-    return NumberFormat.currency(
-            symbol: AppLocalizations.of(context)!.monetarySymbol)
+    return NumberFormat.simpleCurrency(
+            locale: AppLocalizations.of(context)!.languageSymbol)
         .format(
           double.parse(value.toString()) * quantity,
         )

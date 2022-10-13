@@ -56,8 +56,8 @@ class ListViewTransacitons extends HookConsumerWidget {
                   ),
                 ),
                 Text(
-                  NumberFormat.currency(
-                    symbol: AppLocalizations.of(context)!.monetarySymbol,
+                  NumberFormat.simpleCurrency(
+                    locale: AppLocalizations.of(context)!.localeName,
                     decimalDigits: 2,
                   ).format(
                     (Decimal.parse(conversion.quantity.toString()) *

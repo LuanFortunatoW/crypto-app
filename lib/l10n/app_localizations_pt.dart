@@ -5,10 +5,7 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get languageSymbol => 'pt';
-
-  @override
-  String get monetarySymbol => 'R\$';
+  String get languageSymbol => 'pt_BR';
 
   @override
   String get monetaryAbbreviation => 'brl';
@@ -44,7 +41,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get convertCurrency => 'Converter Moeda';
 
   @override
-  String get availableBalance => 'Available Balance';
+  String get availableBalance => 'Saldo disponível';
 
   @override
   String get estimatedTotal => 'Total estimado';

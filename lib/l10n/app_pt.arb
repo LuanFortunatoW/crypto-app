@@ -1,6 +1,5 @@
 {
-  "languageSymbol" : "pt",
-  "monetarySymbol" : "R$",
+  "languageSymbol" : "pt_BR",
   "monetaryAbbreviation" : "brl",
   "portfolio": "Portfólio",
   "transactions": "Movimentações",

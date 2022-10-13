@@ -45,8 +45,8 @@ class BodyInfoPage extends HookConsumerWidget {
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
               label: localization.currentPrice,
-              text: NumberFormat.currency(
-                      symbol: AppLocalizations.of(context)!.monetarySymbol)
+              text: NumberFormat.simpleCurrency(
+                      locale: AppLocalizations.of(context)!.languageSymbol)
                   .format(
                 double.parse(
                   price.toString(),
@@ -71,8 +71,8 @@ class BodyInfoPage extends HookConsumerWidget {
             const DividerCryptoInfo(),
             RowCryptoMonetaryInfo(
               label: localization.value,
-              text: NumberFormat.currency(
-                      symbol: AppLocalizations.of(context)!.monetarySymbol)
+              text: NumberFormat.simpleCurrency(
+                      locale: AppLocalizations.of(context)!.languageSymbol)
                   .format(
                       walletCryptoEntity.getValueQuantityCrypto().toDouble()),
               color: Colors.black,
