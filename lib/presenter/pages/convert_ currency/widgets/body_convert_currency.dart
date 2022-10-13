@@ -1,4 +1,4 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../../controllers/cryptos/cryptos_provider.dart';

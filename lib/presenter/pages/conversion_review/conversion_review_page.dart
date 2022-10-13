@@ -1,4 +1,4 @@
-import 'package:crypto_app/shared/widgets/app_bar_app.dart';
+import '../../../shared/widgets/app_bar_app.dart';
 
 import 'conversion_review_args.dart';
 import 'package:flutter/material.dart';

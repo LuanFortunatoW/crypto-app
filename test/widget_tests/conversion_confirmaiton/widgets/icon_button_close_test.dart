@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../../unit_test/shared/mocks.dart';
 import '../../setup_widget_tester.dart';
 
 void main() {

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../presenter/pages/conversion_confirmation/conversion_confirmation_page.dart';
 import '../../presenter/pages/conversion_review/conversion_review_args.dart';
 import '../../presenter/pages/conversion_review/conversion_review_page.dart';
@@ -5,8 +7,6 @@ import '../../presenter/pages/convert_%20currency/convert_currency_args.dart';
 import '../../presenter/pages/convert_%20currency/convert_currency_page.dart';
 import '../../presenter/pages/crypto_info/crypto_info_args.dart';
 import '../../presenter/pages/crypto_info/crypto_info_page.dart';
-import 'package:flutter/material.dart';
-
 import '../../presenter/pages/portfolio/portfolio_page.dart';
 import '../../presenter/pages/transactions/transactions_page.dart';
 

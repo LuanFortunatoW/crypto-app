@@ -4,17 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'default_models.dart';
 
-final fakeCryptosProvider =
-    FutureProvider.autoDispose.family<WalletEntity, String>(
-  (ref, arg) => AllCryptosFakeRepository().getAllCryptos('brl'),
-);
-
-final fakeCryptosErrorProvider =
-    FutureProvider.autoDispose.family<WalletEntity, String>(
-  (ref, arg) => Future.error('Error'),
-);
-
-class AllCryptosFakeRepository implements GetAllCryptosUsecase {
+class AllCryptosFakeProvider implements GetAllCryptosUsecase {
   @override
   Future<WalletEntity> getAllCryptos(String vsCurrency) async {
     return WalletEntity(
@@ -25,3 +15,13 @@ class AllCryptosFakeRepository implements GetAllCryptosUsecase {
     );
   }
 }
+
+final fakeCryptosProvider =
+    FutureProvider.autoDispose.family<WalletEntity, String>(
+  (ref, arg) => AllCryptosFakeProvider().getAllCryptos('brl'),
+);
+
+final fakeCryptosErrorProvider =
+    FutureProvider.autoDispose.family<WalletEntity, String>(
+  (ref, arg) => Future.error('Error'),
+);

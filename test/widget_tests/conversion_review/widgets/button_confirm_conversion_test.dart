@@ -6,6 +6,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
 import '../../../fake_repository/default_models.dart';
+import '../../../unit_test/shared/mocks.dart';
 import '../../setup_widget_tester.dart';
 
 void main() {

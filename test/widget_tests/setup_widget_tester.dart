@@ -6,10 +6,9 @@ import 'package:crypto_app/shared/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mocktail/mocktail.dart';
 
-import '../fake_repository/all_cryptos_fake_repository.dart';
-import '../fake_repository/crypto_history_fake_repository.dart';
+import '../fake_repository/all_cryptos_fake_provider.dart';
+import '../fake_repository/crypto_history_fake_provider.dart';
 import '../fake_repository/fake_transactions_repository.dart';
 
 class SetupWidgetTester extends StatelessWidget {
@@ -113,7 +112,3 @@ Future<void> loadPageObserver(WidgetTester tester, Widget child,
   await tester.pumpWidget(widget);
   await tester.pumpAndSettle();
 }
-
-class MockNavigatorObserver extends Mock implements NavigatorObserver {}
-
-class FakeRoute extends Fake implements Route {}

@@ -1,9 +1,9 @@
-import '../../crypto_info/crypto_info_args.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
+import '../../crypto_info/crypto_info_args.dart';
 import 'crypto_infos_in_tile.dart';
 import 'monetary_infos_crypto_in_tile.dart';
 

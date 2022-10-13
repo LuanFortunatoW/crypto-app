@@ -3,8 +3,8 @@ import 'package:crypto_app/domain/usecases/get_crypto_history/get_crypto_history
 import 'package:decimal/decimal.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CryptoHistoryFakeRepository implements GetCryptoHistoryUsecase {
-  CryptoHistoryFakeRepository();
+class CryptoHistoryFakeProvider implements GetCryptoHistoryUsecase {
+  CryptoHistoryFakeProvider();
 
   @override
   Future<List<CryptoHistoryEntity>> getCryptoHistory(String id) async {
@@ -23,7 +23,7 @@ class CryptoHistoryFakeRepository implements GetCryptoHistoryUsecase {
 
 final fakeHistoryProvider =
     FutureProvider.autoDispose.family<List<CryptoHistoryEntity>, String>(
-  (ref, arg) => CryptoHistoryFakeRepository().getCryptoHistory('id'),
+  (ref, arg) => CryptoHistoryFakeProvider().getCryptoHistory('id'),
 );
 
 final fakeHistoryErrorProvider =

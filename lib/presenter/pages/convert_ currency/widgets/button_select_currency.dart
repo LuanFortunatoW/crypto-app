@@ -1,9 +1,9 @@
-import '../../../../domain/entities/wallet_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../domain/entities/crypto_entity.dart';
 import '../../../../domain/entities/wallet_crypto_entity.dart';
+import '../../../../domain/entities/wallet_entity.dart';
 import 'bottom_sheet_select_crypto.dart';
 
 class ButtonSelectCurrency extends StatelessWidget {

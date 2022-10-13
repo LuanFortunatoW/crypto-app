@@ -1,4 +1,4 @@
-import 'package:crypto_app/domain/entities/conversion_entity.dart';
+import '../../../../domain/entities/conversion_entity.dart';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

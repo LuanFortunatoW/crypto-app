@@ -1,4 +1,4 @@
-import 'package:crypto_app/presenter/pages/conversion_review/widgets/row_info_conversion.dart';
+import 'row_info_conversion.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../l10n/app_localizations.dart';

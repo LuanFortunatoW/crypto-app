@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'crypto_response.dart';
+
 part 'get_all_crypto_response.g.dart';
 
 @JsonSerializable()

@@ -1,5 +1,5 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
-import 'package:crypto_app/presenter/pages/conversion_confirmation/conversion_confirmation_page.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../conversion_confirmation/conversion_confirmation_page.dart';
 
 import '../../../../domain/entities/conversion_entity.dart';
 import '../../../controllers/transactions/all_transactions_provider.dart';
