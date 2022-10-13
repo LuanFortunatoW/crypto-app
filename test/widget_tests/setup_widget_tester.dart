@@ -68,8 +68,6 @@ class SetupWidgetErrorTester extends StatelessWidget {
       overrides: [
         cryptoHistoryProvider.overrideWithProvider(fakeHistoryErrorProvider),
         cryptosProvider.overrideWithProvider(fakeCryptosErrorProvider),
-        allTransactionsProvider
-            .overrideWithProvider(fakeAllTransactionsProvider),
       ],
       child: MaterialApp(
         locale: locale ?? const Locale('en'),

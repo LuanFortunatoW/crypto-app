@@ -3,6 +3,7 @@ import 'package:crypto_app/presenter/pages/crypto_info/widgets/crypto_info_chart
 import 'package:crypto_app/presenter/pages/crypto_info/widgets/title_crypto_price.dart';
 import 'package:crypto_app/shared/widgets/default_error_page.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../fake_repository/default_models.dart';
@@ -48,6 +49,11 @@ void main() {
           expect(lineChart, findsNothing);
           expect(buttonsChangeDaysChart, findsNothing);
           expect(titleCryptoPrice, findsNothing);
+          expect(defaultErrorPage, findsOneWidget);
+
+          await tester.tap(find.byType(MaterialButton));
+          await tester.pumpAndSettle();
+
           expect(defaultErrorPage, findsOneWidget);
         },
       );
