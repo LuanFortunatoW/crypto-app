@@ -1,9 +1,9 @@
+import 'package:crypto_app/presenter/pages/conversion_review/widgets/row_info_conversion.dart';
 import 'package:flutter/material.dart';
 
 import '../../crypto_info/widgets/divider_crypto_info.dart';
 import '../conversion_review_args.dart';
 import 'button_confirm_conversion.dart';
-import 'row_info_conversion.dart';
 
 class ConversionReviewBody extends StatelessWidget {
   const ConversionReviewBody({
@@ -15,6 +15,15 @@ class ConversionReviewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final converted = args.conversionEntity.convertedCrypto;
+    final toConvert = args.conversionEntity.toConvertCrypto;
+
+    final String toReceive = '${(args.conversionEntity.quantity * double.parse(
+          converted.currentPrice.toString(),
+        ) / double.parse(
+          toConvert.currentPrice.toString(),
+        )).toStringAsFixed(8).replaceAll('.', ',')} ${toConvert.symbol.toUpperCase()}';
+
     return Column(
       children: [
         const Padding(
@@ -34,13 +43,10 @@ class ConversionReviewBody extends StatelessWidget {
             RowInfoConversion(
               label: 'Converter',
               text:
-                  '${args.conversionEntity.quantity.toStringAsFixed(8).replaceAll('.', ',')} ${args.conversionEntity.convertedCrypto.symbol.toUpperCase()}',
+                  '${args.conversionEntity.quantity.toStringAsFixed(8).replaceAll('.', ',')} ${converted.symbol.toUpperCase()}',
             ),
             const DividerCryptoInfo(),
-            RowInfoConversion(
-                label: 'Receber',
-                text:
-                    '${(args.conversionEntity.quantity * double.parse(args.conversionEntity.convertedCrypto.currentPrice.toString()) / double.parse(args.conversionEntity.toConvertCrypto.currentPrice.toString())).toStringAsFixed(8).replaceAll('.', ',')} ${args.conversionEntity.toConvertCrypto.symbol.toUpperCase()}'),
+            RowInfoConversion(label: 'Receber', text: toReceive),
             const DividerCryptoInfo(),
             RowInfoConversion(
                 label: 'Câmbio',

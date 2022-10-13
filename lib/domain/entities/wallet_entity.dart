@@ -16,12 +16,11 @@ class WalletEntity {
   }
 
   CryptoEntity getFirstDiferentCrypto(CryptoEntity cryptoEntity) {
-    for (var walletCryptoEntity in cryptos) {
-      if (walletCryptoEntity.crypto.id != cryptoEntity.id) {
-        return walletCryptoEntity.crypto;
-      }
-    }
-    return cryptoEntity;
+    return cryptos
+        .where((walletCryptoEntity) =>
+            walletCryptoEntity.crypto.id != cryptoEntity.id)
+        .first
+        .crypto;
   }
 
   WalletCryptoEntity getWalletCryptoEntityById(CryptoEntity cryptoEntity) {

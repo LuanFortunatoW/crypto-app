@@ -9,20 +9,20 @@ class ConvertValidationNotifier extends StateNotifier<bool> {
     WalletCryptoEntity convertedCurrency,
     WalletCryptoEntity toConvertCurrency,
   ) {
-    if (convertQuantity >= convertedCurrency.quantity) {
-      state = false;
-    } else if (toConvertCurrency.crypto.id == '') {
-      state = false;
-    } else if (toConvertCurrency.crypto.id == convertedCurrency.crypto.id) {
-      state = false;
-    } else if (convertQuantity <= 0) {
+    final quantity = convertQuantity > convertedCurrency.quantity;
+    final emptyId = convertQuantity >= convertedCurrency.quantity;
+    final equalCrypto =
+        toConvertCurrency.crypto.id == convertedCurrency.crypto.id;
+    final zeroQuantity = convertQuantity <= 0;
+
+    if (quantity || emptyId || equalCrypto || zeroQuantity) {
       state = false;
     } else {
       state = true;
     }
   }
 
-  void setFalse() {
-    state = false;
+  void setStatus(bool status) {
+    state = status;
   }
 }
