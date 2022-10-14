@@ -85,6 +85,33 @@ class SetupWidgetErrorTester extends StatelessWidget {
   }
 }
 
+class SetupWidgetWithoutOverrides extends StatelessWidget {
+  const SetupWidgetWithoutOverrides({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return ProviderScope(
+      child: MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        onGenerateRoute: GeneratedRoutes.generateRoute,
+        home: Material(
+          child: MediaQuery(
+            data: const MediaQueryData(),
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 Future<void> loadPage(WidgetTester tester, Widget child) async {
   final widget = SetupWidgetTester(
     navigatorObservers: const [],
@@ -107,6 +134,14 @@ Future<void> loadPageObserver(WidgetTester tester, Widget child,
     List<NavigatorObserver> navigatorObservers) async {
   final widget = SetupWidgetTester(
     navigatorObservers: navigatorObservers,
+    child: child,
+  );
+  await tester.pumpWidget(widget);
+  await tester.pumpAndSettle();
+}
+
+Future<void> loadPageWithoutOverrides(WidgetTester tester, Widget child) async {
+  final widget = SetupWidgetWithoutOverrides(
     child: child,
   );
   await tester.pumpWidget(widget);

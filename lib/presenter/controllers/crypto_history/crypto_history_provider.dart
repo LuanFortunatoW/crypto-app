@@ -30,6 +30,7 @@ final cryptoHistoryUsecaseProvider = StateProvider(
   },
 );
 
-final cryptoHistoryProvider = FutureProvider.autoDispose
-    .family<List<CryptoHistoryEntity>, String>((ref, id) =>
-        ref.read(cryptoHistoryUsecaseProvider).getCryptoHistory(id));
+final cryptoHistoryProvider =
+    FutureProvider.autoDispose.family<List<CryptoHistoryEntity>, String>(
+  (ref, id) => ref.read(cryptoHistoryUsecaseProvider).getCryptoHistory(id),
+);

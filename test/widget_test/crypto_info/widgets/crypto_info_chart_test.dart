@@ -34,6 +34,20 @@ void main() {
       );
 
       testWidgets(
+        'WHEN load BodyConvertCurrencyPage THEN ensure controllers initialize',
+        (tester) async {
+          await loadPageWithoutOverrides(
+            tester,
+            CryptoInfoChart(args: DefaultModels.cryptoInfoArgs),
+          );
+
+          final defaultErrorPage = find.byType(DefaultErrorPage);
+
+          expect(defaultErrorPage, findsOneWidget);
+        },
+      );
+
+      testWidgets(
         'WHEN error CryptoInfoChart THEN ensure return DefaultErrorPage',
         (tester) async {
           await loadPageError(
@@ -55,6 +69,18 @@ void main() {
           await tester.pumpAndSettle();
 
           expect(defaultErrorPage, findsOneWidget);
+        },
+      );
+      testWidgets(
+        'WHEN click CryptoInfoChart THEN ensure return ToolTips',
+        (tester) async {
+          await loadPage(
+            tester,
+            CryptoInfoChart(args: DefaultModels.cryptoInfoArgs),
+          );
+
+          await tester.startGesture(const Offset(10, 20));
+          await tester.pumpAndSettle();
         },
       );
     },

@@ -30,6 +30,22 @@ void main() {
       );
 
       testWidgets(
+        'WHEN load BodyPortfolioPage THEN ensure controllers initialize',
+        (WidgetTester tester) async {
+          await mockNetworkImagesFor(
+            () => loadPageWithoutOverrides(
+              tester,
+              const BodyPortifolioPage(),
+            ),
+          );
+
+          final defaultErrorPage = find.byType(DefaultErrorPage);
+
+          expect(defaultErrorPage, findsOneWidget);
+        },
+      );
+
+      testWidgets(
         'WHEN error BodyPortfolioPage ListViewCryptos THEN ensure return DefaultErrorPage',
         (WidgetTester tester) async {
           await mockNetworkImagesFor(
