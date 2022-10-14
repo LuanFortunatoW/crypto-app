@@ -1,0 +1,106 @@
+{
+  "languageSymbol" : "en_US",
+  "@languageSymbol" : {
+    "description" : "Defines the language abbreviation, used for dateTimeFormat mainly"
+  },
+  "monetaryAbbreviation" : "usd",
+  "@monetaryAbbreviation" : {
+    "description" : "represents the default currency used on a language abbreviated"
+  },
+  "portfolio" : "Portfolio",
+  "@portfolio" : {
+    "description" : "Name of th page containing all cryptos"
+  },
+  "transactions" : "Transactions",
+  "@transactions" : {
+    "description" : "Name of the page containing all transactions"
+  },
+  "mainTitle" : "Crypto" ,
+  "@mainTitle" : {
+    "description" : "Main title on front page"
+  },
+  "portfolioTotalTitle" : "Total currency value",
+  "@portfolioTotalTitle" : {
+    "description" : "Label to describe the total value on portfolio page"
+  },
+  "details" : "Details",
+  "@details" : {
+    "description" : "Give more information"
+  },
+  "currentPrice" : "Current Price",
+  "@currentPrice" : {
+    "description" : "Describe the price at the moment"
+  },
+  "lastDayVariation": "24h Variation",
+  "@lastDayVariation" : {
+    "description" : "Represents the change in the last 24 hours cycle"
+  },
+  "quantity" : "Quantity",
+  "@quantity" : {
+    "description" : "Describe the amount of something"
+  },
+  "value" : "Value",
+  "@value" : {
+    "description" : "Represents how much something costs"
+  },
+  "convertCurrency" : "Convert Currency",
+  "@convertCurrency" : {
+    "description" : "The act of change monetary values to another currency"
+  },
+  "availableBalance" : "Available Balance",
+  "@availableBalance" : {
+    "description" : "The amount of crypto the user have"
+  },
+  "estimatedTotal" : "Estimated total",
+  "@estimatedTotal" : {
+    "description" : "Aproximate value after converting"
+  },
+  "howMuchToConvert" : "How much would you like to convert?",
+  "@howMuchToConvert" : {
+    "description" : "Label to instruct the user to type how many cryptos it will like to convert"
+  },
+  "selectCurrency" : "Select a currency to convert",
+  "@selectCurrency" : {
+    "description" : "Describe the currency that the user chose"
+  },
+  "greaterThanBalance" : "Value greater than the available balance",
+  "@greaterThanBalance" : {
+    "description" : "Message to warn the user that the amount exceeds what it has"
+  }, 
+  "reviewConversionData" : "Review your conversion data",
+  "@reviewConversionData" : {
+    "description" : "Label to describe all the infomations about a conversion the user is about to make"
+  },
+  "convert" : "Convert",
+  "@convert" : {
+    "description" : "Word to describe the exchange of a crypto for another"
+  },
+  "receive" : "Receive",
+  "@receive" : {
+    "description" : "The amount the user is goin to receive on conversion"
+  },
+  "exchange" : "Exchange",
+  "@exchange" : {
+    "description" : "Word to describe how much the trade costs"
+  }, 
+  "completeConversion" : "Complete Conversion",
+  "@completeConversion" : {
+    "description" : "Describe the act of finishig a conversion"
+  },
+  "conversionPerformed" : "Conversion performed",
+  "@conversionPerformed" : {
+    "description" : "Short title to describe thar the conversion was finished"
+  },
+  "conversionPerformedLong" : "Currency conversion performed successfully!",
+  "@conversionPerformedLong" : {
+    "description" : "Small phrase to describe that the conversion was completed"
+  },
+  "loadingError" : "Loading Error",
+  "@loadingError" : {
+    "description" : "Message shown when there is an error tryiong to loading some part of the app"
+  },
+  "tryAgain" : "Try Again",
+  "@tryAgain" : {
+    "description" : "Message to demonstrate to the user that it can try to load the screen again"
+  }
+}

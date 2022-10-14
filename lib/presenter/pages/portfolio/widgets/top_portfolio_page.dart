@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../shared/widgets/button_change_visibility.dart';
@@ -10,6 +11,7 @@ class TopPortfolioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -19,23 +21,23 @@ class TopPortfolioPage extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
-                  'Cripto',
-                  style: TextStyle(
+                  localization.mainTitle,
+                  style: const TextStyle(
                     color: Color.fromRGBO(224, 43, 87, 1),
                     fontSize: 32,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                ButtonChangeVisibility(),
+                const ButtonChangeVisibility(),
               ],
             ),
           ),
           const TotalWalletValue(),
           Text(
-            'Valor total de moedas',
+            localization.portfolioTotalTitle,
             style: TextStyle(
               color: Colors.grey.shade700,
               fontSize: 17,

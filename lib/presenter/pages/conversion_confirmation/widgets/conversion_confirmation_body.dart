@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import 'animated_checkmark_widget.dart';
@@ -9,24 +10,25 @@ class ConversionConfirmationBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context)!;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          AnimatedCheckmarkWidget(),
+        children: [
+          const AnimatedCheckmarkWidget(),
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Text(
-              'Conversão efetuada',
-              style: TextStyle(
+              localization.conversionPerformed,
+              style: const TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Text(
-            'Convevrsão de moeda efetuada com sucesso!',
-            style: TextStyle(
+            localization.conversionPerformedLong,
+            style: const TextStyle(
               color: Color.fromRGBO(117, 118, 128, 1),
               fontSize: 17,
             ),

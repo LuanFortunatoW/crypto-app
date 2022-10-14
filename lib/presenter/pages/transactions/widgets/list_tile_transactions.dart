@@ -1,10 +1,14 @@
+import 'package:crypto_app/domain/entities/conversion_entity.dart';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class ListTileTransactions extends StatelessWidget {
-  const ListTileTransactions({Key? key, this.conversion}) : super(key: key);
-  final conversion;
+  const ListTileTransactions({
+    Key? key,
+    required this.conversion,
+  }) : super(key: key);
+  final ConversionEntity conversion;
 
   @override
   Widget build(BuildContext context) {

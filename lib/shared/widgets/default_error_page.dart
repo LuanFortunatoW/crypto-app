@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class DefaultErrorPage extends StatelessWidget {
@@ -15,9 +16,9 @@ class DefaultErrorPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Erro ao Carregar',
-              style: TextStyle(
+            Text(
+              AppLocalizations.of(context)!.loadingError,
+              style: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(224, 43, 87, 1),
@@ -30,9 +31,9 @@ class DefaultErrorPage extends StatelessWidget {
             MaterialButton(
               onPressed: onPressed,
               color: const Color.fromRGBO(224, 43, 87, 1),
-              child: const Text(
-                'Tentar Novemente',
-                style: TextStyle(
+              child: Text(
+                AppLocalizations.of(context)!.tryAgain,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
               ),

@@ -1,5 +1,5 @@
 import '../../entities/wallet_entity.dart';
 
 abstract class GetAllCryptosUsecase {
-  Future<WalletEntity> getAllCryptos();
+  Future<WalletEntity> getAllCryptos(String vsCurrency);
 }

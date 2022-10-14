@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+import 'package:crypto_app/presenter/pages/transactions/widgets/list_view_transacitons.dart';
 import 'package:flutter/material.dart';
 
 class BodyTransactionsPage extends StatelessWidget {
@@ -9,22 +11,23 @@ class BodyTransactionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 26),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 26),
           child: Text(
-            'Movimentações',
-            style: TextStyle(
+            AppLocalizations.of(context)!.transactions,
+            style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        Divider(
+        const Divider(
           indent: 16,
           height: 10,
           thickness: 1,
         ),
+        const ListViewTransacitons(),
       ],
     );
   }

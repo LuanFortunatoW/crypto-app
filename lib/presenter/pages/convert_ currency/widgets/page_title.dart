@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
+
 class PageTitle extends StatelessWidget {
   const PageTitle({
     Key? key,
@@ -13,11 +15,11 @@ class PageTitle extends StatelessWidget {
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.9,
-            child: const Text(
+            child: Text(
               softWrap: true,
-              'Quanto você gostaria de converter?',
+              AppLocalizations.of(context)!.howMuchToConvert,
               textAlign: TextAlign.start,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color.fromRGBO(47, 47, 51, 1),
                 fontSize: 28,
                 fontWeight: FontWeight.bold,

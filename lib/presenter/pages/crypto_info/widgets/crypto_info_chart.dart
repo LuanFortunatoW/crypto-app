@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../../domain/entities/crypto_history_entity.dart';
 import '../../../controllers/chart_days_amount/chart_days_amount_provider.dart';
 import '../../../controllers/chart_subtitles/variation_in_chart_provider.dart';
@@ -113,7 +115,8 @@ class CryptoInfoChart extends HookConsumerWidget {
                   getTooltipItems: (touchedSpots) {
                     return [
                       LineTooltipItem(
-                        DateFormat.yMMMd()
+                        DateFormat.yMMMd(
+                                AppLocalizations.of(context)!.languageSymbol)
                             .format(
                               DateTime.fromMillisecondsSinceEpoch(
                                 touchedSpots[0].x.toInt(),

@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../../shared/widgets/default_error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -14,7 +16,8 @@ class ListViewCryptos extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final wallet = ref.watch(cryptosProvider);
+    final wallet = ref.watch(
+        cryptosProvider(AppLocalizations.of(context)!.monetaryAbbreviation));
 
     return wallet.when(
       data: ((data) => Expanded(
@@ -34,7 +37,8 @@ class ListViewCryptos extends HookConsumerWidget {
             ),
           )),
       error: (error, stackTrace) => DefaultErrorPage(
-        onPressed: () => ref.refresh(cryptosProvider),
+        onPressed: () => ref.refresh(cryptosProvider(
+            AppLocalizations.of(context)!.monetaryAbbreviation)),
       ),
       loading: (() => const LoadingListViewCrypto()),
     );

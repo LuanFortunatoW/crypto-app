@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,9 +18,9 @@ class ContainerInfoBalanceAmount extends HookConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            'Saldo Disponível',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.availableBalance,
+            style: const TextStyle(
               color: Color.fromRGBO(117, 118, 128, 1),
               fontSize: 14,
             ),

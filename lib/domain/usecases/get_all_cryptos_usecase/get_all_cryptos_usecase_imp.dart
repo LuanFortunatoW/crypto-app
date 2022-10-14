@@ -8,8 +8,8 @@ class GetAllCryptosUsecaseImp implements GetAllCryptosUsecase {
   final GetAllCryptosRepository _repository;
   GetAllCryptosUsecaseImp(this._repository);
   @override
-  Future<WalletEntity> getAllCryptos() async {
-    final response = await _repository.getAllCryptos();
+  Future<WalletEntity> getAllCryptos(String vsCurrency) async {
+    final response = await _repository.getAllCryptos(vsCurrency);
     return response.toViewData();
   }
 }

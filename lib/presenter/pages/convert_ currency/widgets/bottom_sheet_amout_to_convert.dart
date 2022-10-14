@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../../domain/entities/conversion_entity.dart';
 import '../../../../domain/entities/crypto_entity.dart';
 import '../../../../domain/entities/wallet_crypto_entity.dart';
@@ -54,9 +56,9 @@ class BottomSheetAmountToConvert extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Total estimado:',
-                style: TextStyle(
+              Text(
+                AppLocalizations.of(context)!.estimatedTotal,
+                style: const TextStyle(
                   color: Color.fromRGBO(117, 118, 128, 1),
                   fontSize: 15,
                 ),

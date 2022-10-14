@@ -4,12 +4,12 @@ import '../responses/crypto_response.dart';
 import '../responses/get_all_crypto_response.dart';
 
 class GetAllCryptoRepositoryImp implements GetAllCryptosRepository {
-  final GetAllCryptosEnpoint _datasource;
-  GetAllCryptoRepositoryImp(this._datasource);
+  final GetAllCryptosEnpoint _endpoint;
+  GetAllCryptoRepositoryImp(this._endpoint);
 
   @override
-  Future<GetAllCryptosResponse> getAllCryptos() async {
-    final respose = await _datasource.getAllCryptos();
+  Future<GetAllCryptosResponse> getAllCryptos(String vsCurrency) async {
+    final respose = await _endpoint.getAllCryptos(vsCurrency);
     return GetAllCryptosResponse(List.from(respose.data)
         .map((e) => CryptoResponse.fromJson(e))
         .toList());

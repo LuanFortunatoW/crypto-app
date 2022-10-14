@@ -1,3 +1,5 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
+
 import '../../../../domain/entities/wallet_crypto_entity.dart';
 import '../../convert_%20currency/convert_currency_args.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +31,9 @@ class ButtonConvertCurrency extends StatelessWidget {
         elevation: 0,
         height: 56,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        child: const Text(
-          'Converter Moeda',
-          style: TextStyle(
+        child: Text(
+          AppLocalizations.of(context)!.convertCurrency,
+          style: const TextStyle(
             fontSize: 17,
             color: Colors.white,
           ),

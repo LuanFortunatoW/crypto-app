@@ -1,3 +1,4 @@
+import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -34,7 +35,9 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
                 ),
               ),
               child: Text(
-                NumberFormat.currency(symbol: 'R\$').format(
+                NumberFormat.simpleCurrency(
+                        locale: AppLocalizations.of(context)!.localeName)
+                    .format(
                   walletCryptoEntity.getValueQuantityCrypto().toDouble(),
                 ),
                 style: const TextStyle(

@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/controllers/visibility_provider.dart';
 import '../../../controllers/cryptos/cryptos_provider.dart';
 
@@ -13,7 +14,8 @@ class TotalWalletValue extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final wallet = ref.watch(cryptosProvider);
+    final wallet = ref.watch(
+        cryptosProvider(AppLocalizations.of(context)!.monetaryAbbreviation));
     final visibility = ref.watch(visibilityProvider);
 
     return Visibility(
@@ -29,7 +31,10 @@ class TotalWalletValue extends HookConsumerWidget {
       child: wallet.when(
         data: (data) {
           return Text(
-            NumberFormat.currency(symbol: 'R\$', decimalDigits: 2).format(
+            NumberFormat.simpleCurrency(
+                    locale: AppLocalizations.of(context)!.localeName,
+                    decimalDigits: 2)
+                .format(
               data.getWalletValue().toDouble(),
             ),
             style: const TextStyle(
