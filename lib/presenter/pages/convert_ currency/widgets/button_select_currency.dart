@@ -29,7 +29,7 @@ class ButtonSelectCurrency extends HookConsumerWidget {
       padding: const EdgeInsets.all(5),
       shape: RoundedRectangleBorder(
         side: const BorderSide(
-          color: Colors.grey,
+          color: Color.fromRGBO(227, 228, 235, 1),
         ),
         borderRadius: BorderRadius.circular(20),
       ),

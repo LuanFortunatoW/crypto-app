@@ -17,6 +17,8 @@ class ConversionReviewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
+    final converted = args.conversionEntity.convertedCrypto;
+
     return Column(
       children: [
         Padding(
@@ -36,7 +38,7 @@ class ConversionReviewBody extends StatelessWidget {
             RowInfoConversion(
               label: localization.convert,
               text:
-                  '${args.conversionEntity.quantity.toStringAsFixed(8).replaceAll('.', ',')} ${args.conversionEntity.convertedCrypto.symbol.toUpperCase()}',
+                  '${args.conversionEntity.quantity.toStringAsFixed(8).replaceAll('.', ',')} ${converted.symbol.toUpperCase()}',
             ),
             const DividerCryptoInfo(),
             RowInfoConversion(
