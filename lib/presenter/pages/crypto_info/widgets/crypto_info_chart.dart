@@ -67,6 +67,7 @@ class CryptoInfoChart extends HookConsumerWidget {
                   ),
                 ),
               ),
+              // coverage:ignore-start
               lineTouchData: LineTouchData(
                 enabled: true,
                 touchCallback: (event, response) {
@@ -132,6 +133,7 @@ class CryptoInfoChart extends HookConsumerWidget {
                       ),
                     ];
                   },
+                  // coverage:ignore-end
                   showOnTopOfTheChartBoxArea: true,
                   tooltipBgColor: Colors.transparent,
                   tooltipMargin: 10,

@@ -32,7 +32,7 @@ class ListTileTransactions extends StatelessWidget {
         children: [
           Text(
             '${(Decimal.parse(conversion.quantity.toString()) * conversion.convertedCrypto.currentPrice / conversion.toConvertCrypto.currentPrice).toDecimal(
-              toBigInt: (p0) => p0.toBigInt(),
+              toBigInt: (p0) => p0.toBigInt(), // coverage:ignore-line
               scaleOnInfinitePrecision: 8,
             )} ${conversion.toConvertCrypto.symbol.toUpperCase()}',
             style: const TextStyle(
