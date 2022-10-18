@@ -1,7 +1,7 @@
-import '../../../shared/widgets/app_bar_app.dart';
-import 'details_args.dart';
+import 'package:crypto_app/shared/widgets/app_bar_app.dart';
 import 'package:flutter/material.dart';
 
+import 'crypto_info_args.dart';
 import 'widgets/body_info_page.dart';
 
 class CryptoInfoPage extends StatelessWidget {

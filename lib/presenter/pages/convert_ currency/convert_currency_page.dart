@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../shared/widgets/app_bar_app.dart';
-import '../convert_%20currency/convert_currency_args.dart';
+import 'convert_currency_args.dart';
 import '../convert_%20currency/widgets/bottom_sheet_amout_to_convert.dart';
 import 'widgets/body_convert_currency.dart';
 

@@ -6,7 +6,9 @@ import '../controllers/visibility_provider.dart';
 class ButtonChangeVisibility extends HookConsumerWidget {
   const ButtonChangeVisibility({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -14,7 +16,7 @@ class ButtonChangeVisibility extends HookConsumerWidget {
     return IconButton(
       onPressed: () => visibility.state = !visibility.state,
       icon: visibility.state
-          ? const Icon(Icons.remove_red_eye)
+          ? const Icon(Icons.visibility)
           : const Icon(Icons.visibility_off),
     );
   }

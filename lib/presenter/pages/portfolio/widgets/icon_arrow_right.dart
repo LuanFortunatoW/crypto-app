@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class IconArrowRight extends StatelessWidget {
   const IconArrowRight({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context) {

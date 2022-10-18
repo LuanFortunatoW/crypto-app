@@ -7,7 +7,7 @@ import 'total_wallet_value.dart';
 class TopPortfolioPage extends StatelessWidget {
   const TopPortfolioPage({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context) {

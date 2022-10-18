@@ -10,7 +10,7 @@ import '../../../controllers/cryptos/cryptos_provider.dart';
 class TotalWalletValue extends HookConsumerWidget {
   const TotalWalletValue({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

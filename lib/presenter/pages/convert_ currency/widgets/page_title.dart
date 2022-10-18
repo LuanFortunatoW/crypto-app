@@ -5,7 +5,9 @@ import '../../../../l10n/app_localizations.dart';
 class PageTitle extends StatelessWidget {
   const PageTitle({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {

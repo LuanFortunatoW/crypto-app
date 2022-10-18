@@ -11,7 +11,9 @@ import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
 class TitleCryptoPrice extends HookConsumerWidget {
   const TitleCryptoPrice({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

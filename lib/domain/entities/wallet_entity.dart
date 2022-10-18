@@ -5,6 +5,7 @@ import 'wallet_crypto_entity.dart';
 
 class WalletEntity {
   List<WalletCryptoEntity> cryptos;
+
   WalletEntity({required this.cryptos});
 
   Decimal getWalletValue() {
@@ -13,14 +14,6 @@ class WalletEntity {
       total += crypto.getValueQuantityCrypto();
     }
     return total;
-  }
-
-  CryptoEntity getFirstDiferentCrypto(CryptoEntity cryptoEntity) {
-    return cryptos
-        .where((walletCryptoEntity) =>
-            walletCryptoEntity.crypto.id != cryptoEntity.id)
-        .first
-        .crypto;
   }
 
   WalletCryptoEntity getWalletCryptoEntityById(CryptoEntity cryptoEntity) {

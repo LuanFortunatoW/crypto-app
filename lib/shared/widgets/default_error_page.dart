@@ -11,35 +11,32 @@ class DefaultErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.loadingError,
+    return Center(
+      child: Column(
+        children: [
+          Text(
+            AppLocalizations.of(context)!.loadingError,
+            style: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(224, 43, 87, 1),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          MaterialButton(
+            onPressed: onPressed,
+            color: const Color.fromRGBO(224, 43, 87, 1),
+            child: Text(
+              AppLocalizations.of(context)!.tryAgain,
               style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(224, 43, 87, 1),
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MaterialButton(
-              onPressed: onPressed,
-              color: const Color.fromRGBO(224, 43, 87, 1),
-              child: Text(
-                AppLocalizations.of(context)!.tryAgain,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
+                color: Colors.white,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

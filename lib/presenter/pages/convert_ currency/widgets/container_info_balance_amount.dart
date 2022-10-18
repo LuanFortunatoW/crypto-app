@@ -7,7 +7,9 @@ import '../../../controllers/currency_convert/converted_currency.dart';
 class ContainerInfoBalanceAmount extends HookConsumerWidget {
   const ContainerInfoBalanceAmount({
     Key? key,
-  }) : super(key: key);
+  }) : super(// coverage:ignore-line
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

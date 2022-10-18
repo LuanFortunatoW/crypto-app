@@ -6,7 +6,7 @@ import '../../../controllers/chart_days_amount/chart_days_amount_provider.dart';
 class ButtonsChangeDaysChart extends HookConsumerWidget {
   const ButtonsChangeDaysChart({
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,6 +36,7 @@ class ButtonsChangeDaysChart extends HookConsumerWidget {
             ),
             alignment: Alignment.center,
             child: Text(
+              key: Key('${days[index]}D'),
               '${days[index]}D',
               style: TextStyle(
                 color:
