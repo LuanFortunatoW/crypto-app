@@ -1,4 +1,4 @@
-import 'package:crypto_app/domain/entities/conversion_entity.dart';
+import '../../../../domain/entities/conversion_entity.dart';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -32,7 +32,7 @@ class ListTileTransactions extends StatelessWidget {
         children: [
           Text(
             '${(Decimal.parse(conversion.quantity.toString()) * conversion.convertedCrypto.currentPrice / conversion.toConvertCrypto.currentPrice).toDecimal(
-              toBigInt: (p0) => p0.toBigInt(),
+              toBigInt: (p0) => p0.toBigInt(), // coverage:ignore-line
               scaleOnInfinitePrecision: 8,
             )} ${conversion.toConvertCrypto.symbol.toUpperCase()}',
             style: const TextStyle(

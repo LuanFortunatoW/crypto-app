@@ -1,14 +1,12 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import 'animated_checkmark_widget.dart';
 
 class ConversionConfirmationBody extends StatelessWidget {
   const ConversionConfirmationBody({
     Key? key,
-  }) : super(// coverage:ignore-line
-          key: key,
-        );
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context) {

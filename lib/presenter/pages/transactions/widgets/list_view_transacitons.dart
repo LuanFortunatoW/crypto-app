@@ -1,4 +1,4 @@
-import 'package:crypto_app/presenter/pages/transactions/widgets/list_tile_transactions.dart';
+import 'list_tile_transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

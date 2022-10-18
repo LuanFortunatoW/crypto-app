@@ -1,13 +1,3 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
-
-import '../../../../domain/entities/crypto_history_entity.dart';
-import '../../../controllers/chart_days_amount/chart_days_amount_provider.dart';
-import '../../../controllers/chart_subtitles/variation_in_chart_provider.dart';
-import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
-import '../../../controllers/crypto_history/crypto_history_provider.dart';
-import '../crypto_info_args.dart';
-import 'title_crypto_price.dart';
-import '../../../../shared/widgets/default_error_page.dart';
 import 'package:decimal/decimal.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +5,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../domain/entities/crypto_history_entity.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../shared/widgets/default_error_page.dart';
+import '../../../controllers/chart_days_amount/chart_days_amount_provider.dart';
+import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
+import '../../../controllers/chart_subtitles/variation_in_chart_provider.dart';
+import '../../../controllers/crypto_history/crypto_history_provider.dart';
+import '../crypto_info_args.dart';
 import 'buttons_change_days_chart.dart';
+import 'title_crypto_price.dart';
 
 class CryptoInfoChart extends HookConsumerWidget {
   CryptoInfoChart({
@@ -68,6 +67,7 @@ class CryptoInfoChart extends HookConsumerWidget {
                   ),
                 ),
               ),
+              // coverage:ignore-start
               lineTouchData: LineTouchData(
                 enabled: true,
                 touchCallback: (event, response) {
@@ -133,6 +133,7 @@ class CryptoInfoChart extends HookConsumerWidget {
                       ),
                     ];
                   },
+                  // coverage:ignore-end
                   showOnTopOfTheChartBoxArea: true,
                   tooltipBgColor: Colors.transparent,
                   tooltipMargin: 10,

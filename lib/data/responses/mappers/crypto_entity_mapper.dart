@@ -3,7 +3,6 @@ import 'dart:math';
 import '../../../domain/entities/crypto_entity.dart';
 import '../../../domain/entities/wallet_crypto_entity.dart';
 import '../../../domain/entities/wallet_entity.dart';
-
 import '../get_all_crypto_response.dart';
 
 extension GetAllCryptosMapper on GetAllCryptosResponse {

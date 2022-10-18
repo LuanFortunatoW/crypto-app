@@ -1,4 +1,4 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
+import '../../../../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../shared/widgets/button_change_visibility.dart';

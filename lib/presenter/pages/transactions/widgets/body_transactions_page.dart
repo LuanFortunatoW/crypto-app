@@ -1,13 +1,11 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
-import 'package:crypto_app/presenter/pages/transactions/widgets/list_view_transacitons.dart';
+import '../../../../l10n/app_localizations.dart';
+import 'list_view_transacitons.dart';
 import 'package:flutter/material.dart';
 
 class BodyTransactionsPage extends StatelessWidget {
   const BodyTransactionsPage({
     Key? key,
-  }) : super(// coverage:ignore-line
-          key: key,
-        );
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context) {

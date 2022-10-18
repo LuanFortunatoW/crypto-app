@@ -1,5 +1,4 @@
 import '../../../domain/entities/crypto_history_entity.dart';
-
 import '../get_crypto_history_response.dart';
 
 extension CryptoHistoryMapper on GetCryptoHistoryResponse {

@@ -1,4 +1,4 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../../shared/controllers/visibility_provider.dart';
 import 'package:decimal/decimal.dart';
@@ -11,9 +11,7 @@ import '../../../controllers/chart_subtitles/price_in_chart_provider.dart';
 class TitleCryptoPrice extends HookConsumerWidget {
   const TitleCryptoPrice({
     Key? key,
-  }) : super(// coverage:ignore-line
-          key: key,
-        );
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

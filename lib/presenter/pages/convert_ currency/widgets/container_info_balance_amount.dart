@@ -1,4 +1,4 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
+import '../../../../l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -7,9 +7,7 @@ import '../../../controllers/currency_convert/converted_currency.dart';
 class ContainerInfoBalanceAmount extends HookConsumerWidget {
   const ContainerInfoBalanceAmount({
     Key? key,
-  }) : super(// coverage:ignore-line
-          key: key,
-        );
+  }) : super(key: key); // coverage:ignore-line
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

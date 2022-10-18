@@ -1,4 +1,4 @@
-import 'package:crypto_app/domain/entities/wallet_crypto_entity.dart';
+import '../../../../domain/entities/wallet_crypto_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

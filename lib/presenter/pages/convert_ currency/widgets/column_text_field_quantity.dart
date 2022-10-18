@@ -1,4 +1,4 @@
-import 'package:crypto_app/l10n/app_localizations.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../controllers/currency_convert/to_convert_currency.dart';
 import 'package:decimal/decimal.dart';
