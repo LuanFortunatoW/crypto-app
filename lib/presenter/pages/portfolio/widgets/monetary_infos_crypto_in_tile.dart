@@ -35,8 +35,8 @@ class MonetaryInfosCryptoInTile extends HookConsumerWidget {
                 ),
               ),
               child: Text(
-                NumberFormat.currency(
-                        symbol: AppLocalizations.of(context)!.monetarySymbol)
+                NumberFormat.simpleCurrency(
+                        locale: AppLocalizations.of(context)!.localeName)
                     .format(
                   walletCryptoEntity.getValueQuantityCrypto().toDouble(),
                 ),

@@ -33,8 +33,8 @@ class TitleCryptoPrice extends HookConsumerWidget {
             ),
             visible: visibility,
             child: Text(
-              NumberFormat.currency(
-                symbol: AppLocalizations.of(context)!.monetarySymbol,
+              NumberFormat.simpleCurrency(
+                locale: AppLocalizations.of(context)!.languageSymbol,
                 decimalDigits: price.state > Decimal.parse('1') ? 2 : 7,
               ).format(
                 double.parse(

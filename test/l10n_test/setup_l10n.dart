@@ -11,7 +11,6 @@ class Setupl10n extends StatelessWidget {
     return Column(
       children: [
         Text(AppLocalizations.of(context)!.languageSymbol),
-        Text(AppLocalizations.of(context)!.monetarySymbol),
         Text(AppLocalizations.of(context)!.monetaryAbbreviation),
         Text(AppLocalizations.of(context)!.portfolio),
         Text(AppLocalizations.of(context)!.transactions),

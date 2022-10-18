@@ -5,10 +5,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get languageSymbol => 'en';
-
-  @override
-  String get monetarySymbol => '\$';
+  String get languageSymbol => 'en_US';
 
   @override
   String get monetaryAbbreviation => 'usd';

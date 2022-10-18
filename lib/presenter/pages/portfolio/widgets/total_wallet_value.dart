@@ -31,8 +31,8 @@ class TotalWalletValue extends HookConsumerWidget {
       child: wallet.when(
         data: (data) {
           return Text(
-            NumberFormat.currency(
-                    symbol: AppLocalizations.of(context)!.monetarySymbol,
+            NumberFormat.simpleCurrency(
+                    locale: AppLocalizations.of(context)!.localeName,
                     decimalDigits: 2)
                 .format(
               data.getWalletValue().toDouble(),
