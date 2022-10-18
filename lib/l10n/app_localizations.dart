@@ -96,14 +96,8 @@ abstract class AppLocalizations {
   /// Defines the language abbreviation, used for dateTimeFormat mainly
   ///
   /// In en, this message translates to:
-  /// **'en'**
+  /// **'en_US'**
   String get languageSymbol;
-
-  /// represents the default currency used on a language
-  ///
-  /// In en, this message translates to:
-  /// **'\$'**
-  String get monetarySymbol;
 
   /// represents the default currency used on a language abbreviated
   ///

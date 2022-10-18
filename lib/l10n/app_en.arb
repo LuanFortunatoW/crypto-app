@@ -1,11 +1,7 @@
 {
-  "languageSymbol" : "en",
+  "languageSymbol" : "en_US",
   "@languageSymbol" : {
     "description" : "Defines the language abbreviation, used for dateTimeFormat mainly"
-  },
-  "monetarySymbol" : "$",
-  "@monetarySymbol" : {
-    "description" : "represents the default currency used on a language"
   },
   "monetaryAbbreviation" : "usd",
   "@monetaryAbbreviation" : {
